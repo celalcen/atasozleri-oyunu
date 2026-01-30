@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#667eea">
+    <title>Atasözleri Deyimler Öğrenme Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Ana Menü -->
+        <div id="mainMenu" class="screen active">
+            <h1>🎯 Atasözleri Deyimler Oyunu</h1>
+            <p class="subtitle">Eğlenerek Öğren!</p>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="btn btn-small" onclick="toggleSound()" id="soundBtn">
+                    🔊 Ses Açık
+                </button>
+                <button class="btn btn-small" onclick="showLeaderboard()">
+                    🏆 Skor Tablosu
+                </button>
+            </div>
+            
+            <div class="menu-buttons">
+                <button class="btn btn-primary" onclick="startGame('fillBlank')">
+                    📝 Deyimler Eksik Kelimeler
+                </button>
+                <button class="btn btn-primary" onclick="startGame('multipleChoice')">
+                    ✅ Çoktan Seçmeli
+                </button>
+                <button class="btn btn-primary" onclick="startGame('matching')">
+                    🔗 Eşleştirme
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Toplam Puan:</span>
+                    <span class="stat-value" id="totalScore">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Seviye:</span>
+                    <span class="stat-value" id="level">1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <button class="btn btn-small" onclick="backToMenu()">← Geri</button>
+                <div class="timer-container">
+                    <span class="timer-icon">⏱️</span>
+                    <span class="timer-display" id="timerDisplay">30</span>
+                </div>
+                <div class="score-display">
+                    <span>Puan: <strong id="currentScore">0</strong></span>
+                    <span>Seri: <strong id="streak">0</strong></span>
+                    <span>❌ <strong id="wrongCount">0</strong>/5</span>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="question-card">
+                    <h2 id="questionText">Soru yükleniyor...</h2>
+                    <div id="optionsContainer"></div>
+                </div>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <!-- Sonuç Ekranı -->
+        <div id="resultScreen" class="screen">
+            <h2 id="resultTitle">Tebrikler!</h2>
+            <div class="result-content">
+                <p id="resultMessage"></p>
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <span class="result-label">Kazanılan Puan:</span>
+                        <span class="result-value" id="earnedPoints">0</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="result-label">Doğru Cevap:</span>
+                        <span class="result-value" id="correctAnswers">0</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
+        </div>
+
+        <!-- Skor Tablosu Ekranı -->
+        <div id="leaderboardScreen" class="screen">
+            <h2>🏆 Skor Tablosu</h2>
+            <div class="leaderboard-content">
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" onclick="showLeaderboardTab('all')">Tüm Zamanlar</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab('today')">Bugün</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab('week')">Bu Hafta</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list"></div>
+            </div>
+            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
+        </div>
+    </div>
+
+    <script src="sounds.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
