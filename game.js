@@ -386,9 +386,7 @@ function showResults() {
 }
 
 // Skor Tablosu Fonksiyonları
-function saveScore(score, mode, correctAnswers, totalQuestions) {
-    const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-    
+async function saveScore(score, mode, correctAnswers, totalQuestions) {
     const newScore = {
         name: gameState.playerName,
         score: score,
@@ -399,41 +397,53 @@ function saveScore(score, mode, correctAnswers, totalQuestions) {
         timestamp: Date.now()
     };
     
+    // Yerel kayıt (yedek)
+    const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
     scores.push(newScore);
     scores.sort((a, b) => b.score - a.score);
-    
-    if (scores.length > 100) {
-        scores.length = 100;
-    }
-    
+    if (scores.length > 100) scores.length = 100;
     localStorage.setItem('leaderboard', JSON.stringify(scores));
+    
+    // Firebase'e kaydet
+    if (typeof saveScoreToFirebase !== 'undefined') {
+        await saveScoreToFirebase(gameState.playerName, score, mode, correctAnswers, totalQuestions);
+    }
 }
 
-function showLeaderboard() {
+async function showLeaderboard() {
     showScreen('leaderboardScreen');
-    showLeaderboardTab('all');
+    await showLeaderboardTab('all');
 }
 
-function showLeaderboardTab(tab) {
+async function showLeaderboardTab(tab) {
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     event.target.classList.add('active');
     
-    const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-    let filteredScores = scores;
+    let scores = [];
     
-    const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000;
-    const oneWeek = 7 * oneDay;
-    
-    if (tab === 'today') {
-        filteredScores = scores.filter(s => (now - s.timestamp) < oneDay);
-    } else if (tab === 'week') {
-        filteredScores = scores.filter(s => (now - s.timestamp) < oneWeek);
+    // Firebase'den al
+    if (typeof getScoresFromFirebase !== 'undefined') {
+        scores = await getScoresFromFirebase(tab);
     }
     
-    displayLeaderboard(filteredScores);
+    // Firebase yoksa yerel skorları kullan
+    if (scores.length === 0) {
+        scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        
+        const now = Date.now();
+        const oneDay = 24 * 60 * 60 * 1000;
+        const oneWeek = 7 * oneDay;
+        
+        if (tab === 'today') {
+            scores = scores.filter(s => (now - s.timestamp) < oneDay);
+        } else if (tab === 'week') {
+            scores = scores.filter(s => (now - s.timestamp) < oneWeek);
+        }
+    }
+    
+    displayLeaderboard(scores);
 }
 
 function displayLeaderboard(scores) {

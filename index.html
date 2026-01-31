@@ -110,6 +110,12 @@
     </div>
 
     <script src="sounds.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module">
+        import { saveScoreToFirebase, getScoresFromFirebase } from './firebase-config.js';
+        window.saveScoreToFirebase = saveScoreToFirebase;
+        window.getScoresFromFirebase = getScoresFromFirebase;
+    </script>
     <script src="game.js"></script>
 </body>
 </html>
