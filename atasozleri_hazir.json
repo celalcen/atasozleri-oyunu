@@ -1,0 +1,94 @@
+{
+  "proverbs": [
+    {
+      "id": 1,
+      "text": "Acele işe şeytan karışır",
+      "meaning": "Aceleyle yapılan işler genellikle hatalı olur",
+      "difficulty": 1,
+      "category": "sabır",
+      "example": "Sınavda sorulara acele cevap verme, acele işe şeytan karışır.",
+      "wrongAnswers": ["Damlaya damlaya göl olur", "Dost kara günde belli olur", "Ağaç yaşken eğilir"]
+    },
+    {
+      "id": 2,
+      "text": "Damlaya damlaya göl olur",
+      "meaning": "Küçük küçük biriktirilen şeyler zamanla büyük bir değer kazanır",
+      "difficulty": 1,
+      "category": "azim",
+      "example": "Her gün biraz para biriktirirsen, damlaya damlaya göl olur.",
+      "wrongAnswers": ["Acele işe şeytan karışır", "Sakla samanı gelir zamanı", "İşleyen demir pas tutmaz"]
+    },
+    {
+      "id": 3,
+      "text": "Sakla samanı gelir zamanı",
+      "meaning": "Bugün gereksiz görünen şeyler yarın işe yarayabilir",
+      "difficulty": 1,
+      "category": "öngörü",
+      "example": "Bu eski kitapları atma, sakla samanı gelir zamanı.",
+      "wrongAnswers": ["Gülme komşuna gelir başına", "Armut piş ağzıma düş", "Balık baştan kokar"]
+    },
+    {
+      "id": 4,
+      "text": "Dost kara günde belli olur",
+      "meaning": "Gerçek dostlar zor zamanlarda ortaya çıkar",
+      "difficulty": 1,
+      "category": "dostluk",
+      "example": "Hastalandığımda bana yardım eden arkadaşım, dost kara günde belli olur.",
+      "wrongAnswers": ["Güneş balçıkla sıvanmaz", "Körle yatan şaşı kalkar", "Parayı veren düdüğü çalar"]
+    },
+    {
+      "id": 5,
+      "text": "İşleyen demir pas tutmaz",
+      "meaning": "Sürekli çalışan ve aktif olan kişi yeteneklerini kaybetmez",
+      "difficulty": 1,
+      "category": "çalışkanlık",
+      "example": "Her gün spor yapıyorum çünkü işleyen demir pas tutmaz.",
+      "wrongAnswers": ["Ağaç yaşken eğilir", "Taş yerinde ağırdır", "Yuvarlanan taş yosun tutmaz"]
+    },
+    {
+      "id": 6,
+      "text": "Ağaç yaşken eğilir",
+      "meaning": "İnsana küçükken verilen eğitim kalıcı olur",
+      "difficulty": 1,
+      "category": "eğitim",
+      "example": "Çocuklara küçükken iyi alışkanlıklar kazandırmalıyız, ağaç yaşken eğilir.",
+      "wrongAnswers": ["Gün doğmadan neler doğar", "Kaz gelen yerden tavuk esirgenmez", "Mart kapıdan baktırır"]
+    },
+    {
+      "id": 7,
+      "text": "Güneş balçıkla sıvanmaz",
+      "meaning": "Gerçekler gizlenemez, apaçık olan şeyler örtülemez",
+      "difficulty": 2,
+      "category": "gerçek",
+      "example": "Yaptığın hatayı inkar etme, güneş balçıkla sıvanmaz.",
+      "wrongAnswers": ["Akıllı ol ama deli gibi davran", "Ayağını yorganına göre uzat", "Bülbülü altın kafese koymuşlar"]
+    },
+    {
+      "id": 8,
+      "text": "Ayağını yorganına göre uzat",
+      "meaning": "İmkanlarına göre yaşa, gücünün üstünde harcama yapma",
+      "difficulty": 1,
+      "category": "ölçülülük",
+      "example": "Çok pahalı bir telefon alma, ayağını yorganına göre uzat.",
+      "wrongAnswers": ["Zenginin malı züğürdün çenesini yorar", "Komşu komşunun külüne muhtaçtır", "Davulun sesi uzaktan hoş gelir"]
+    },
+    {
+      "id": 9,
+      "text": "Balık baştan kokar",
+      "meaning": "Bir toplulukta bozukluk üst kademeden başlar",
+      "difficulty": 2,
+      "category": "yönetim",
+      "example": "Şirketin sorunları yöneticilerden kaynaklanıyor, balık baştan kokar.",
+      "wrongAnswers": ["Taşıma su ile değirmen dönmez", "Gülme komşuna gelir başına", "Akıl akıldan üstündür"]
+    },
+    {
+      "id": 10,
+      "text": "Gülme komşuna gelir başına",
+      "meaning": "Başkasının başına gelen kötü şey senin de başına gelebilir",
+      "difficulty": 1,
+      "category": "empati",
+      "example": "Arkadaşının düştüğüne gülme, gülme komşuna gelir başına.",
+      "wrongAnswers": ["Komşu komşunun külüne muhtaçtır", "Akıl akıldan üstündür", "Armut dibine düşer"]
+    }
+  ]
+}
