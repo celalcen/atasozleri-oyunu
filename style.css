@@ -619,3 +619,32 @@ h1 {
     font-size: 4em;
     margin-bottom: 20px;
 }
+
+/* Reklam Alanları */
+.ad-container-small {
+    min-height: 100px;
+    max-width: 320px;
+    margin: 15px auto;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.ad-container-small ins {
+    display: inline-block;
+}
+
+@media (max-width: 600px) {
+    .ad-container-small {
+        max-width: 100%;
+    }
+    
+    .ad-container-small ins {
+        width: 100% !important;
+        max-width: 320px;
+    }
+}

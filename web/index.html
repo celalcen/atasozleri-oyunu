@@ -8,6 +8,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#667eea">
     <title>Atasözleri Deyimler Öğrenme Oyunu</title>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0442066246481433" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +20,17 @@
         <div id="mainMenu" class="screen active">
             <h1>🎯 Atasözleri Deyimler Oyunu</h1>
             <p class="subtitle">Eğlenerek Öğren!</p>
+            
+            <!-- Reklam Alanı - Ana Ekran Üst (Küçük Banner) -->
+            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:100px"
+                     data-ad-client="ca-pub-0442066246481433"
+                     data-ad-slot="1234567890"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
             
             <div style="text-align: center; margin-bottom: 20px;">
                 <button class="btn btn-small" onclick="toggleSound()" id="soundBtn">
@@ -36,6 +51,17 @@
                 <button class="btn btn-primary" onclick="startGame('matching')">
                     🔗 Eşleştirme
                 </button>
+            </div>
+            
+            <!-- Reklam Alanı - Oyun Kategorileri Alt (Küçük Banner) -->
+            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:100px"
+                     data-ad-client="ca-pub-0442066246481433"
+                     data-ad-slot="1234567891"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             
             <div class="stats">
@@ -97,6 +123,18 @@
         <!-- Skor Tablosu Ekranı -->
         <div id="leaderboardScreen" class="screen">
             <h2>🏆 Skor Tablosu</h2>
+            
+            <!-- Reklam Alanı - Skor Tablosu Üst (Küçük Banner) -->
+            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:320px;height:100px"
+                     data-ad-client="ca-pub-0442066246481433"
+                     data-ad-slot="1234567892"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
             <div class="leaderboard-content">
                 <div class="leaderboard-tabs">
                     <button class="tab-btn active" onclick="showLeaderboardTab('all')">Tüm Zamanlar</button>
@@ -110,6 +148,12 @@
     </div>
 
     <script src="sounds.js"></script>
+    <script type="module" src="firebase-config.js"></script>
+    <script type="module">
+        import { saveScoreToFirebase, getScoresFromFirebase } from './firebase-config.js';
+        window.saveScoreToFirebase = saveScoreToFirebase;
+        window.getScoresFromFirebase = getScoresFromFirebase;
+    </script>
     <script src="game.js"></script>
 </body>
 </html>
