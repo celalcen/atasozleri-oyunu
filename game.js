@@ -11,9 +11,11 @@ let gameState = {
     wrongAnswers: 0,
     totalQuestions: 0,
     timer: null,
-    timeLeft: 30,
+    timeLeft: 180,
     timerInterval: null,
-    playerName: localStorage.getItem('playerName') || ''
+    playerName: localStorage.getItem('playerName') || '',
+    currentDifficulty: 1,
+    askedProverbs: []
 };
 
 // Sayfa yüklendiğinde atasözlerini yükle
@@ -51,6 +53,16 @@ function startGame(mode) {
     gameState.correctAnswers = 0;
     gameState.wrongAnswers = 0;
     gameState.totalQuestions = 0;
+    gameState.currentDifficulty = 1;
+    gameState.askedProverbs = [];
+    
+    // Oyun moduna göre başlangıç süresi
+    if (mode === 'fillBlank') {
+        gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
+    } else {
+        gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
+    }
+    
     showScreen('gameScreen');
     updateScoreDisplay();
     nextQuestion();
@@ -90,7 +102,7 @@ function startTimer() {
         clearInterval(gameState.timerInterval);
     }
     
-    gameState.timeLeft = 30;
+    // İlk soruda süre zaten startGame'de ayarlandı, sadece zamanlayıcıyı başlat
     updateTimerDisplay();
     
     gameState.timerInterval = setInterval(() => {
@@ -102,8 +114,8 @@ function startTimer() {
             timeUp();
         }
         
-        // Son 5 saniye uyarısı
-        if (gameState.timeLeft <= 5) {
+        // Son 10 saniye uyarısı
+        if (gameState.timeLeft <= 10) {
             document.getElementById('timerDisplay').style.color = '#f44336';
             if (gameState.timeLeft <= 3 && typeof soundEffects !== 'undefined') {
                 soundEffects.playClick();
@@ -126,9 +138,9 @@ function updateTimerDisplay() {
     timerDisplay.textContent = gameState.timeLeft;
     
     // Renk değiştir
-    if (gameState.timeLeft > 10) {
+    if (gameState.timeLeft > 30) {
         timerDisplay.style.color = '#667eea';
-    } else if (gameState.timeLeft > 5) {
+    } else if (gameState.timeLeft > 10) {
         timerDisplay.style.color = '#ff9800';
     } else {
         timerDisplay.style.color = '#f44336';
@@ -142,37 +154,10 @@ function updateTimerDisplay() {
 }
 
 function timeUp() {
-    gameState.totalQuestions++;
-    gameState.streak = 0;
-    gameState.wrongAnswers++;
+    stopTimer();
     
-    if (gameState.wrongAnswers >= 5) {
-        showGameOver();
-        return;
-    }
-    
-    const allButtons = document.querySelectorAll('.option-btn');
-    allButtons.forEach(btn => btn.disabled = true);
-    
-    if (typeof soundEffects !== 'undefined') soundEffects.playWrong();
-    
-    // Doğru cevabı göster
-    const correctAnswer = gameState.currentMode === 'multipleChoice' 
-        ? gameState.currentProverb.text 
-        : gameState.currentProverb.meaning;
-    
-    allButtons.forEach(btn => {
-        if (btn.textContent === correctAnswer) {
-            btn.classList.add('correct');
-        }
-    });
-    
-    alert('⏰ Süre doldu!');
-    updateScoreDisplay();
-    
-    setTimeout(() => {
-        nextQuestion();
-    }, 2000);
+    // Süre doldu, oyun bitti
+    showResults();
 }
 
 // Ses aç/kapat
@@ -187,9 +172,15 @@ function toggleSound() {
 
 // ✅ Yeni: Bir sonraki atasözünü getir
 function nextQuestion() {
-    if (gameState.totalQuestions >= 10) {
+    // Süre kontrolü
+    if (gameState.timeLeft <= 0) {
         showResults();
         return;
+    }
+
+    // Zorluk seviyesini artır (her 5 soruda bir)
+    if (gameState.totalQuestions > 0 && gameState.totalQuestions % 5 === 0) {
+        gameState.currentDifficulty = Math.min(3, gameState.currentDifficulty + 1);
     }
 
     const proverb = getRandomProverb();
@@ -199,8 +190,13 @@ function nextQuestion() {
     }
     gameState.currentProverb = proverb;
     
-    // Zamanlayıcıyı başlat
-    startTimer();
+    // Zamanlayıcıyı başlat (ilk soru veya devam eden sorular için)
+    if (gameState.totalQuestions === 0) {
+        startTimer();
+    } else {
+        // Durdurulmuş zamanlayıcıyı tekrar başlat
+        startTimer();
+    }
     
     // Oyun moduna göre soru göster
     switch(gameState.currentMode) {
@@ -303,7 +299,9 @@ function showOptions(options, correctAnswer) {
 
 // Cevabı kontrol et
 function checkAnswer(selected, correct, button) {
-    stopTimer(); // Zamanlayıcıyı durdur
+    // Zamanlayıcıyı durdur
+    stopTimer();
+    
     gameState.totalQuestions++;
     
     const allButtons = document.querySelectorAll('.option-btn');
@@ -316,31 +314,27 @@ function checkAnswer(selected, correct, button) {
         
         if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
         
-        // Hızlı cevap bonusu
-        let timeBonus = 0;
-        if (gameState.timeLeft > 20) {
-            timeBonus = 5;
-        } else if (gameState.timeLeft > 15) {
-            timeBonus = 3;
-        }
+        // Doğru cevap için +5 saniye bonus
+        gameState.timeLeft += 5;
         
-        let points = 10 + timeBonus;
+        let points = 10;
         if (gameState.streak >= 3) {
             points += gameState.streak * 5;
         }
         
+        // Zorluk bonusu
+        points += (gameState.currentDifficulty - 1) * 5;
+        
         gameState.score += points;
         gameState.totalScore += points;
         
-        let bonusText = '';
-        if (timeBonus > 0) {
-            bonusText = ` (⚡ Hızlı: +${timeBonus})`;
-        }
-        if (gameState.streak >= 3) {
-            bonusText += ` (🔥 Seri: +${gameState.streak * 5})`;
-        }
+        updateScoreDisplay();
+        localStorage.setItem('totalScore', gameState.totalScore);
         
-        alert(`Doğru! +${points} puan${bonusText}`);
+        // Doğru cevap - 1 saniye sonra sıradaki soruya geç
+        setTimeout(() => {
+            nextQuestion();
+        }, 1000);
         
     } else {
         button.classList.add('wrong');
@@ -349,39 +343,42 @@ function checkAnswer(selected, correct, button) {
         
         if (typeof soundEffects !== 'undefined') soundEffects.playWrong();
         
-        if (gameState.wrongAnswers >= 5) {
-            showGameOver();
-            return;
+        // Yanlış cevap için -15 saniye ceza
+        gameState.timeLeft -= 15;
+        
+        // Süre negatif olmasın
+        if (gameState.timeLeft < 0) {
+            gameState.timeLeft = 0;
         }
         
+        // Doğru cevabı göster
         allButtons.forEach(btn => {
             if (btn.textContent === correct) {
                 btn.classList.add('correct');
             }
         });
         
-        alert(`Yanlış! Doğru cevap: "${correct}"`);
+        updateScoreDisplay();
+        localStorage.setItem('totalScore', gameState.totalScore);
+        
+        // Yanlış cevap - 3 saniye sonra sıradaki soruya geç (doğru cevabı görmek için)
+        setTimeout(() => {
+            nextQuestion();
+        }, 3000);
     }
-    
-    updateScoreDisplay();
-    localStorage.setItem('totalScore', gameState.totalScore);
-    
-    setTimeout(() => {
-        nextQuestion();
-    }, 1000);
 }
 
 // Oyun bitti
 function showGameOver() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    alert(`Oyun Bitti! 5 yanlış yaptınız.\nPuanınız: ${gameState.score}`);
+    alert(`Oyun Bitti! Süre doldu.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
     backToMenu();
 }
 
 // Sonuçları göster
 function showResults() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    alert(`Tebrikler! Oyunu tamamladınız!\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/10`);
+    alert(`Tebrikler! Süre doldu!\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
     backToMenu();
 }
 
@@ -509,9 +506,32 @@ function displayLeaderboard(scores) {
     });
 }
 
-// ✅ Yardımcı: Rastgele atasözü getir
+// ✅ Yardımcı: Rastgele atasözü getir (zorluk seviyesine göre)
 function getRandomProverb() {
     if (gameState.proverbs.length === 0) return null;
-    const index = Math.floor(Math.random() * gameState.proverbs.length);
-    return gameState.proverbs[index];
+    
+    // Mevcut zorluk seviyesine uygun atasözlerini filtrele
+    let filteredProverbs = gameState.proverbs.filter(p => p.difficulty === gameState.currentDifficulty);
+    
+    // Eğer o zorlukta soru yoksa, tüm sorulardan seç
+    if (filteredProverbs.length === 0) {
+        filteredProverbs = gameState.proverbs;
+    }
+    
+    // Daha önce sorulmamış soruları filtrele
+    let availableProverbs = filteredProverbs.filter(p => !gameState.askedProverbs.includes(p.id));
+    
+    // Eğer tüm sorular sorulduysa, listeyi sıfırla
+    if (availableProverbs.length === 0) {
+        gameState.askedProverbs = [];
+        availableProverbs = filteredProverbs;
+    }
+    
+    const index = Math.floor(Math.random() * availableProverbs.length);
+    const selectedProverb = availableProverbs[index];
+    
+    // Sorulan soruları kaydet
+    gameState.askedProverbs.push(selectedProverb.id);
+    
+    return selectedProverb;
 }
