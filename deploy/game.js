@@ -289,6 +289,7 @@ function showOptions(options, correctAnswer) {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
         btn.textContent = option;
+        btn.disabled = false; // Butonları aktif et
         btn.onclick = () => {
             if (typeof soundEffects !== 'undefined') soundEffects.playClick();
             checkAnswer(option, correctAnswer, btn);
