@@ -687,3 +687,121 @@ h1 {
         max-width: 320px;
     }
 }
+
+/* Maskot ve Hoş Geldin Bölümü */
+.welcome-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #FFF5F5 0%, #F0F8FF 100%);
+    border-radius: 25px;
+}
+
+.mascot-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    cursor: pointer;
+    animation: mascotIdle 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+/* Duolingo tarzı animasyonlar */
+@keyframes mascotIdle {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+}
+
+@keyframes mascotBounce {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    50% {
+        transform: scale(1.15) rotate(0deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+@keyframes mascotShake {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px) rotate(-3deg);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px) rotate(3deg);
+    }
+}
+
+.mascot-image:hover {
+    animation: mascotBounce 0.6s ease;
+}
+
+.mascot-image.celebrate {
+    animation: mascotBounce 0.8s ease 3;
+}
+
+.mascot-image.shake {
+    animation: mascotShake 0.5s ease;
+}
+
+.welcome-message {
+    flex: 1;
+    text-align: left;
+}
+
+.welcome-message h1 {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.welcome-message .subtitle {
+    text-align: left;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .welcome-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .mascot-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .welcome-message {
+        text-align: center;
+    }
+    
+    .welcome-message h1 {
+        text-align: center;
+        font-size: 1.8em;
+    }
+    
+    .welcome-message .subtitle {
+        text-align: center;
+    }
+}

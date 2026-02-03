@@ -314,8 +314,8 @@ function checkAnswer(selected, correct, button) {
         
         if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
         
-        // Doğru cevap için +5 saniye bonus
-        gameState.timeLeft += 5;
+        // Doğru cevap için +1 saniye bonus
+        gameState.timeLeft += 1;
         
         let points = 10;
         if (gameState.streak >= 3) {
@@ -549,3 +549,41 @@ function getRandomProverb() {
     
     return selectedProverb;
 }
+
+
+// Maskot animasyonları
+document.addEventListener('DOMContentLoaded', function() {
+    const mascot = document.querySelector('.mascot-image');
+    
+    if (mascot) {
+        // Tıklandığında zıplama animasyonu
+        mascot.addEventListener('click', function() {
+            this.classList.remove('celebrate');
+            void this.offsetWidth; // Reflow trick
+            this.classList.add('celebrate');
+            
+            if (typeof soundEffects !== 'undefined') {
+                soundEffects.playClick();
+            }
+            
+            setTimeout(() => {
+                this.classList.remove('celebrate');
+            }, 2400);
+        });
+        
+        // Rastgele sallanma animasyonu (her 8-15 saniyede bir)
+        function randomShake() {
+            if (document.getElementById('mainMenu').classList.contains('active')) {
+                mascot.classList.add('shake');
+                setTimeout(() => {
+                    mascot.classList.remove('shake');
+                }, 500);
+            }
+            
+            const nextShake = Math.random() * 7000 + 8000; // 8-15 saniye
+            setTimeout(randomShake, nextShake);
+        }
+        
+        setTimeout(randomShake, 5000); // İlk sallanma 5 saniye sonra
+    }
+});
