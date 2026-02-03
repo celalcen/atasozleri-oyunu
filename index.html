@@ -92,27 +92,36 @@
 
         <!-- Oyun Ekranı -->
         <div id="gameScreen" class="screen">
-            <div class="game-header">
-                <button class="btn btn-small" onclick="backToMenu()">← Geri</button>
-                <div class="timer-container">
-                    <span class="timer-icon">⏱️</span>
-                    <span class="timer-display" id="timerDisplay">30</span>
-                </div>
-                <div class="score-display">
-                    <span>Puan: <strong id="currentScore">0</strong></span>
-                    <span>Seri: <strong id="streak">0</strong></span>
-                    <span>❌ <strong id="wrongCount">0</strong>/5</span>
-                </div>
-            </div>
+            <!-- ÜST BAR -->
+            <header class="top-bar">
+                <div class="pill pill-time">⏱️ <span id="timerDisplay">180</span></div>
+                <div class="pill pill-score">📝 Puan: <span id="currentScore">0</span></div>
+                <div class="pill pill-streak">🔥 Seri: <span id="streak">0</span></div>
+                <div class="pill pill-wrong">❌ <span id="wrongCount">0</span>/5</div>
+            </header>
 
-            <div class="game-content">
-                <div class="question-card">
-                    <h2 id="questionText">Soru yükleniyor...</h2>
-                    <div id="optionsContainer"></div>
+            <!-- OYUN KARTI -->
+            <main class="game-card" id="gameCard">
+                <div class="overlay-success" id="successOverlay"></div>
+                <div class="overlay-error" id="errorOverlay"></div>
+                
+                <div class="card-header">
+                    <div class="question-badge">
+                        📋 <span id="questionNumber">1</span>/<span id="totalQuestions">10</span>
+                    </div>
+                    <div class="game-mode-badge" id="gameModeBadge">Çoktan Seçmeli</div>
                 </div>
-            </div>
-
-            <div class="feedback" id="feedback"></div>
+                
+                <div class="question-text" id="questionText">Soru yükleniyor...</div>
+                <div class="question-hint">Bir şık seç.</div>
+                
+                <div class="answers-container" id="optionsContainer"></div>
+                
+                <footer class="card-footer">
+                    <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
+                    <button class="icon-btn" id="settingsBtn" onclick="backToMenu()">⚙️</button>
+                </footer>
+            </main>
         </div>
 
         <!-- Sonuç Ekranı -->

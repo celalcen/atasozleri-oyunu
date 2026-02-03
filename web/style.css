@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #FFF5E9 0%, #FFE4E1 25%, #E6E6FA 50%, #FFE4C4 75%, #FFF5E9 100%);
+    background: linear-gradient(135deg, #87CEEB 0%, #98D8C8 50%, #7EC8E3 100%);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     min-height: 100vh;
@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    margin: 0;
 }
 
 @keyframes gradientShift {
@@ -803,5 +804,254 @@ h1 {
     
     .welcome-message .subtitle {
         text-align: center;
+    }
+}
+
+/* Oyun Ekranı - Yeni Tasarım */
+#gameScreen {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+#gameScreen.active {
+    display: flex;
+}
+
+/* Üst Bar - Pill Tasarımı */
+.top-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 0.95em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pill-time {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+}
+
+.pill-score {
+    background: linear-gradient(135deg, #FFF9C4, #FFE082);
+}
+
+.pill-streak {
+    background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+}
+
+.pill-wrong {
+    background: linear-gradient(135deg, #FFCDD2, #EF9A9A);
+}
+
+/* Oyun Kartı */
+.game-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    position: relative;
+    transition: transform 0.12s ease-out;
+}
+
+.game-card.jump {
+    transform: translateY(-8px);
+}
+
+.game-card.shake {
+    animation: cardShake 0.15s;
+}
+
+@keyframes cardShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}
+
+/* Overlay Efektleri */
+.overlay-success,
+.overlay-error {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.overlay-success {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.overlay-error {
+    background: rgba(229, 57, 53, 0.2);
+}
+
+.overlay-success.show,
+.overlay-error.show {
+    opacity: 1;
+}
+
+/* Kart Başlığı */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.question-badge,
+.game-mode-badge {
+    background: #E3F2FD;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #1976D2;
+}
+
+.game-mode-badge {
+    background: #F3E5F5;
+    color: #7B1FA2;
+}
+
+/* Soru Metni */
+.question-text {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #2D3142;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.question-hint {
+    font-size: 0.9em;
+    color: #9094A6;
+    margin-bottom: 20px;
+}
+
+/* Cevap Butonları */
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.option-btn {
+    height: 56px;
+    border-radius: 20px;
+    border: 3px solid #C8E6C9;
+    font-size: 1.1em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    color: #2D3142;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+
+.option-btn.correct {
+    background: linear-gradient(135deg, #66BB6A, #4CAF50);
+    border-color: #4CAF50;
+    color: white;
+    animation: correctGlow 0.6s ease;
+}
+
+@keyframes correctGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(76, 175, 80, 0); }
+    50% { box-shadow: 0 0 30px rgba(76, 175, 80, 0.8); }
+}
+
+.option-btn.wrong {
+    background: linear-gradient(135deg, #EF5350, #E53935);
+    border-color: #E53935;
+    color: white;
+}
+
+/* Kart Footer */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.icon-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #E3F2FD;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+    background: #BBDEFB;
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 600px) {
+    .top-bar {
+        gap: 8px;
+    }
+    
+    .pill {
+        padding: 10px 14px;
+        font-size: 0.85em;
+    }
+    
+    .game-card {
+        padding: 20px;
+        border-radius: 25px;
+    }
+    
+    .question-text {
+        font-size: 1.2em;
+    }
+    
+    .option-btn {
+        height: 50px;
+        font-size: 1em;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
     }
 }

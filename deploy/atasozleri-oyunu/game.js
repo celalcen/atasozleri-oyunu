@@ -295,6 +295,9 @@ function showOptions(options, correctAnswer) {
         };
         container.appendChild(btn);
     });
+    
+    // Soru numarasını güncelle
+    document.getElementById('questionNumber').textContent = gameState.totalQuestions + 1;
 }
 
 // Cevabı kontrol et
@@ -302,15 +305,26 @@ function checkAnswer(selected, correct, button) {
     // Zamanlayıcıyı durdur
     stopTimer();
     
+    const gameCard = document.getElementById('gameCard');
+    const successOverlay = document.getElementById('successOverlay');
+    const errorOverlay = document.getElementById('errorOverlay');
+    
     gameState.totalQuestions++;
     
     const allButtons = document.querySelectorAll('.option-btn');
     allButtons.forEach(btn => btn.disabled = true);
     
+    // Kart zıplama animasyonu
+    gameCard.classList.add('jump');
+    setTimeout(() => gameCard.classList.remove('jump'), 120);
+    
     if (selected === correct) {
         button.classList.add('correct');
         gameState.correctAnswers++;
         gameState.streak++;
+        
+        // Başarı overlay'i göster
+        successOverlay.classList.add('show');
         
         if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
         
@@ -333,6 +347,7 @@ function checkAnswer(selected, correct, button) {
         
         // Doğru cevap - 1 saniye sonra sıradaki soruya geç
         setTimeout(() => {
+            successOverlay.classList.remove('show');
             nextQuestion();
         }, 1000);
         
@@ -340,6 +355,10 @@ function checkAnswer(selected, correct, button) {
         button.classList.add('wrong');
         gameState.streak = 0;
         gameState.wrongAnswers++;
+        
+        // Hata overlay'i göster ve kartı salla
+        errorOverlay.classList.add('show');
+        gameCard.classList.add('shake');
         
         if (typeof soundEffects !== 'undefined') soundEffects.playWrong();
         
@@ -364,6 +383,8 @@ function checkAnswer(selected, correct, button) {
         // 5 yanlış yapınca oyun biter
         if (gameState.wrongAnswers >= 5) {
             setTimeout(() => {
+                errorOverlay.classList.remove('show');
+                gameCard.classList.remove('shake');
                 showGameOver();
             }, 3000);
             return;
@@ -371,6 +392,8 @@ function checkAnswer(selected, correct, button) {
         
         // Yanlış cevap - 3 saniye sonra sıradaki soruya geç (doğru cevabı görmek için)
         setTimeout(() => {
+            errorOverlay.classList.remove('show');
+            gameCard.classList.remove('shake');
             nextQuestion();
         }, 3000);
     }
@@ -587,3 +610,29 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(randomShake, 5000); // İlk sallanma 5 saniye sonra
     }
 });
+
+
+// Yardım göster
+function showHelp() {
+    alert('💡 İpucu: Atasözlerini dikkatle oku ve en uygun kelimeyi seç!');
+}
+
+// Oyun modu badge'ini güncelle
+function updateGameModeBadge() {
+    const badge = document.getElementById('gameModeBadge');
+    const modeNames = {
+        'fillBlank': '📝 Eksik Kelime',
+        'multipleChoice': '✅ Çoktan Seçmeli',
+        'matching': '🔗 Eşleştirme'
+    };
+    if (badge) {
+        badge.textContent = modeNames[gameState.currentMode] || 'Oyun';
+    }
+}
+
+// Oyun başladığında badge'i güncelle
+const originalStartGame = startGame;
+startGame = function(mode) {
+    originalStartGame(mode);
+    updateGameModeBadge();
+};
