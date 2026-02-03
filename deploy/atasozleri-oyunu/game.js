@@ -361,6 +361,14 @@ function checkAnswer(selected, correct, button) {
         updateScoreDisplay();
         localStorage.setItem('totalScore', gameState.totalScore);
         
+        // 5 yanlış yapınca oyun biter
+        if (gameState.wrongAnswers >= 5) {
+            setTimeout(() => {
+                showGameOver();
+            }, 3000);
+            return;
+        }
+        
         // Yanlış cevap - 3 saniye sonra sıradaki soruya geç (doğru cevabı görmek için)
         setTimeout(() => {
             nextQuestion();
@@ -371,7 +379,13 @@ function checkAnswer(selected, correct, button) {
 // Oyun bitti
 function showGameOver() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    alert(`Oyun Bitti! Süre doldu.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
+    
+    if (gameState.wrongAnswers >= 5) {
+        alert(`Oyun Bitti! 5 yanlış yaptınız.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
+    } else {
+        alert(`Oyun Bitti! Süre doldu.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
+    }
+    
     backToMenu();
 }
 
