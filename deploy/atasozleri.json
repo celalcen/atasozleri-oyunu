@@ -1,0 +1,3524 @@
+{
+  "atasozleri": [
+    {
+      "id": 1,
+      "text": "Abanın kadri yağmurda bilinir",
+      "meaning": "Bir şeyin gerçek değeri ona çok ihtiyaç duyulduğunda anlaşılır."
+    },
+    {
+      "id": 2,
+      "text": "Abdal düğünden, çocukoyundan usanmaz",
+      "meaning": "Bir kimse sevdiği işi tekrar ve uzun süre yapmaktan bıkmaz."
+    },
+    {
+      "id": 3,
+      "text": "Abdalın dostluğu köy görününceye kadardır",
+      "meaning": "Çıkarı dolayısıyla size yakınlık gösteren kişi işini yürüterek başka yollar bulunca sizinle ilgisini keser."
+    },
+    {
+      "id": 4,
+      "text": "Acele işe şeytan karışır",
+      "meaning": "Düşünüp taşınmadan, ivedi olarak yapılan işten iyi sonuç çıkmaz"
+    },
+    {
+      "id": 5,
+      "text": "Acemi katır kapı önünde yükindirir",
+      "meaning": "Beceriksiz ve anlayışsız kimse kendisine yaptırılan işi en kötü zamanda bırakır."
+    },
+    {
+      "id": 6,
+      "text": "Acı acıyı, su sancıyı keser",
+      "meaning": "Bir güçlüğü yenmek için başka bir güç yola başvurmak gerekir."
+    },
+    {
+      "id": 7,
+      "text": "Acı patlıcanı kırağı çalmaz",
+      "meaning": "Yaşamında birçok zorluğu yenmiş olan kimseler daha sonra karşılarına çıkacak zorlukları daha kolay atlatabilirler."
+    },
+    {
+      "id": 8,
+      "text": "dininden, tatlı söz (dil) yılanıininden (deliğinden) çıkarır",
+      "meaning": "Kötü söz bir kimseyi çileden çıkarır, kötü davranışlara sürükler. Tatlı dil azgın düşmanı bile yola getirir."
+    },
+    {
+      "id": 9,
+      "text": "ne olsa söyler (Acıkan neyemez, acıyan ne demez)",
+      "meaning": "Geçim sıkıntısı içinde olan kişi ne türlü bir geçim yolu bulursa onu yapar. Canı yanan kişi de sonunu düşünmeden ağzına geleni söyler."
+    },
+    {
+      "id": 10,
+      "text": "Acıkmış kudurmuştan beterdir",
+      "meaning": "Bir şeyin uzun zaman yokluğunu çeken kişi kudurmuş gibi ona saldırır. Gözü başka şey görmez."
+    },
+    {
+      "id": 11,
+      "text": "Acından kimse ölmez",
+      "meaning": "Kişi, parasız ve işsiz kalabilir; ama aç kalmaz. Bir geçim yolu bulur."
+    },
+    {
+      "id": 12,
+      "text": "Aç aman bilmez, çocukzaman bilmez",
+      "meaning": "Aç, hiçbir mazeretle susturulmaz. Çocuk bir şey istedi mi beklemek nedir bilmez."
+    },
+    {
+      "id": 13,
+      "text": "Aç ayı oynamaz",
+      "meaning": "Kendisiyle kazanç sağladığınız hayvan ya da insanın ihtiyaçlarını karşılamazsanız ondan verim alamazsınız."
+    },
+    {
+      "id": 14,
+      "text": "Aç elini kora sokar",
+      "meaning": "Aç insan yiyeceğini sağlamak için her türlü tehlikeye atılır."
+    },
+    {
+      "id": 15,
+      "text": "Aç köpek fırın duvarını deler",
+      "meaning": "Aç kimse bütün engelleri yener, karnını doyurmanın mutlaka bir yolunu bulur."
+    },
+    {
+      "id": 16,
+      "text": "Aç ne yemez tok ne demez",
+      "meaning": "Yoksul kişi eline geçen şeyin iyisine kötüsüne bakmaz. Varlıklı kişi ise en güzel şeylerde bile kusur bulur, çekinmeden her şeyi söyler."
+    },
+    {
+      "id": 17,
+      "text": "Aç tavuk kendini buğdayambarında sanır",
+      "meaning": "Yoksulluk içindeki kimse varlıklı bir insan olma hayaliyle yanıp tutuşur, bu hayallerle kendini avutur."
+    },
+    {
+      "id": 18,
+      "text": "Açık yaraya tuz ekilmez",
+      "meaning": "Acısı yeni olan birinin üzüntüsünü artıracak şeyler yapmaktan kaçınmak gerekir."
+    },
+    {
+      "id": 19,
+      "text": "Açılan solar, ağlayan güler",
+      "meaning": "Hayatta hiçbir şey aynı kalmaz, her şey değişir."
+    },
+    {
+      "id": 20,
+      "text": "Açın gözü ekmek teknesinde olur",
+      "meaning": "İhtiyacı olan kimse sürekli olarak ne yapacağını düşünür."
+    },
+    {
+      "id": 21,
+      "text": "Açın karnı doyar, gözü doymaz",
+      "meaning": "1) Uzun zaman aç kalan kişi bu sıkıntısını unutmaz. Hep aç kalma korkusu yaşar. 2) Tutkulu, hırslı kişi yetinmeyi bilmez."
+    },
+    {
+      "id": 22,
+      "text": "Açın kursağına çörek dayanmaz",
+      "meaning": "Yoksul insanlar ihtiyaçlarını karşılasa bile eksikleri hiç bitmez."
+    },
+    {
+      "id": 23,
+      "text": "Açma sırrını dostuna, oda söyler dostuna",
+      "meaning": "Bir sır dosta bile söylenmemelidir. Söylenirse o da dostuna söyler. Böylece sır yayılır ve herkesçe bilinir."
+    },
+    {
+      "id": 24,
+      "text": "Açtırma kutuyu, söyletmekötüyü",
+      "meaning": "İnsan birini kızdırırsa karşıdaki kişi onun istemeyeceği sözler söyleyebilir."
+    },
+    {
+      "id": 25,
+      "text": "Adam adama yük değil,can gövdeye mülk değil",
+      "meaning": "1) Bir kimseye konuk olan kişi o kimsenin yanında çok kalmaz. 2) Başkalarını sorunlarına sahip çıkmalı; çünkü bir gün hepimiz öleceğiz."
+    },
+    {
+      "id": 26,
+      "text": "sa da çulu (Atlastan olsaçulu)",
+      "meaning": "İnsanın değeri zengin olmakla artmaz, yoksulluk da insanın değerini azaltmaz. Ayrıca değersiz kimse kılık kıyafetle değer kazanmaz."
+    },
+    {
+      "id": 27,
+      "text": "Adamın iyisi alışverişte belliolur",
+      "meaning": "Birçok kimse çıkarları için ahlak dışı davranışlarda bulunmaktan çekinmez. Bu yüzden dürüst ve namuslu insan alışverişte kendini belli eder."
+    },
+    {
+      "id": 28,
+      "text": "Adamın kötüsü olmaz,meğer züğürt ola",
+      "meaning": "Genellikle toplum içinde parası olmayan kimselere pek değer verilmez."
+    },
+    {
+      "id": 29,
+      "text": "suyun sessiz akanındankork",
+      "meaning": "Düşünce ve duygularını açığa vurmayan sessiz kişiler ağır akan suya benzer. Derin ve tehlikelidir."
+    },
+    {
+      "id": 30,
+      "text": "Adı çıkmış dokuza inmezsekize",
+      "meaning": "İnsanlar, kişilerin değişmiş olabileceğini pek kabul etmezler. Genel yargılar kolay değişmez."
+    },
+    {
+      "id": 31,
+      "text": "Ağaca balta vurmuşlar, sapıbedenimdendir demiş",
+      "meaning": "Bir kimseye en büyük kötülük genellikle en yakınlarından gelir."
+    },
+    {
+      "id": 32,
+      "text": "Ağaca çıkan keçinin dalabakan oğlağı olur",
+      "meaning": "Kötü işler yapan kişilerin çocukları da genellikle onlara benzer işler yapar."
+    },
+    {
+      "id": 33,
+      "text": "Ağaca dayanma çürür,insana dayanma ölür",
+      "meaning": "Bir kişi yapacağı işlerde her zaman başkalarından destek almamalı; çünkü bu destek sürekli olmayabilir. Bir gün bitebilir."
+    },
+    {
+      "id": 34,
+      "text": "Ağacın kurdu içinde olur",
+      "meaning": "İnsanlar genellikle en büyük zararı yakınlarından görür."
+    },
+    {
+      "id": 35,
+      "text": "Ağaç meyvesi olunca dalınıaşağı salar",
+      "meaning": "İnsanlara faydalı kişiler güzel şeyler yaptıklarında başkalarının da bundan yararlanması için çabalar."
+    },
+    {
+      "id": 36,
+      "text": "Ağaç yaşken eğilir",
+      "meaning": "İnsan küçük yaşlarda daha kolay öğrenir ve eğitilir. Öğrenmek ilerleyen yaşlarda zorlaşır."
+    },
+    {
+      "id": 37,
+      "text": "Ağılda oğlak doğsa ovadaotu biter",
+      "meaning": "Herkes kısmetiyle doğar. Tanrı herkesin kısmetini doğduğunda verir."
+    },
+    {
+      "id": 38,
+      "text": "Ağır kazan gece kaynar",
+      "meaning": "Kimileri çok ağır hareket etse de güzel iş çıkarır."
+    },
+    {
+      "id": 39,
+      "text": "Ağır ol da molla desinler",
+      "meaning": "Ağır başlı ol ki etrafında saygı göresin."
+    },
+    {
+      "id": 40,
+      "text": "Ağlamayan çocuğa memevermezler",
+      "meaning": "Hakkını aramayan kimseye hakkını vermezler."
+    },
+    {
+      "id": 41,
+      "text": "Ağlarsa anam ağlar, gerisiyalan ağlar",
+      "meaning": "Hiç kimse ona annesi kadar yanmaz."
+    },
+    {
+      "id": 42,
+      "text": "Ağlayanın malı gülene hayıretmez",
+      "meaning": "Bir kimsenin malını haksızlıkla elinden alan kişi o malın hayrını görmez. Acısı mutlaka çıkar."
+    },
+    {
+      "id": 43,
+      "text": "Ağrısız baş mezarda gerek",
+      "meaning": "İnsanın derdi ancak ölünce biter. Herkesin mutlaka bir derdi vardır."
+    },
+    {
+      "id": 44,
+      "text": "Ağustosta beyni kaynayanınzemheride kazanı kaynar",
+      "meaning": "İşini zamanında yapan kimse ilerde geçim sıkıntısı çekmez, rahat eder."
+    },
+    {
+      "id": 45,
+      "text": "Ah alan onmaz",
+      "meaning": "Kötülük yapan kimsenin başından dert eksik olmaz."
+    },
+    {
+      "id": 46,
+      "text": "Ahmak misafir ev sahibiniağırlar",
+      "meaning": "Bazıları başkalarının görevlerini kendi yapmaya kalkar ve gülünç durumlara düşerler."
+    },
+    {
+      "id": 47,
+      "text": "Ak akçe kara gün içindir",
+      "meaning": "Çalışarak kazandığımız para dar zamanımızda bizi sıkıntıdan kurtarır."
+    },
+    {
+      "id": 48,
+      "text": "Ak gün ağartır, kara günkarartır",
+      "meaning": "Mutlu bir hayat insanı iyimser kılar; üzüntülü bir hayat insanı yıpratır."
+    },
+    {
+      "id": 49,
+      "text": "Ak koyunun kara kuzusu daolur",
+      "meaning": "1) İyi insanlar hiç beklenmedik zamanlarda kötü şeyler yapabilir. 2) İyi anne babadan kötü çocuklar doğabilir."
+    },
+    {
+      "id": 50,
+      "text": "Akacak kan damarda durmaz",
+      "meaning": "Bir zarara uğramak alnımıza yazılmışsa bunun önüne geçmek imkânsızdır."
+    },
+    {
+      "id": 51,
+      "text": "Akan su yosun tutmaz",
+      "meaning": "Çalışan kimse gittikçe açılır, daha yararlı işler yapar."
+    },
+    {
+      "id": 52,
+      "text": "Akçesi ucuz olanın kendisikıymetli olur",
+      "meaning": "Parayı esirgemeyen kimse itibar görür."
+    },
+    {
+      "id": 53,
+      "text": "Akıl akıldan üstündür",
+      "meaning": "Önemli sorunlarda başkalarının da fikrini almak gerekir. Sizin düşünemediğinizi bir başkası düşünebilir."
+    },
+    {
+      "id": 54,
+      "text": "Akıl kişiye sermayedir",
+      "meaning": "Akıllı insan mutlaka para kazanmanın bir yolunu bulur."
+    },
+    {
+      "id": 55,
+      "text": "Akıl olmayınca başta nekuruda kalır ne yaşta",
+      "meaning": "Kişi akılsızca girdiği her işte başarısız olur ve elinde hiçbir şey kalmaz."
+    },
+    {
+      "id": 56,
+      "text": "Akıl yaşta değil baştadır",
+      "meaning": "Bir kişinin yaşlı olması çok akıllı olduğu anlamına gelmeyeceği gibi çok genç olması da söylediklerinin doğru olmadığı anlamına gelmez. Bunun yaşla ilgisi yoktur."
+    },
+    {
+      "id": 57,
+      "text": "herkes kendisininkini beğenmiş",
+      "meaning": "İnsan kendi fikirlerini, davranışlarını başkalarından daha üstün görür."
+    },
+    {
+      "id": 58,
+      "text": "Akıllı düşman, akılsız dosttanyeğdir",
+      "meaning": "Akılsız kimse dostu için iyi niyet beslediği hâlde yaptığı işin ne gibi sonuçlar doğuracağını bilemez. Böylece bilmeden dostuna zarar verebilir. Kişi onun neler yapacağını tahmin edemez. Oysa kişi akıllı bir düşmanın kötülüğünü tahmin edebilir ve ona göre önlem alır."
+    },
+    {
+      "id": 59,
+      "text": "Akıllı köprü arayıncaya kadardeli suyu geçirir",
+      "meaning": "Tedbirli kişi sağlam yol arar. Bunun için de sonucu almakta gecikir. Atak kişi ise tehlikeyi göze alarak işe girişir ve çabuk sonuç alır."
+    },
+    {
+      "id": 60,
+      "text": "Akılsız başın cezasını ayaklarçeker",
+      "meaning": "1) Bir işe hiç düşünmeden başlanır ve kötü sonuç alınırsa bunun düzeltilmesi için çok çaba harcanmak zorunda kalınır. 2) Yönetenlerin yanlış kararlarının acısını yönetilenler çeker."
+    },
+    {
+      "id": 61,
+      "text": "Akla gelmeyen başa gelir",
+      "meaning": "İnsanın başına aklına gelmedik işler gelebilir."
+    },
+    {
+      "id": 62,
+      "text": "Aklın yolu birdir",
+      "meaning": "Karışık bir durumun çözümü için akıllı insanlara başvurduğunuzda verecekleri yanıt aynı olur;- çünkü akıl tek bir yolu izler. O da mantıklı olandır."
+    },
+    {
+      "id": 63,
+      "text": "Akşamın hayrından sabahınşehri iyidir",
+      "meaning": "Her işi geciktirmeden, erkenden yapmak gerekir."
+    },
+    {
+      "id": 64,
+      "text": "Al elmaya taş atan çok olur",
+      "meaning": "Güzel işler yapan insanların işlerini bozmaya çalışan pek çok kişi vardır."
+    },
+    {
+      "id": 65,
+      "text": "Alışmış kudurmuştan beterdir",
+      "meaning": "Alışkanlıkların insanlar üzerinde etkisi olumsuz olabilir. Kişi sürekli elindekini koruyabilmek için kötü şeyler yapabilir."
+    },
+    {
+      "id": 66,
+      "text": "Âlim unutur, kalem unutmaz",
+      "meaning": "Söz uçar, yazı kalır. Bir şey unutulmamak isteniyorsa mutlaka yazılmalıdır."
+    },
+    {
+      "id": 67,
+      "text": "Allah dağına göre kar verir",
+      "meaning": "Allah herkese dayanabileceği kadar yük, sıkıntı verir."
+    },
+    {
+      "id": 68,
+      "text": "isterse önce eşeğini yitirir,sonra buldurur",
+      "meaning": "Yoksul kişi daha da yoksullaşır fakat sonra eski hâline dönerse buna çok sevinir. O yoklukta bile mutlu olacak bir şeyler bulur."
+    },
+    {
+      "id": 69,
+      "text": "Allah kardeşe kardeş yaratmış kesesini ayrı yaratmış",
+      "meaning": "Kardeş bile olsa herkesin kazancı kendine olmalıdır. Kimsenin gözü kimsenin malında olmamalıdır."
+    },
+    {
+      "id": 70,
+      "text": "Alma mazlumun ahını çıkaraheste aheste",
+      "meaning": "Kendini savunamaz kişilere veya herhangi birine kötülük yaparsan gün gelir bedelini ağır ağır ödersin."
+    },
+    {
+      "id": 71,
+      "text": "Altın ateşte, insan mihnettebelli olur",
+      "meaning": "Altının eritilince saflığını yitirmesi gibi insan da zorluklar karşısındaki duruşuyla değerini belli eder."
+    },
+    {
+      "id": 72,
+      "text": "Altmışında zurna öğrenenartık mezarda çalar",
+      "meaning": "Her şeyin bir öğrenme yaşı vardır. Zamansız çabanın fayda getirdiği görülmemiştir."
+    },
+    {
+      "id": 73,
+      "text": "Ana gibi yar Bağdat gibidiyar olamaz",
+      "meaning": "Hiç kimse anne kadar sevemez ve eskiden bir masal kenti olan Bağdat’tan daha güzel bir yer de olamaz."
+    },
+    {
+      "id": 74,
+      "text": "Anasına bak kızını al, kenarına bak bezini al",
+      "meaning": "Bir kız annesinin huyunu, terbiyesini alır. Bir kumaşın kalitesi de kenarının işçiliğinden belli olur."
+    },
+    {
+      "id": 75,
+      "text": "Anlayana sivrisinek saz, anlamayana davul zurna az",
+      "meaning": "Anlayışlı kişi üstü kapalı da olsa bir şeyi hemen anlar; anlayışsız kişi açıkça söylenen bir şeyi bile anlayamaz."
+    },
+    {
+      "id": 76,
+      "text": "Abdala malum olur",
+      "meaning": "Olup bitecek şeyleri önceden bildiğini iddia eden kimseler için hafif alaycı yollu söylenir."
+    },
+    {
+      "id": 77,
+      "text": "Araba devrildikten sonra yolgösteren çok olur",
+      "meaning": "Tehlikeyi daha önce kimse haber vermez de kötü sonuç ortaya çıktıktan sonra herkes akıl vermeye kalkar."
+    },
+    {
+      "id": 78,
+      "text": "den geçerse arka tekerlekde oradan geçer",
+      "meaning": "Büyükler nasıl bir yol tutuyorsa küçükler de onları örnek alır, onların yaptığını yapar."
+    },
+    {
+      "id": 79,
+      "text": "Arayan Mevlasını da bulurbelasını da",
+      "meaning": "Doğru olanlar doğru yola; yanlış olanlar kötü, yanlış yola ulaşır."
+    },
+    {
+      "id": 80,
+      "text": "Arıca etek, kuruca yatak",
+      "meaning": "Acı çekmeden, yatağı kirletmeden, kimseye yük olmadan ölmelidir."
+    },
+    {
+      "id": 81,
+      "text": "Arife tarif gerekmez ( Arifolan anlar. )",
+      "meaning": ""
+    },
+    {
+      "id": 82,
+      "text": "Armudu soy ye, elmayı sayye",
+      "meaning": "Armudun kabuğu, elmanın da fazlası yararlı değildir. Her şey usulünce tüketilmelidir."
+    },
+    {
+      "id": 83,
+      "text": "Armudun iyisini ayılar yer",
+      "meaning": "Güzel şeyler genellikle ona layık olmayan kişilerin olur."
+    },
+    {
+      "id": 84,
+      "text": "Armut , dibine düşer",
+      "meaning": "1) İnsan kendisini yetiştiren kişiye benzer. 2) İnsan en çok kendi yakınlarına yararlı olur."
+    },
+    {
+      "id": 85,
+      "text": "Aslan yattığı yerden bellidir",
+      "meaning": "Bir kişinin nasıl biri olduğu yaşadığı yerden, temizliğinden bellidir."
+    },
+    {
+      "id": 86,
+      "text": "Aş taşınca kepçeye pahaolmaz",
+      "meaning": "Zor durumdayken en değersiz şey bile değerlenir."
+    },
+    {
+      "id": 87,
+      "text": "Aşığa Bağdat sorulmaz",
+      "meaning": "Aşık olan kişi her zorluğa katlanır. Ona hiçbir şey engel olamaz."
+    },
+    {
+      "id": 88,
+      "text": "Aşure yemeğe giden kaşığınıbelinde taşır",
+      "meaning": "Bir şeyi elde etmek isteyen onun için sıkıntıya katlanmaya kendini hazırlamalıdır."
+    },
+    {
+      "id": 89,
+      "text": "At binenin kılıç kuşananın",
+      "meaning": "Bir şey ondan yararlanmasını bilenin hakkıdır."
+    },
+    {
+      "id": 90,
+      "text": "At ölür meydan kalır; yiğitölür şan kalır",
+      "meaning": "Herkes bir gün ölür; fakat dünyada bıraktığı güzel şeylerle anılır. İnsan arkasında iyi şeyler bırakmaya gayret etmelidir."
+    },
+    {
+      "id": 91,
+      "text": "At sahibine göre kişner",
+      "meaning": "Birinin yönetimi altında olan kimse onun istediği gibi davranır."
+    },
+    {
+      "id": 92,
+      "text": "Ateş düştüğü yeri yakar",
+      "meaning": "Felaket kimlerin başına gelirse onları yakar, kavurur, acı içinde bırakır."
+    },
+    {
+      "id": 93,
+      "text": "Ateş olmayan yerdenduman çıkmaz",
+      "meaning": "Bir şeyin gerçek olup olmadığımı anlamak için bazı belirtilere bakmak gerekir. Her olay mutlaka bir iz bırakır."
+    },
+    {
+      "id": 94,
+      "text": "Ateşle barut yan yana durmaz",
+      "meaning": "Birbiriyle karşılaşmaması gereken insanlar yan yana getirilmemelidir. Zira olumsuz sonuçlar doğabilir."
+    },
+    {
+      "id": 95,
+      "text": "Atlar tepişirken aradaeşekler ezilir",
+      "meaning": "Güçlü insanlar birbiriyle kavga ederken olan aradaki güçsüzlere olur."
+    },
+    {
+      "id": 96,
+      "text": "Ava giden avlanır",
+      "meaning": "Çıkarları için başkalarını ezen kişi önünde sonunda kendi zarar görür."
+    },
+    {
+      "id": 97,
+      "text": "Avcı ne kadar al bilse, ayıo kadar yol bilir",
+      "meaning": "Bir kişi başkalarını yenmek için ne kadar hileye başvursa da karşısındaki kişi ona göre önlem almayı bilir."
+    },
+    {
+      "id": 98,
+      "text": "Ay görmüşün yıldıza minneti yoktur",
+      "meaning": "Her şeyin en iyisine alışkın kimse daha kötüsüne, değersizine kıymet vermez."
+    },
+    {
+      "id": 99,
+      "text": "olmaz, başa gelmedik işkalmaz",
+      "meaning": "Bu hayatta insanın başına her türlü bela gelebilir."
+    },
+    {
+      "id": 100,
+      "text": "yaşamak istersen düşünmedenir",
+      "meaning": "Hastalanmamak için ayağımızı sıcak, yazın da başımızı serin tutmalıyız. Ayrıca bir şeyi de çok dert etmemeli, çok düşünmemeliyiz."
+    },
+    {
+      "id": 101,
+      "text": "Ayağını yorganına göreuzat",
+      "meaning": "Giderin gelirinden fazla olmamalıdır."
+    },
+    {
+      "id": 102,
+      "text": "Az tamah çok ziyan getirir",
+      "meaning": "Hırslı ve cimri insan hep zarara uğrar."
+    },
+    {
+      "id": 103,
+      "text": "Az veren candan, çok verenmaldan",
+      "meaning": "Yoksul kişi çok az yardımda da bulunsa bu bir fedakarlık sayılmaz; ondan eksilen bir şey olmaz."
+    },
+    {
+      "id": 104,
+      "text": "Aza kanaat etmeyen çoğubulamaz",
+      "meaning": "Azla yetinmeyi bilmeyip daha fazlasını isteyenler büyük şeyleri bulamaz."
+    },
+    {
+      "id": 105,
+      "text": "Azıcık aşım kaygısız başım",
+      "meaning": "İnsan elindekiyle yetinmeyi bilirse daha mutlu olur."
+    },
+    {
+      "id": 106,
+      "text": "Baba koruk yer, oğlunundişi kamaşır",
+      "meaning": "Babanın yaptığı kötü bir şeyin bedelini çocukları öder."
+    },
+    {
+      "id": 107,
+      "text": "lamış, oğlu babasına birsalkım üzüm vermemiş",
+      "meaning": "Bazı çocuklar kendilerine verilen değerli şeylerin kıymetini bilmezler. İyilikleri karşılıksız bırakırlar."
+    },
+    {
+      "id": 108,
+      "text": "Baca eğri de olsa dumandoğru çıkar",
+      "meaning": "Yaradılışı iyi olan kimse koşullar ne olursa olsun niteliğini bozmaz, değişemez."
+    },
+    {
+      "id": 109,
+      "text": "Bağa bak üzüm olsun yemeye gözün olsun",
+      "meaning": "Kişi verim beklediği şeye yatırım yapmalı, emek göstermelidir."
+    },
+    {
+      "id": 110,
+      "text": "Bakan göze bağ olmaz",
+      "meaning": "Göz önünde olan bir şeye bakmaya yasak getirilemez."
+    },
+    {
+      "id": 111,
+      "text": "Bakarsan bağ bakmazsandağ olur",
+      "meaning": "Bir şeye bakmazsan, emek vermezsen o şey işe yaramaz duruma gelir."
+    },
+    {
+      "id": 112,
+      "text": "Bal tutan parmağını yalar",
+      "meaning": "Başkalarına güzel şeyler dağıtmakla görevli kişi dağıttığından az çok kendisi de yararlanır."
+    },
+    {
+      "id": 113,
+      "text": "Balık baştan kokar",
+      "meaning": "Bir toplumda baştakilerin tutumu bozuk ise toplumdaki her şey bozulur."
+    },
+    {
+      "id": 114,
+      "text": "Balta sapını yontamaz",
+      "meaning": "Her zaman tek başımıza bir işi yapamayabiliriz; bazen birilerinden yardım istememiz gerekir."
+    },
+    {
+      "id": 115,
+      "text": "Bana dokunmayan yılan binyaşasın",
+      "meaning": "Kendisine zarar gelmediği taktirde başkalarına kötülük eden kişiye dokunmamak gerekir. (Bencil kişilerin tercihi bir ifadedir.)"
+    },
+    {
+      "id": 116,
+      "text": "Baş ağır gerek kulak sağır",
+      "meaning": "Kişi başkaları hakkında söylenen kötü şeyleri dikkate almamalı, dinlememelidir."
+    },
+    {
+      "id": 117,
+      "text": "Başa gelen çekilir",
+      "meaning": "Felaketler başımıza gelebilir; felaketlere katlanmaktan başka çare yoktur."
+    },
+    {
+      "id": 118,
+      "text": "Başak büyüdükçe boynunueğer",
+      "meaning": "Kişi bildikçe, öğrendikçe daha alçak gönüllü olur."
+    },
+    {
+      "id": 119,
+      "text": "Bedava sirke baldan tatlıdır",
+      "meaning": "Para verilmeden elde edilen şeyler çok hoşa gider."
+    },
+    {
+      "id": 120,
+      "text": "Besle kargayı oysun gözünü",
+      "meaning": "İyilik yaptığın öyle vefasız insanlar vardır ki gün gelir sana en büyük kötülüğü yaparlar."
+    },
+    {
+      "id": 121,
+      "text": "Bin atın varsa inişte in, biratın varsa yokuşta bin",
+      "meaning": "Atlar yokuş inerken zorlanır. Bunu bilen binici üzerinden inerek atı rahatlatır. Yokuş çıkan at ise yükü"
+    },
+    {
+      "id": 122,
+      "text": "Bin tasa bir borç ödemez",
+      "meaning": "Üzülerek borçtan kurtulamayız. Çalışıp para kazanarak bir an önce borcumuzu ödememiz gerekir."
+    },
+    {
+      "id": 123,
+      "text": "Bir avuç altının olacağına biravuç toprağın olsun",
+      "meaning": "Para tükenir biter; oysa toprak işlendikçe sürekli kazanç getirir."
+    },
+    {
+      "id": 124,
+      "text": "Bir çöplükte iki horoz ötmez",
+      "meaning": "Bir toplumda iki boş olmaz. Olursa anlaşmazlık çıkar."
+    },
+    {
+      "id": 125,
+      "text": "Bir deli kuyuya taş atmış, kırkakıllı çıkaramamış",
+      "meaning": "Bazen biri öyle bir şey yapar ki birçok akıllı kişi bir araya gelse bu durumu düzeltemez."
+    },
+    {
+      "id": 126,
+      "text": "Bir elin nesi var iki elin sesivar",
+      "meaning": "İnsan başkalarıyla yardımlaşarak bir işi daha çabuk yapabilir."
+    },
+    {
+      "id": 127,
+      "text": "Bir fincan kahvenin kırk yılhatırı vardır",
+      "meaning": "İyilik çok küçük de olsa asla unutulmamalıdır."
+    },
+    {
+      "id": 128,
+      "text": "Bir mıh bir nal kurtarır, bir nalbir at kurtarır",
+      "meaning": "Küçük görünen işler büyük sonuçlar doğurabilir."
+    },
+    {
+      "id": 129,
+      "text": "Bir musibet bin nasihattenyeğdir",
+      "meaning": "Yanlış yapıp uyarıldığı hâlde düzelmeyen kişi başına bir bela geldiğinde yaptığı işin ne kadar yanlış olduğunu anlar."
+    },
+    {
+      "id": 130,
+      "text": "Biri yer biri bakar, kıyametondan kopar",
+      "meaning": "Herkesin yararlanacağı bir şeyden bazıları yararlanır bazıları yararlanamazsa bundan büyük kavga çıkar."
+    },
+    {
+      "id": 131,
+      "text": "Bodur tavuk her gün piliç",
+      "meaning": "1) Ufak tefek kişiler yaşından küçük durur. 2) Beceriksiz tipler işlerinde pek başarılı olamazlar."
+    },
+    {
+      "id": 132,
+      "text": "Borç yiğidin kamçısıdır",
+      "meaning": "Kişi borcunu ödeyebilmek için çalışmak zorunda kalır. Borç kişiyi çalışmaya teşvik eder."
+    },
+    {
+      "id": 133,
+      "text": "Borç yiyen kesesinden yer",
+      "meaning": "Borcu olan kişi onu mutlaka ödemek zorunda olduğu için aslında kendi parasını yiyordur."
+    },
+    {
+      "id": 134,
+      "text": "Boş çuval ayakta durmaz",
+      "meaning": "Bilgisiz kişi toplumda bir yer edinemez."
+    },
+    {
+      "id": 135,
+      "text": "Boş fıçı çok langırdar",
+      "meaning": "Bilgisiz kişiler bir şey biliyormuş gibi her şeye karışıp ortalığı gürültüye verirler."
+    },
+    {
+      "id": 136,
+      "text": "Bugünkü işini yarına bırakma",
+      "meaning": "Her iş zamanında yapılmalıdır. Eğer ertelersek bitirmekte zorlanabiliriz."
+    },
+    {
+      "id": 137,
+      "text": "Bugünkü tavuk yarınki kazdan yeğdir",
+      "meaning": "Bugünkü işimizi yarın gelme ihtimali olan daha büyük bir kazanç için bozmamalıyız; çünkü yarın o gerçekleşmeyebilir; onun için eldekini tercih etmeliyiz."
+    },
+    {
+      "id": 138,
+      "text": "Buğday başak verince orakpahaya çıkar",
+      "meaning": "Bir şeye ne kadar çok ihtiyaç duyulursa o şeyin kıymeti o kadar artar."
+    },
+    {
+      "id": 139,
+      "text": "Bükemediğin eli öp başınakoy",
+      "meaning": "Karşındakini yenemiyorsan ona saygı duymayı öğrenmelisin."
+    },
+    {
+      "id": 140,
+      "text": "Bülbülü altın kafese koymuşlar, ah vatanım demiş",
+      "meaning": "Kişi vatanı dışında ne denli iyi bir yaşama ortamı bulursa bulsun, yine de vatanının özlemini çeker."
+    },
+    {
+      "id": 141,
+      "text": "Bülbülün çektiği dili belasıdır",
+      "meaning": "Bir şeyi söylemeden önce düşünmeli, yaratacağı sonucu iyi hesaplamalıyız."
+    },
+    {
+      "id": 142,
+      "text": "Büyük balık küçük balığıyutar",
+      "meaning": "Güçlüler güçsüzlere yaşama hakkı tanımaz."
+    },
+    {
+      "id": 143,
+      "text": "Büyük lokma ye de büyüksöyleme",
+      "meaning": "Kimseyi kınamamalıyız. Kınadığımız şey bir gün bizim de başımıza gelebilir."
+    },
+    {
+      "id": 144,
+      "text": "hendek atlatmaktan güçtür",
+      "meaning": "Cahil insan bilgisiz ve anlayışsızdır. Bunlara bir şey anlatamaz, onları ikna edemezsiniz."
+    },
+    {
+      "id": 145,
+      "text": "Can boğazdan gelir",
+      "meaning": "İnsanın hayatını sürdürebilmesi için yemek yemesi şarttır."
+    },
+    {
+      "id": 146,
+      "text": "Can çıkmayınca huy çıkmaz",
+      "meaning": "İnsanın huyu pek değişmez, ölene kadar devam eder."
+    },
+    {
+      "id": 147,
+      "text": "Canı kaymak isteyen mandayı yanında taşır",
+      "meaning": "Bir şeyi çok istiyorsak bunun gerektirdiği zorluklara da katlanmak zorundayız. Gerekli kaynakları elinin altında bulundurmalı."
+    },
+    {
+      "id": 148,
+      "text": "olur. (Canı acıyan eşek atıgeçer.)",
+      "meaning": "Bir durumdan canı yanan kişi o durumun bir daha yaşanmaması için elinden geleni yapar."
+    },
+    {
+      "id": 149,
+      "text": "Cefayı çekmeyen sefanınkadrini bilmez",
+      "meaning": "Sıkıntı çekememiş olanlar, ulaştıkları mutluluğun kıymetini bilmezler."
+    },
+    {
+      "id": 150,
+      "text": "Cins horoz yumurtada öter",
+      "meaning": "Bir çocuğun asaleti ve değeri daha bebekken belli olur."
+    },
+    {
+      "id": 151,
+      "text": "Çabalama ile çarık yırtılır",
+      "meaning": "Olmayacak bir işi zorla yapmaya kalkan zarara uğrar."
+    },
+    {
+      "id": 152,
+      "text": "Çağrılan yere erinme, çağrılmayan yere görünme",
+      "meaning": "Kişi çağrıldığı yere gitmeli, bu bir nezaket işidir. Çağrılmadığı yere gitmek de kabalıktır."
+    },
+    {
+      "id": 153,
+      "text": "Çalma elin kapısını, çalarlarkapını",
+      "meaning": "Kimseye kötülük yapma, yoksa aynı kötülüğü onlar da sana yaparlar."
+    },
+    {
+      "id": 154,
+      "text": "Çam sakızı çoban armağanı",
+      "meaning": "Varlıklı olmayan birinden gelen hediye de küçük olur."
+    },
+    {
+      "id": 155,
+      "text": "Çanağa ne doğarsan kaşığına o çıkar",
+      "meaning": "Kişi önceden ne gibi hazırlıklar yapmışsa ilerde onun veriminden yararlanır."
+    },
+    {
+      "id": 156,
+      "text": "Bağdattan arı gelir",
+      "meaning": "Güzel malı olan kimse müşteri kaygısı taşımaz. En uzak yerden bile bir alıcı bulur."
+    },
+    {
+      "id": 157,
+      "text": "Çatal kazık yere batmaz",
+      "meaning": "Birden çok insanın söz sahibi olduğu iş yürümez."
+    },
+    {
+      "id": 158,
+      "text": "Çay geçerken at değiştirilmez",
+      "meaning": "(Irmaktan geçerken at değiştirilmez. Bir yöntemden başka bir yönteme geçerken tehlikeli davranışlardan sakınmak gerekir."
+    },
+    {
+      "id": 159,
+      "text": "Çıkmadık candan umutkesilmez",
+      "meaning": "Bir işte, bir olay yok olma aşamasına gelse bile mücadeleden vazgeçilmemelidir. Her şey yeniden düzelebilir."
+    },
+    {
+      "id": 160,
+      "text": "Çiftçinin karnını yarmışlar,kırk tane gelecek yıl çıkmış",
+      "meaning": "Çiftçi elverişsiz iklim koşulları nedeniyle bazen umduğu verimi alamaz, daha sonraki yıllara umut bağlar."
+    },
+    {
+      "id": 161,
+      "text": "Çiğnemeden yutulmaz",
+      "meaning": "Çalışmadan yaşamak olmaz. En kolay iş bile emek ister."
+    },
+    {
+      "id": 162,
+      "text": "Çirkefe taş atma üstünesıçrar",
+      "meaning": "Kötülük yapmak için fırsat kollayan kişilerle çatışma; zararlı çıkar, kirlenirsin."
+    },
+    {
+      "id": 163,
+      "text": "Çivi çıkar ama yeri kalır",
+      "meaning": "Başkasına yaptığın bir kötülüğü sonrasında telafi de etsen kötü izini gideremezsin."
+    },
+    {
+      "id": 164,
+      "text": "Çivi çiviyi söker",
+      "meaning": "Güç bir şey, güç bir şeyle yenilir."
+    },
+    {
+      "id": 165,
+      "text": "Çobansız koyunu kurt kapar",
+      "meaning": "Koruyucu, yöneticisi olmayan kişiyi ve topluluğu düşman ezer."
+    },
+    {
+      "id": 166,
+      "text": "Çocuk düşe kalka büyür",
+      "meaning": "Çocuk yürümeye başladığında sık sık düşer. Her çocuk bu evrelerden geçer, üzülmemek gerekir."
+    },
+    {
+      "id": 167,
+      "text": "Çocuktan al haberi",
+      "meaning": "Çocuklar yalan dolan bilmez. Her şeyi olduğu gibi anlatır. Gizlilik nedir bilmez."
+    },
+    {
+      "id": 168,
+      "text": "Çoğu zarar azı karar",
+      "meaning": "Ne iş olursa olsun aşırılığa kaçmamak gerekir."
+    },
+    {
+      "id": 169,
+      "text": "Çok bilen çok yanılır",
+      "meaning": "İnsan ne kadar çok şey bildiğini düşünse de bilmediği daha çok şey vardır. Kendine bu anlamda çok güvenen kimse hata yapma riski olan kimsedir."
+    },
+    {
+      "id": 170,
+      "text": "Çok havlayan köpek ısırmaz",
+      "meaning": "Karşındakinin bağırıp çağırmakla korkutan kişi eyleme geçemez."
+    },
+    {
+      "id": 171,
+      "text": "Çok koşan tez yorulur",
+      "meaning": "Bir işte aşırı çaba gösteren, çabuk yorulacağı için sonucu elde etmekte gecikir. Sürekli çalışabilmek ve sonuca kavuşabilmek için harcanan çabanın yormayacak şekilde olması gerekir."
+    },
+    {
+      "id": 172,
+      "text": "Çok naz aşık usandırır",
+      "meaning": "Önemli bir işi yalnız kendisi yapabilen kişi bunu yapmak için çok nazlanırsa o işin kendisine yaptırılmasından vazgeçirilir."
+    },
+    {
+      "id": 173,
+      "text": "Çok söz yalansız, çok malharamsız olmaz",
+      "meaning": "Çok konuşan kişinin sözlerine yalan karışabilir, bol kazancın içinde yasadışı elde edilmiş para bulunduğu gibi."
+    },
+    {
+      "id": 174,
+      "text": "Çok yaşayan bilmez, çokgezen bilir",
+      "meaning": "Çok gezen, çok gören çok şey öğrenir. Çok yaşayan onun kadar bilemeyebilir."
+    },
+    {
+      "id": 175,
+      "text": "Çuhayı fırça ile kadifeyi elile",
+      "meaning": "Kimisine sert, kimisine yumuşak davranmak gerekir."
+    },
+    {
+      "id": 176,
+      "text": "Çürük tahta mıh tutmaz",
+      "meaning": "Aslında işe yaramaz ya da sonradan o duruma gelmiş olan şeyi, ne yaparsanız yapın işe yarar duruma getiremezsiniz."
+    },
+    {
+      "id": 177,
+      "text": "Dadandırma kara gelin,dadanırsa yine gelir",
+      "meaning": "Sırnaşık kişiye yüz vermeye gelmez, yüz bulursa sizi çok bıktırır."
+    },
+    {
+      "id": 178,
+      "text": "Dağ başına kış gelir, insanınbaşına iş gelir",
+      "meaning": "Dağ başında kışın, fırtınanın eksik olmadığı gibi insanın başına da bu hayatta her şey gelebilir."
+    },
+    {
+      "id": 179,
+      "text": "Dağ başından duman eksikolmaz",
+      "meaning": "Büyük adamların derdi, belası çok olur."
+    },
+    {
+      "id": 180,
+      "text": "Dağ ne kadar yüce olsa yolüstünden aşar",
+      "meaning": "1) Her yüce kişiden daha yetkili bir kişi vardır. 2) Üstesinden gelinmeyecek bir sorun yoktur."
+    },
+    {
+      "id": 181,
+      "text": "Dağ yürümezse abdal yürür",
+      "meaning": "Bir işimizi halletmek için büyüklük taslayan birine ihtiyacımız varsa ve o bizimle ilgilenmiyorsa bizim onun ayağına gitmemiz gerekir."
+    },
+    {
+      "id": 182,
+      "text": "Dağdaki kekliğin bini birpara",
+      "meaning": "Kişi kendisi sahip olmadıktan sonra güzel bir şeyin kıymeti yoktur."
+    },
+    {
+      "id": 183,
+      "text": "Damlaya damlaya göl olur",
+      "meaning": "Küçük şeyler birike birike büyük varlık oluşturur."
+    },
+    {
+      "id": 184,
+      "text": "Danışan dağ asmış, danışmayanın yolu şaşmış",
+      "meaning": "Bir bilene danışmadan iş yapmaya kalkan kimseler başarıya ulaşamaz. Bir bilene sormak lazımdır."
+    },
+    {
+      "id": 185,
+      "text": "Davetsiz gelen, döşeksiz oturur",
+      "meaning": "Bir yere davet edilmeden giderseniz iyi ağırlanmayı bekleyemezsiniz."
+    },
+    {
+      "id": 186,
+      "text": "Davul dengi dengine diyeçalar",
+      "meaning": "Evlenecek insanların birbirlerine uyumlu olmaları gerekir."
+    },
+    {
+      "id": 187,
+      "text": "Davulun sesi uzaktan hoşgelir",
+      "meaning": "Öyle durumlar var ki içinde yaşandığı kişiyi rahatsız eder, uzaktan bakan ise ona inanır."
+    },
+    {
+      "id": 188,
+      "text": "Dayak cennetten çıkmadır",
+      "meaning": "Bazılarını yola getirmek için dayaktan başka yol yoktur."
+    },
+    {
+      "id": 189,
+      "text": "Değirmene gelen nöbetbekler",
+      "meaning": "Bir şeyden birçok kimse yararlanacaksa herkes gelip sırayla görevini yapmalıdır."
+    },
+    {
+      "id": 190,
+      "text": "Deli deliyi görünce değneğini saklar",
+      "meaning": "Saldırgan kimse, kendi gibi saldırgan olan birinden çekinir."
+    },
+    {
+      "id": 191,
+      "text": "Delikli taş yerde kalmaz",
+      "meaning": "Bilgili becerikli kişi boşta bırakılmaz, başına bir iş getirilir."
+    },
+    {
+      "id": 192,
+      "text": "Deliye bal tattırmışlar, çarşıda katran bırakmamış",
+      "meaning": "Dengesiz insanlara bulaşmamak lazım. Ne yapacakları belli olmaz."
+    },
+    {
+      "id": 193,
+      "text": "Deliye her gün bayram",
+      "meaning": "Sorumsuz, istediği şeyi yapan insanlar hep özgürdür, her günü bayram gibi geçer."
+    },
+    {
+      "id": 194,
+      "text": "Demir tavında dövülür",
+      "meaning": "Her işin yapılması gereken bir zamanı ve yeri vardır."
+    },
+    {
+      "id": 195,
+      "text": "Deniz dalgasız olmaz, gönülsevgisiz olmaz",
+      "meaning": "İnsan sevmeden yaşayamaz. Her gönül sevmek ister."
+    },
+    {
+      "id": 196,
+      "text": "Denizdeki balığın pazarlığıolmaz",
+      "meaning": "Daha gerçekleşmemiş, henüz planlanan bir durum üzerine fikir yürütmek doğru değildir."
+    },
+    {
+      "id": 197,
+      "text": "Denize düşen yılana sarılır",
+      "meaning": "Çok büyük tehlike altında bulunan kişi bazen çaresizce daha tehlikeli şeylerden bile yardım umabilir."
+    },
+    {
+      "id": 198,
+      "text": "Derdini söylemeyen dermanbulamaz",
+      "meaning": "Sıkıntı ve dertler başkalarıyla, yakınlarla paylaşılınca azalır. Onların tecrübelerinden yararlanmak çözüm getirir."
+    },
+    {
+      "id": 199,
+      "text": "Dert çekene göredir",
+      "meaning": "Herkesin derdi vardır. Bir derdin ağırlığı derde uğrayan kişinin etkilenme derecesiyle ölçülür."
+    },
+    {
+      "id": 200,
+      "text": "Dert gezmiş, derman beraber gezmiş",
+      "meaning": "Dermansız dert olmaz, her derdin mutlaka bir çaresi vardır."
+    },
+    {
+      "id": 201,
+      "text": "Destursuz bağa gireni sopaile kovarlar",
+      "meaning": "İzin alınarak yapılması gereken bir işi izin almadan yapan bunun cezasını çeker."
+    },
+    {
+      "id": 202,
+      "text": "Deve boynuz ararkenkulaktan olmuş",
+      "meaning": "Elindekiyle yetinmeyip daha fazlasını isteyen hırslı kişiler gün gelir elindekini de kaybeder."
+    },
+    {
+      "id": 203,
+      "text": "Deve Kâbeye gitmekle hacıolmaz",
+      "meaning": "Gerekli niteliklerden yoksun olan kişi ne yaparsa yapsın kişiliğine değer kazandıramaz."
+    },
+    {
+      "id": 204,
+      "text": "Deveye bindikten sonra çalıardına gizlenilmez",
+      "meaning": "Herkesin gözü önündeki büyük bir olayı gizlemeye çalışmak boş bir çabadır."
+    },
+    {
+      "id": 205,
+      "text": "Deveyi yardan uçuran birtutam ottur",
+      "meaning": "Küçük bir çıkar uğruna yapılan şeyler büyük felaketlere yol açabilir."
+    },
+    {
+      "id": 206,
+      "text": "Devletin malı deniz, yemeyen domuz",
+      "meaning": "Devlete ihanet etmeyi alışkanlık hâline getiren kimselere göre devletin malı bitmez, yolunu bulup ondan çalmamak ahmaklıktır."
+    },
+    {
+      "id": 207,
+      "text": "Dibi görünmeyen sudangeçme",
+      "meaning": "Her yönünü iyice araştırmadığın işe girişme."
+    },
+    {
+      "id": 208,
+      "text": "Dikensiz gül olmaz",
+      "meaning": "Her güzel şeyin hoşa gitmeyen bir yönü, bir zorluğu vardır."
+    },
+    {
+      "id": 209,
+      "text": "Dilencinin torbası dolmaz",
+      "meaning": "İnsanlardan sürekli almaya alışkın kimselerin isteklerinin sonu olmaz."
+    },
+    {
+      "id": 210,
+      "text": "düğünde ister ya bayramda",
+      "meaning": "Kendi çıkarını düşünen kimselerle ilişki içinde olma; çünkü bu kişiler senin gururunu incitirler."
+    },
+    {
+      "id": 211,
+      "text": "başıma geleni senden bileyim",
+      "meaning": "Dilini tutamayan kişiler pişman olacağı şeyler söyleyebilir."
+    },
+    {
+      "id": 212,
+      "text": "Dilin kemiği yok",
+      "meaning": "Dil her yana dönebilir Önce söylediğinizi başka biçimlere sokabilir, tam tersine çevirebilir. Bazı insanların bir dediği diğerini tutmaz."
+    },
+    {
+      "id": 213,
+      "text": "Dinsizin hakkından imansızgelir",
+      "meaning": "Acımasız kişi, kendinden daha acımasız kişiyi yola getirir."
+    },
+    {
+      "id": 214,
+      "text": "Doğru söyleyeni dokuz köyden kovarlar",
+      "meaning": "Doğruyu söyleyen kişi pek sevilmez; çünkü kimse eleştirilmekten hoşlanmaz. Bu yüzden herkesin kusurunu yüzüne söyleyen kişi kırdığı insanlar tarafından sevilmez."
+    },
+    {
+      "id": 215,
+      "text": "Dokuz ayın çarşambası biraraya gelmek",
+      "meaning": "İşlerin karışması, birçok işin aynı zamana denk gelmesi, bu yüzden oluşan karışık durum."
+    },
+    {
+      "id": 216,
+      "text": "Dost acı söyler",
+      "meaning": "Yakın dostlar bizim iyiliğimizi istedikleri için kırılmamız pahasına bize gerçekleri söyler."
+    },
+    {
+      "id": 217,
+      "text": "Dost başa düşman ayağa",
+      "meaning": "Dost yükselmemizi istediği için başımıza, düşman kaymamızı beklediği için ayağımıza bakar."
+    },
+    {
+      "id": 218,
+      "text": "Düğün el ile harman yel ile",
+      "meaning": "Her iş ancak yardımlaşarak yapılabilir."
+    },
+    {
+      "id": 219,
+      "text": "Dünya malı dünyada kalır",
+      "meaning": "Her şey geçer, biriktirdiğimiz her şey dünyada kalır. Öteki hayata hiçbir şey götüremeyiz. Bu yüzden malı biriktirmek için abartmamak gerek."
+    },
+    {
+      "id": 220,
+      "text": "Dünyada mekân ahiretteiman",
+      "meaning": "Bu dünyada insanların yaşayabileceği bir evi olmalı. Öteki hayatta da rahat etmek için iman olmalı."
+    },
+    {
+      "id": 221,
+      "text": "Düş uykudan sonra olur",
+      "meaning": "Güzel şeyler elde etmek için önce şartları yerine getirmeliyiz."
+    },
+    {
+      "id": 222,
+      "text": "Düşmez kalkmaz bir Allah",
+      "meaning": "Hayatta insanın başına her şey gelebilir. Kişi malını mülkünü, sağlığını bir anda kaybedebilir."
+    },
+    {
+      "id": 223,
+      "text": "Ecel geldi cihana, baş ağrısıbahane",
+      "meaning": "Kişi eninde sonunda ölecektir. Sebep hiçbir şeyi değiştirmez. Sebep sadece bahanedir."
+    },
+    {
+      "id": 224,
+      "text": "Eceli gelen köpek camiduvarına siyer (işer)",
+      "meaning": "Herkesin kutsal saydığı şeyi kötüleyen, bozan kişi artık bulunduğu yerde yaşayamaz."
+    },
+    {
+      "id": 225,
+      "text": "Edebi edepsizden öğren",
+      "meaning": "Edepsizin yaptığı işlerin yapılmaması gereken işler olduğunu düşünmekle doğru yolu bulmuş, böylece edebi edepsizden öğrenmiş oluruz."
+    },
+    {
+      "id": 226,
+      "text": "Eden bulur, inleyen ölür",
+      "meaning": "1) Bir durumun nasıl sonuçlanacağı işin başında belli olur. 2) Başkasına kötülük eden kişi yaptıklarının cezasını çeker."
+    },
+    {
+      "id": 227,
+      "text": "Eğilen baş kesilmez",
+      "meaning": "Hatasını anlayıp af dileyen kişinin özrü kabul edilmelidir."
+    },
+    {
+      "id": 228,
+      "text": "Eğreti ata binen tez iner",
+      "meaning": "Başkasının malını, yetkisini kullanan kişi eninde sonunda bunları gerçek sahibine teslim etmek zorunda kalır."
+    },
+    {
+      "id": 229,
+      "text": "Eken biçer, konan göçer",
+      "meaning": "Her şeyin bir sonucu vardır, başlayan sonucu görür."
+    },
+    {
+      "id": 230,
+      "text": "El el ile, değirmen yel eli",
+      "meaning": "İnsanlar birbirine yardım etmeden başarılı olamazlar."
+    },
+    {
+      "id": 231,
+      "text": "El elden üstündür arşa kadar",
+      "meaning": "Bir konuda çok ileri durumda bulunan kişi o konunun en iyisi olduğunu düşünmemeli. Kendisinden çok daha üstün kimseler olduğunu unutmamalıdır."
+    },
+    {
+      "id": 232,
+      "text": "El eli yıkar, iki el de yüzüyıkar",
+      "meaning": "Bir kişi başkasına yardım ederse o da bu iyiliğin altında kalmayarak güçlenmiş olarak başkalarına yardım eder."
+    },
+    {
+      "id": 233,
+      "text": "El elin eşeğini türkü çağırarakçağırır",
+      "meaning": "Hiç kimse başkasının derdine kendi başına gelmiş gibi üzülmez. Dertli insan kadar kaygılı olmaz."
+    },
+    {
+      "id": 234,
+      "text": "El için ağlayan gözden olur",
+      "meaning": "Başkaları için verilen tavizin de bir sonu olmalıdır; yoksa elimizdekini de kaybedebiliriz."
+    },
+    {
+      "id": 235,
+      "text": "El ile gelen düğün bayram",
+      "meaning": "Bir dert herkes tarafından çekiliyorsa, ortaksa katlanılması daha kolay olur."
+    },
+    {
+      "id": 236,
+      "text": "El yarası onulur, dil yarasıonulmaz",
+      "meaning": "Silahla açılan yara kapanır, iyileşir; kötü sözle açılan dil yarası kolay kolay kapanmaz."
+    },
+    {
+      "id": 237,
+      "text": "Elçiye zeval olmaz",
+      "meaning": "Biri için aracılık eden kimse o kişinin davranışından ya da kötü sözlerinden sorumlu tutulamaz. Bu yüzden elçinin günahı yoktur."
+    },
+    {
+      "id": 238,
+      "text": "Elden gelen öğün olmaz, oda vaktinde gelmez",
+      "meaning": "İnsan ihtiyaçlarını kendi karşılamalıdır. Başkalarından çok da bir şey beklememelidir."
+    },
+    {
+      "id": 239,
+      "text": "Elin ağzı torba değil ki büzesin",
+      "meaning": "İnsanlar dedikodu yapmayı sever, onlara fırsat vermemelidir."
+    },
+    {
+      "id": 240,
+      "text": "de kendi gözündeki merteği görmez",
+      "meaning": "İnsanlar kendi kusurlarını değil de başkalarının kusurlarını görmeye daha meyillidir."
+    },
+    {
+      "id": 241,
+      "text": "Emanete hıyanet olmaz",
+      "meaning": "Bize emanet edilen şeyi çok iyi korumalıyız. Bu güveni asla sarsmamalıyız."
+    },
+    {
+      "id": 242,
+      "text": "Erken kalkan yol alır, erevlenen döl alır",
+      "meaning": "Her şeye zamanında başlamak, hiçbir şeye geç kalmamak gerekir."
+    },
+    {
+      "id": 243,
+      "text": "Eski dost düşman olmaz,yenisinden vefa gelmez",
+      "meaning": "Eski dostlar daha iyi tanındığı için ondan zarar mı yoksa yarar mı geleceği bellidir. Oysa yeni dost yeni olduğu için nasıl davranacağı, nasıl olduğu bilinmemektedir."
+    },
+    {
+      "id": 244,
+      "text": "Eskiye rağbet olsaydı bitpazarına nur yağardı",
+      "meaning": "Eski şeyler değerini yitirir, bir şey gözden düştü mü artık ilgi çekmez olur."
+    },
+    {
+      "id": 245,
+      "text": "Eşeğe altın semer vursalaryine eşektir",
+      "meaning": "İnsanlıktan nasibini almamış kişi kılık kıyafetle insan olmaz. O, yine bayağı ve düşük bir insandır."
+    },
+    {
+      "id": 246,
+      "text": "Eşek hoşaftan ne anlar,suyunu içer tanesini bırakır",
+      "meaning": "Kaba ve görgüsüz kimseler güzel şeylerin kıymetini bilmez."
+    },
+    {
+      "id": 247,
+      "text": "Et tırnaktan ayrılmaz",
+      "meaning": "Anne, baba, çocuk, kardeşler ne olursa olsun birbirinden kopamazlar."
+    },
+    {
+      "id": 248,
+      "text": "Ev alma komşu al",
+      "meaning": "Komşu kötü ise oturduğun evde mutlu, huzurlu olamazsın; o yüzden ev alırken çok düşünmek gerekir."
+    },
+    {
+      "id": 249,
+      "text": "Fakirlik ayıp değil tembellikayıp",
+      "meaning": "İnsan fakir olduğu için utanmamalı, çalışmadığı için utanmalı. Asıl ayıp çalışmamaktır."
+    },
+    {
+      "id": 250,
+      "text": "Fare çıktığı deliği bilir",
+      "meaning": "Kötü işler yapan kişiler, başları derde girdiğinde nasıl kurtulacaklarını çok iyi bilirler."
+    },
+    {
+      "id": 251,
+      "text": "Fazla mal söz çıkarmaz",
+      "meaning": "Fazla mal kişiye zarar vermez. Bu yüzden elden çıkarılmamalıdır."
+    },
+    {
+      "id": 252,
+      "text": "Felek kimine kavun yedirir,kimine kelek",
+      "meaning": "Hayatta şans herkese gülmez. Kimisi bolluk mutluluk; kimisi darlık, mutsuzluk görür."
+    },
+    {
+      "id": 253,
+      "text": "Fırsat sakal altından geçer",
+      "meaning": "Bazı fırsatlar çok yakınımızdadır. Onları iyi görmek gerekir."
+    },
+    {
+      "id": 254,
+      "text": "Fukaranın tavuğu tek tekyumurtlar",
+      "meaning": "Fakirin şansı yoktur. Eşit sermaye zengine daha çok yoksula daha az gelir getirir."
+    },
+    {
+      "id": 255,
+      "text": "Garip kuşun yuvasını Allahyapar",
+      "meaning": "Allah kimseyi derde bırakmaz, onlara mutlaka yardım eder."
+    },
+    {
+      "id": 256,
+      "text": "Geceler gebedir",
+      "meaning": "Her kötü gün bir gün biter, mutlaka her gecenin bir sabahı, bir aydınlığı vardır."
+    },
+    {
+      "id": 257,
+      "text": "Geç olsun da güç olmasın",
+      "meaning": "Elde etmek istediğimiz sonuca geç ulaşmamız önemli değildir; yeter ki zor olmasın."
+    },
+    {
+      "id": 258,
+      "text": "Gelen geçer konan göçer",
+      "meaning": "Hiçbir şey aynı kalmaz, her şey değişir."
+    },
+    {
+      "id": 259,
+      "text": "Gelin ata binmiş, ya nasipdemiş",
+      "meaning": "Her şey kısmet işidir, bir şey kesin bitmeden o iş bitti sayılmaz."
+    },
+    {
+      "id": 260,
+      "text": "Gemisini kurtaran kaptan",
+      "meaning": "Yetenekli, becerikli insanlar en zor durumlarda bile işlerini iyi sonuca ulaştırırlar, paniklemezler."
+    },
+    {
+      "id": 261,
+      "text": "Gençliğin kıymeti ihtiyarlıkta bilinir",
+      "meaning": "İnsan gençliğinde zamanı gerektiği gibi değerlendiremez. İhtiyarlayınca bazı şeyleri fark eder; ama bu kez de gücü bazı şeyleri yapmaya yetmez."
+    },
+    {
+      "id": 262,
+      "text": "Gezen ayağa taş değer",
+      "meaning": "Gereksiz işler yapan insanların başı dertten kurtulmaz."
+    },
+    {
+      "id": 263,
+      "text": "Gidip de gelmemek vargelip de görmemek var",
+      "meaning": "İnsanın başına her şey gelebilir, hayat bu, belli olmaz."
+    },
+    {
+      "id": 264,
+      "text": "Göğe direk denize kapakolmaz",
+      "meaning": "Bazı şeylerin gerçekleşmesi mümkün değildir, boş hayal peşinde koşmamalıdır."
+    },
+    {
+      "id": 265,
+      "text": "Gök ağlamayınca yergülmez",
+      "meaning": "Bazı şeyleri elde etmek için sesimizi çıkarmamız, hakkımızı bu şekilde aramamız gerekebilir."
+    },
+    {
+      "id": 266,
+      "text": "Gönül bir sırça saraydır kırılırsa yapılmaz",
+      "meaning": "İnsan, gönlü bir kere incindi mi yapılan hatayı kolay kolay affedemez."
+    },
+    {
+      "id": 267,
+      "text": "Gönül ferman dinlemez",
+      "meaning": "İnsan sevdiğinden, sevdiği şeyden ne olursa olsun vazgeçmez."
+    },
+    {
+      "id": 268,
+      "text": "Gönül kimi severse güzelodur",
+      "meaning": "İnsan sevdiği kişiyi çok güzel gördüğünden onun nazarında en güzeli odur."
+    },
+    {
+      "id": 269,
+      "text": "Gönül kocamaz",
+      "meaning": "İnsan yüreği, ruhu yaşlanmaz; hep genç kalır."
+    },
+    {
+      "id": 270,
+      "text": "Gönülsüz yenen aş, ya karınağrıtır ya baş",
+      "meaning": "İstenmeden yapılan işten güzel sonuç alınmaz."
+    },
+    {
+      "id": 271,
+      "text": "Gören gözün hakkı vardır",
+      "meaning": "Kıskanılacak bir şeyimiz varsa ve onu da birileri gördüyse onun da bundan yararlanması gerekir."
+    },
+    {
+      "id": 272,
+      "text": "Görünen köy kılavuz istemez",
+      "meaning": "Ortada duran bir gerçeği açıklamaya gerek yoktur."
+    },
+    {
+      "id": 273,
+      "text": "Görünüşe aldanmamak",
+      "meaning": "Dış görünüş her zaman aldatıcıdır. Bir şeyin mutlaka iç yüzünü bilip ona göre karar vermek gerekir."
+    },
+    {
+      "id": 274,
+      "text": "Göz görmeyince gönül katlanır",
+      "meaning": "İnsanın sevdiği uzakta olursa görüşmekten umudunu kestiği için ayrılığa katlanması daha kolaydır, yakında olduğunda onu sık sık görmek ister."
+    },
+    {
+      "id": 275,
+      "text": "Gözden ırak olan gönüldende ırak olur",
+      "meaning": "Sevdiğimiz kimse uzakta olduğunda onu sık sık görmediğimiz için ona olan sevgimiz de zamanla azalır."
+    },
+    {
+      "id": 276,
+      "text": "Gülme komşuna gelir başına",
+      "meaning": "İnsan başkasının başına gelen şeylere gülmemelidir; gün gelir aynı olay onun da başına gelebilir."
+    },
+    {
+      "id": 277,
+      "text": "Gülü seven dikenine katlanır",
+      "meaning": "İnsan sevdiği kimse veya iş yüzünden gelecek sıkıntılara katlanır, “Dikensiz gül olmaz.”"
+    },
+    {
+      "id": 278,
+      "text": "Gün doğmadan nelerdoğar",
+      "meaning": "Zamanın neler getireceği belli olmaz, Hiçbir zaman umudu kaybetmemek gerekir."
+    },
+    {
+      "id": 279,
+      "text": "Güneş balçıkla sıvanmaz",
+      "meaning": "Herkesin bildiği bir gerçek inkâr edilemez, örtbas edilemez."
+    },
+    {
+      "id": 280,
+      "text": "Güneş girmeyen eve doktorgirer",
+      "meaning": "Ev, güneş almalıdır. Güneş mikropları öldürür, güneşsiz evde hastalık eksik olmaz."
+    },
+    {
+      "id": 281,
+      "text": "Güvenme varlığa düşersindarlığa",
+      "meaning": "Zenginliğine güvenip malını, paranı çok harcarsan bir gün harcayacak bir şey bulamazsın."
+    },
+    {
+      "id": 282,
+      "text": "Güzele bakmak sevaptır",
+      "meaning": "Güzel şeylere baktığımızda Tanrı’nın büyüklüğüne bir kez daha hayranlık duyarız."
+    },
+    {
+      "id": 283,
+      "text": "Güzeli herkes sever",
+      "meaning": "Güzel olan şeyleri sevmeyen yoktur."
+    },
+    {
+      "id": 284,
+      "text": "Güzellik ondur, dokuzu dondur",
+      "meaning": "Çoğu kişiyi güzel gösteren giyimi kuşamıdır."
+    },
+    {
+      "id": 285,
+      "text": "Hacı hacıyı Mekke’de, dervişdervişi tekkede bulur",
+      "meaning": "Aynı yolda olanlar bu yol yolcularının olduğu yerde bir araya gelirler."
+    },
+    {
+      "id": 286,
+      "text": "Hamala semeri yük olmaz",
+      "meaning": "İnsana kendi işi ve sorumluluğu ağır gelmez."
+    },
+    {
+      "id": 287,
+      "text": "Hamama giren terler",
+      "meaning": "Bir iş yaparken çok sıkıntı çekmemiz gerekecekse bunlara katlanmak zorundayız."
+    },
+    {
+      "id": 288,
+      "text": "Harman döven öküzün ağzıbağlanmaz",
+      "meaning": "Hizmetinin verimlerini aldığımız kimse bize kazandırdıklarından yararlanabilir. (Bal tutan parmağını yalar)"
+    },
+    {
+      "id": 289,
+      "text": "Harman yel ile düğün el ile",
+      "meaning": "Bir işin gerçekleşebilmesi için uygun koşulların oluşturulması gerekir."
+    },
+    {
+      "id": 290,
+      "text": "Hasta yatan ölmez, eceliyeten ölür",
+      "meaning": "Birinin ölüp ölmeyeceği hastalığından belli olmaz. Bunu ancak Allah bilebilir."
+    },
+    {
+      "id": 291,
+      "text": "Hastaya döşek sorulmaz",
+      "meaning": "Bir şeye çok ihtiyacı olan birine o şeyi isteyip istemediği sorulmaz."
+    },
+    {
+      "id": 292,
+      "text": "Hatasız kul olmaz",
+      "meaning": "Hayatta herkes hata yapabilir; insanları affedebilmek gerekir."
+    },
+    {
+      "id": 293,
+      "text": "Hatır için çiğ tavuk yenir",
+      "meaning": "İnsan sevdikleri için her şeyi göze alır."
+    },
+    {
+      "id": 294,
+      "text": "Haydan gelen huya gider",
+      "meaning": "Emek verilmeden kazanılan para hiç olmadık yerlerde harcanır gider."
+    },
+    {
+      "id": 295,
+      "text": "Hazıra dağlar dayanmaz",
+      "meaning": "İnsan bir yandan yerken bir yandan çalışmalıdır; yoksa hazırdaki para tükenince aç kalır."
+    },
+    {
+      "id": 296,
+      "text": "Hekimden sorma çekendensor",
+      "meaning": "Bir sıkıntının acısını çare gösteren kişi değil, çeken bilir."
+    },
+    {
+      "id": 297,
+      "text": "Helal kazanç ile yağlı pilavyenmez",
+      "meaning": "Yasa dışı işler yapmadan zengin olmak çok zordur. Ancak bu yollarla insanlar zengin olur."
+    },
+    {
+      "id": 298,
+      "text": "Her ağacın meyvesi olmaz",
+      "meaning": "İnsanların dış görünüşüne bakarak çok çalışkan oldukları söylenemez. Yaptığı işe bakmak gerekir."
+    },
+    {
+      "id": 299,
+      "text": "Her ağaçtan kaşık olmaz",
+      "meaning": "Her şey her işe yaramaz. Özelliği var diye ondan bir şey ummak doğru değildir."
+    },
+    {
+      "id": 300,
+      "text": "Her damardan kan alınmaz",
+      "meaning": "Herkesten yardım istenmez, nasıl tepki verecekleri bilinmez."
+    },
+    {
+      "id": 301,
+      "text": "Her dükkân kirasıyla",
+      "meaning": "Her malın gerçek değeri onun ederiyle ölçülmelidir."
+    },
+    {
+      "id": 302,
+      "text": "Her güzelin bir kusuru vardır",
+      "meaning": "Kusursuz güzel olmaz. Herkesin mutlaka bir kusuru bulunur."
+    },
+    {
+      "id": 303,
+      "text": "Her horoz kendi çöplüğündeöter",
+      "meaning": "Herkes alıştığı ortamda kendini güçlü hisseder, insanın bilmediği bir yerde kendini dinletmesi zordur."
+    },
+    {
+      "id": 304,
+      "text": "Her işin başı sağlık",
+      "meaning": "Hayatta en önemli şey sağlıktır. Sağlıklı olmadan hiçbir şey yapamayız."
+    },
+    {
+      "id": 305,
+      "text": "Her işte bir hayır vardır",
+      "meaning": "Çok istediğimiz bir şey olmadığında üzülmemeliyiz. Olmayan şeyde mutlaka bizim için hayırlı şeyler vardır. Bu zamanla anlaşılır."
+    },
+    {
+      "id": 306,
+      "text": "Her koyun kendi bacağındanasılır",
+      "meaning": "Herkes kendinden, yaptıklarından sorumludur."
+    },
+    {
+      "id": 307,
+      "text": "Her kuşun eti yenmez",
+      "meaning": "İnsanları küçümsememek gerekir. Herkese her şeyi yaptıramazsınız."
+    },
+    {
+      "id": 308,
+      "text": "Her sakallıyı baban mı sandın?",
+      "meaning": "Dış görünüşe aldanmamak gerekir."
+    },
+    {
+      "id": 309,
+      "text": "Her yiğidin bir yoğurt yiyişivardır",
+      "meaning": "Herkesin bir çalışma yöntemi vardır."
+    },
+    {
+      "id": 310,
+      "text": "Her yiğidin gönlünde bir aslanyatar",
+      "meaning": "Herkesin istediği bir şey, bir hayal, bir kişi mutlaka vardır."
+    },
+    {
+      "id": 311,
+      "text": "Herkes bildiğini okur",
+      "meaning": "İnsanlara ne akıl verirseniz verin herkes kendi aklını sever, bildiğini yapar. (Aklı pazara çıkarmışlar, alıcısı olmamış)"
+    },
+    {
+      "id": 312,
+      "text": "Herkesin arşınına göre bezvermezler",
+      "meaning": "İnsanlar ihtiyaçlarını ancak hak ettikleri ölçüde karşılayabilir."
+    },
+    {
+      "id": 313,
+      "text": "Herkesin bir derdi var. değirmencininki de su",
+      "meaning": "Herkesin sıkıntısı kendi ihtiyacına göredir."
+    },
+    {
+      "id": 314,
+      "text": "Herkesin geçtiği köprüden sende geç",
+      "meaning": "Herkes ne yapıyorsa sen de çok düşünmeden aynısını yap."
+    },
+    {
+      "id": 315,
+      "text": "Hile ile iş gören mihnet ile canverir",
+      "meaning": "İnsanları aldatarak iş yapan kişilerin ölümü çok acı olur."
+    },
+    {
+      "id": 316,
+      "text": "Hocanın dediğini yap, yaptığını yapma",
+      "meaning": "İnsanlara nasihat edenler genelde kendileri o nasihati yerine getirmezler."
+    },
+    {
+      "id": 317,
+      "text": "Horoz ölür, gözü çöplüktekalır",
+      "meaning": "Kişi yaşlansa da sevdiği şeylere olan bağlılığını yitirmez."
+    },
+    {
+      "id": 318,
+      "text": "Horozu çok olan köyün sabahı geç olur",
+      "meaning": "Bir işte birden çok kişi söz sahibiyse o işten verimli sonuç alınamaz."
+    },
+    {
+      "id": 319,
+      "text": "Huylu huyundan vazgeçmez",
+      "meaning": "İnsanın huyu değişmez. Bir şeyi huy edinmiş kimse bu huyunu terk edemez. (Can çıkmayınca huy çıkmaz.)"
+    },
+    {
+      "id": 320,
+      "text": "Irmak kenarına çeşme yapılamaz",
+      "meaning": "Zaten var olan ve herkesin işine yarayan şeyin yanına aynı işi görmek üzere onun daha da zayıfını ilave etmek doğru değildir, iş yapmaz."
+    },
+    {
+      "id": 321,
+      "text": "Isıracak it dişini göstermez",
+      "meaning": "Kötülük yapmayı kafasına koyan kişi bunu daha önce belli etmez."
+    },
+    {
+      "id": 322,
+      "text": "Islanmışın yağmurdan pervası olmaz",
+      "meaning": "Daha önce zarara uğramış kişi kendisine aynı zararı verecek şeyden korkmaz."
+    },
+    {
+      "id": 323,
+      "text": "sabaha çırasında yağbulamaz",
+      "meaning": "Savurganlık kişiyi yoksuluğa düşürür. Gerekmedikçe bol para harcayanlar gerektiği zaman para bulamayabilir."
+    },
+    {
+      "id": 324,
+      "text": "İki aslan bir posta sığmaz",
+      "meaning": "Bir ülkede iki baş olmaz. Böyle iki baş yönetici sürekli kavga eder."
+    },
+    {
+      "id": 325,
+      "text": "İki at bir kazığa bağlanmaz",
+      "meaning": "Başına buyruk iki kişi aynı iş üzerinde birlikte çalıştırılmamalıdır. Aralarında anlaşmazlık çıkabilir."
+    },
+    {
+      "id": 326,
+      "text": "İki baş bir kazanda kaynamaz",
+      "meaning": "Farklı kişilikteki insanların bir arada yaşaması çok zordur."
+    },
+    {
+      "id": 327,
+      "text": "iki cambaz bir ipte oynamaz",
+      "meaning": "Birbirinden kurnaz iki kişi birbirini aldatmak için bütün hünerlerini harcayacaklardır; bu durum ikisi için de tehlikeli olabilir."
+    },
+    {
+      "id": 328,
+      "text": "İki çıplak bir hamama yakışır",
+      "meaning": "Evlenecek insanların biri yoksul ise diğerinin biraz varlıklı olması gerekir. İkisi de yoksulsa büyük sıkıntı çeker."
+    },
+    {
+      "id": 329,
+      "text": "İki dinle bir söyle",
+      "meaning": "Çok konuşmak doğru değildir. Çok konuşan gereksiz laflar edebilir. Bu yüzden yerinde ve ölçülü konuşmalı, karşısındaki dinlemelidir."
+    },
+    {
+      "id": 330,
+      "text": "İki el bir baş içindir",
+      "meaning": "Allah insana çalışıp kazanması için güç vermiştir. El, kol vermiştir. Bunlar iyi değerlendirilmelidir."
+    },
+    {
+      "id": 331,
+      "text": "İki gönül bir olunca samanlıkseyran olur",
+      "meaning": "İki insan birbirini çok severse tüm güçlüklerin üstesinden gelir."
+    },
+    {
+      "id": 332,
+      "text": "İki karpuz bir koltuğa sığmaz",
+      "meaning": "Bir kişi iki büyük işi aynı anda yapamaz."
+    },
+    {
+      "id": 333,
+      "text": "İki testi tokuşunca biri elbetkırılır",
+      "meaning": "İki kişi kavgaya tutuşur, iki ordu karşı karşıya gelirse biri mutlaka yenilir."
+    },
+    {
+      "id": 334,
+      "text": "İnsan beşer, bazen şaşar",
+      "meaning": "İnsan hata yapabilir, hatasız insan olmaz."
+    },
+    {
+      "id": 335,
+      "text": "İnsan doğduğu yerde değildoyduğu yerde",
+      "meaning": "İnsanın gerçek vatanı geçimini sağladığı yerdir."
+    },
+    {
+      "id": 336,
+      "text": "İnsan eşek olunca semervuran çok olur",
+      "meaning": "Bir kimse çok safsa onu kullanmak isteyen çok insan olur."
+    },
+    {
+      "id": 337,
+      "text": "İnsan insanın şeytanıdır",
+      "meaning": "Kötü insanlar saf ve temiz insanları peşine sürüklemeyi sever."
+    },
+    {
+      "id": 338,
+      "text": "İnsanı kıymetini insan bilir",
+      "meaning": "Bir kimsenin değerini ancak başka bir değerli insan anlayabilir."
+    },
+    {
+      "id": 339,
+      "text": "İnsan konuşa konuşa,hayvan koklaşa koklaşa",
+      "meaning": "İnsanın karşısındakini tanıyabilmesi için onunla konuşması gerekir, konuşmadan kimseyi tanıyamazsın."
+    },
+    {
+      "id": 340,
+      "text": "İnsan yanıla yanıla pehlivanyenile yenile",
+      "meaning": "İnsan hayatta başarısız olabilir; fakat bu ona deneyim kazandırır. Bu deneyimlerle ilerde yeniden şansını dener ve mutlaka başarıya ulaşır."
+    },
+    {
+      "id": 341,
+      "text": "İnsan yedisinde neyse yetmişinde de odur",
+      "meaning": "İnsanın kişilik özellikleri çok küçük yaşta belirlenir. Bu kişilik de hayatı boyunca kolay kolay değişmez."
+    },
+    {
+      "id": 342,
+      "text": "İnsanın adı çıkmaktansacanı çıksın",
+      "meaning": "Bir insanla ilgili kötü bir yargı oluştuysa bunu değiştirmek için insanın çok çaba harcaması gerekir; çünkü insanların ilk yargılarını değiştirmek çok zordur."
+    },
+    {
+      "id": 343,
+      "text": "İnsanın alacası içinde, hayvanın alacası dışındadır",
+      "meaning": "İnsanların kişilikleri içlerinde saklıdır, dıştan kimseyi anlayamazsınız; fakat hayvanın iyisi kötüsü görünüşünden belli olur."
+    },
+    {
+      "id": 344,
+      "text": "İnsanoğlu çiğ süt emmiş",
+      "meaning": "İnsanın her durumda hata yapabilme riski vardır, insan şaşırabilir."
+    },
+    {
+      "id": 345,
+      "text": "İsin yanına varan is, misinyanına varan mis kokar",
+      "meaning": "Kişi arkadaşının huylarını alabilir. Kötü arkadaş kötü yola; iyi arkadaş kişiyi iyi yola götürür."
+    },
+    {
+      "id": 346,
+      "text": "İstediğini söyleyen istemediğini işitir",
+      "meaning": "Birine kötü sözler söylersek ondan da aynı kötü sözleri duyabiliriz; konuşurken dikkatli olmak gerekir."
+    },
+    {
+      "id": 347,
+      "text": "İstemem diyenden korkmalı",
+      "meaning": "Bir kimse bir şeyi istemez görünüp aslında tam tersi çok da isteyebilir. Bazı durumlarda insanlar böyle davranabilirler."
+    },
+    {
+      "id": 348,
+      "text": "İsteyenin bir yüzü kara, vermeyenin iki yüzü",
+      "meaning": "Birinden bir şey istemek zordur, insan utanabilir. Fakat istediği hâlde karşı taraf onu reddederse karşı tarafın daha da utanması gerekir."
+    },
+    {
+      "id": 349,
+      "text": "İş insanın aynasıdır",
+      "meaning": "Bir insanın nasıl biri olduğu yaptığı işle belli olur, iş insanı yansıtır."
+    },
+    {
+      "id": 350,
+      "text": "İş olacağına varır",
+      "meaning": "Ne kadar çabalarsan çabala ne olacaksa razı olmak gerekir."
+    },
+    {
+      "id": 351,
+      "text": "İşleyen demir ışıldar",
+      "meaning": "Çalışan kimse hareket hâlinde olduğu için her zaman sağlıklı kalır; tembellik insanı hasta eder."
+    },
+    {
+      "id": 352,
+      "text": "İşten artmaz dişten artar",
+      "meaning": "Tutumlu davranarak az para harcarsak para biriktirmemiz daha kolay olur."
+    },
+    {
+      "id": 353,
+      "text": "İt derisinden post olmaz",
+      "meaning": "Kötü yaradılışlı bir kimsenin amacının iyi olması mümkün değildir."
+    },
+    {
+      "id": 354,
+      "text": "İt iti suvatta bulur",
+      "meaning": "Kötü yaradılışlı kişiler birbirlerini her yerde bulur. kötü kötüyü çeker."
+    },
+    {
+      "id": 355,
+      "text": "İt itin kuyruğuna basmaz",
+      "meaning": "Kötü yaradılışlı kimseler birbirine zarar vermez."
+    },
+    {
+      "id": 356,
+      "text": "İt ürür kervan görür",
+      "meaning": "Doğru yolda olanlara engel olmak isteyenler olacaktır; fakat bu engeller yürüyüşü engelemez."
+    },
+    {
+      "id": 357,
+      "text": "İyilik eden iyilik bulur",
+      "meaning": "İyiliğin karşılığı, mutlaka bir ödülü vardır."
+    },
+    {
+      "id": 358,
+      "text": "İyilik et denize at, balık bilmezse Halik bilir",
+      "meaning": "İyilik karşılık beklemeden yapılmalı. Karşıdaki iyiliği bilmese bile iyilik yapan kendini iyi hisseder."
+    },
+    {
+      "id": 359,
+      "text": "Kabahat samur kürk olsa kimsesırtına almaz",
+      "meaning": "Kimse suçunu kabul etmez."
+    },
+    {
+      "id": 360,
+      "text": "Kaçan balık büyük olur",
+      "meaning": "İnsan elinden kaçırdığı küçük bir fırsatı gözünde büyütür. Ulaşamadığı şey insana daha değerli gelir."
+    },
+    {
+      "id": 361,
+      "text": "Kadı anlatışa göre fetva verir",
+      "meaning": "Haksız kişi olayı kendini haklı gösterecek şekilde anlatırsa dinleyen ona hak verir. Bu kişinin haksız gösterdiğini herkes haksız bulur."
+    },
+    {
+      "id": 362,
+      "text": "Kalbin yolu mideden geçer",
+      "meaning": "Birinin kalbini kazanmak istiyorsanız ona güzel yemekler yapın."
+    },
+    {
+      "id": 363,
+      "text": "Kalp kalbe karşıdır",
+      "meaning": "Birbirini seven insanlar birbiri için aynı şeyi düşünür."
+    },
+    {
+      "id": 364,
+      "text": "Kanatsız kuş uçmaz",
+      "meaning": "Gereken şartlar oluşturulmadan başlanan işten sonuç alınmaz."
+    },
+    {
+      "id": 365,
+      "text": "Kanı kanla yumazlar, kanısuyla yurlar",
+      "meaning": "Kötülük kötülükle değil, iyilikle düzelir. Kötülüğe kötülükle karşılık verilmez, iyilikle karşılık verilir ki kötülük düzelsin."
+    },
+    {
+      "id": 366,
+      "text": "Kapıyı kırarsan odun çok olur",
+      "meaning": "Bazı zor durumlarda para bulmak çin kişi malını satmayı göze almak zorundadır. Bazı tavizler verilmek zorundadır."
+    },
+    {
+      "id": 367,
+      "text": "Kar ne kadar çok yağsa yazakalmaz",
+      "meaning": "Her şey bulunduğu ortama göre değer taşır. Zamanla değerini yitirir."
+    },
+    {
+      "id": 368,
+      "text": "Kâr zararın ortağıdır",
+      "meaning": "İnsan her zaman kâr elde etmez; bir gün zarara da uğrayabilir."
+    },
+    {
+      "id": 369,
+      "text": "Kara gün kararıp kalmaz",
+      "meaning": "Sıkıntılı günler her zaman devam etmez, bir gün mutlaka biter. O yüzden sabretmek gerekir."
+    },
+    {
+      "id": 370,
+      "text": "Kara haber tez duyulur",
+      "meaning": "Ölüm ya da yıkım gibi kötü haberler çok çabuk duyulur."
+    },
+    {
+      "id": 371,
+      "text": "ken kendi yürüyüşünü şaşırmış",
+      "meaning": "Başkalarını taklit edeyim derken sınırlarını zorlayan kişi doğal davranışlarını da kaybedip gülünç durumlara düşer."
+    },
+    {
+      "id": 372,
+      "text": "Karıncadan ibret al. yazdankışı karşılar",
+      "meaning": "Kişi çalışabildiği zamanı boş geçirmemeli, çalışamayacağı günler için geçimini sağlayacak birikim yapmalıdır."
+    },
+    {
+      "id": 373,
+      "text": "Karpuz kabuğunu görmedendenize girme",
+      "meaning": "Bir işe en uygun zaman geldiğinde başlamalıdır."
+    },
+    {
+      "id": 374,
+      "text": "Katıra baban kim demişler,dayım at demiş",
+      "meaning": "Aşağılık duygusu içinde olan kişi kendini olduğundan daha farklı ve üstün göstermeye çalışarak iyi yönüyle övünür."
+    },
+    {
+      "id": 375,
+      "text": "Kavun karpuz yata yata büyür",
+      "meaning": "Bazı insanlar tembel tembel yaşamaya bayılır."
+    },
+    {
+      "id": 376,
+      "text": "Kaynayan kazan kapak tutmaz",
+      "meaning": "Kızgın ve öfkeli kişiler baskı altına alınamaz."
+    },
+    {
+      "id": 377,
+      "text": "Kaz gelen yerden tavuk esirgenmez",
+      "meaning": "Büyük çıkar sağlanan yerden ufak tefek özveriler esirgenmemelidir."
+    },
+    {
+      "id": 378,
+      "text": "Kaza geliyorum demez",
+      "meaning": "Kaza beklenmedik bir zamanda birdenbire gelir. O yüzden önlem alınmalıdır."
+    },
+    {
+      "id": 379,
+      "text": "Keçi nereye çıkarsa oğlağı daoraya çıkar",
+      "meaning": "Küçükler her zaman büyükleri kendilerine örnek alır."
+    },
+    {
+      "id": 380,
+      "text": "Kedi uzanamadığı ciğere pisder",
+      "meaning": "İnsanlar elde edemedikleri şeyleri küçültmeye çalışır."
+    },
+    {
+      "id": 381,
+      "text": "Kedinin boynuna ciğer asılmaz",
+      "meaning": "Bir mal, ona zarar verecek kişiye geçici de olsa asla emanet edilmemelidir."
+    },
+    {
+      "id": 382,
+      "text": "Kefenin cebi yok",
+      "meaning": "Parasını harcayamayan cimri kimseler için kullanılır. Öteki hayata bir şey götüremeyeceğimize göre para biriktirmenin pek anlamı yoktur."
+    },
+    {
+      "id": 383,
+      "text": "Kel ölür sırma saçlı olur, kör ölürbadem gözlü olur",
+      "meaning": "Birinin ya da bir şeyin kıymetini kaybedildiğinde anlaşılır."
+    },
+    {
+      "id": 384,
+      "text": "Kelin ilacı olsa başına çalar",
+      "meaning": "Kişi kendine çare bulamıyorsa başkasına nasıl çare olabilir? Kendi derdine çare bulamayan kişiden yardım beklenmemelidir."
+    },
+    {
+      "id": 385,
+      "text": "Kendi düşen ağlamaz",
+      "meaning": "Kötü davranışlarından dolayı başı belaya giren kimse boşuna şikâyet etmemelidir."
+    },
+    {
+      "id": 386,
+      "text": "mez de elin gözündeki çöpügörür",
+      "meaning": "Kendinin kusurlarını görmeyip başkasında kusur aramaya çalışır. İnsan önce kendi kusurlarını kabul etmelidir."
+    },
+    {
+      "id": 387,
+      "text": "Keskin sirke küpüne zarar",
+      "meaning": "Çok öfkeli insanlar toplumla uyuşamaz; bu yüzden de sağlıklı bir hayat süremez."
+    },
+    {
+      "id": 388,
+      "text": "Kılavuzu karga olanın burnupislikten kurtulmaz",
+      "meaning": "Kötü insanların yolundan gidenlerin başı beladan kurtulmaz."
+    },
+    {
+      "id": 389,
+      "text": "Kır atın yanında duran yahuyundan ya suyundan",
+      "meaning": "Kişi arkadaşlık ettiği kişinin huylarını alır, onun davranışlarını örnek alır, ondan etkilenir."
+    },
+    {
+      "id": 390,
+      "text": "Kısa günün kârı az olur",
+      "meaning": "Geç kalkan kişi az iş görür, o yüzden de kazancı az olur."
+    },
+    {
+      "id": 391,
+      "text": "Yemenden; kısmet değilsene gelir elden?",
+      "meaning": "Hayatta her şey biraz da kısmet işidir. O yüzden bir şey olmadığında elden bir şey gelmez. Kısmete razı olmak zorundayızdır. Zaten bir şey bizimse o bize bir şekilde gelecektir."
+    },
+    {
+      "id": 392,
+      "text": "Kısmetinde ne varsa kaşığındao çıkar",
+      "meaning": "Bir şeyi elde etmek için uğraşan kimseye Tanrı neyi ne kadar kısmet etmişse onu verir."
+    },
+    {
+      "id": 393,
+      "text": "Kimse ayranım ekşi demez",
+      "meaning": "Kimse kendi davranışlarını, yakınlarının kusurunu görmez. Eleştirilirse bile buna kabul etmez."
+    },
+    {
+      "id": 394,
+      "text": "Kimsenin ahı kimsede kalmaz",
+      "meaning": "Bir kişiye kötülük yapıldığında kişinin bedduası alınırsa kötülük yapan kişi bunun bedelini ödemek zorunda kalır."
+    },
+    {
+      "id": 395,
+      "text": "Koça boynuzu yük değil",
+      "meaning": "Bir kişiye kendisi ve yakınlarının işiyle uğraşmak ağır gelmez."
+    },
+    {
+      "id": 396,
+      "text": "Komşuda pişer bize de düşer",
+      "meaning": "Etrafımızdaki insanların elde ettiği güzel şeylerden başkaları da yararlanabilir."
+    },
+    {
+      "id": 397,
+      "text": "Komşunun tavuğu komşuyakaz görünür",
+      "meaning": "İnsanlar başkalarının elindekilerin daha değerli olduğunu düşünüp onları kıskanırlar."
+    },
+    {
+      "id": 398,
+      "text": "Korkunun ecele faydası yoktur",
+      "meaning": "Bir şey olacaksa korkarak onu yok edemeyiz. Korkmak yerine tehlikeli durumlara karşı önlem almak gerekir."
+    },
+    {
+      "id": 399,
+      "text": "keçiye Abdurrahman Çelebiderler",
+      "meaning": "Bir şeyin çok kıymetlisi ortada yoksa daha az kıymetli olan değer görür."
+    },
+    {
+      "id": 400,
+      "text": "Köprüyü geçene kadar ayıyadayı derler",
+      "meaning": "İnsan, bir kişiye işi düştüğünde o kişi değerli biri de olmasa işini gördürmek için onu övmek zorunda kalır."
+    },
+    {
+      "id": 401,
+      "text": "Körle yatan şaşı kalkar",
+      "meaning": "Kişi kiminle yakınlaşırsa onun huylarını alır."
+    },
+    {
+      "id": 402,
+      "text": "Körler memleketinde şaşılarpadişah olur",
+      "meaning": "Bilgisiz ortamlarda biraz bilgisi olan yetki kazanır."
+    },
+    {
+      "id": 403,
+      "text": "demişler, işimi kendim görürüm de ondan demiş",
+      "meaning": "İnsan işini başkalarına değil kendisi yaparsa o işten daha fazla verim alır."
+    },
+    {
+      "id": 404,
+      "text": "Kurt dumanlı havayı sever",
+      "meaning": "Kötü niyetli insanlar amaçlarına ulaşmak için karışık ortamları seçerler."
+    },
+    {
+      "id": 405,
+      "text": "Kurt kocayınca köpeklerininmaskarası olur",
+      "meaning": "Güçlüyken herkes sizden çekinir; gücünüzü kaybettiğinizde ise insanların eğlencesi olursunuz."
+    },
+    {
+      "id": 406,
+      "text": "Kuru laf karın doyurmaz",
+      "meaning": "Boş sözlerle hiçbir sonuç elde edilemez."
+    },
+    {
+      "id": 407,
+      "text": "Kurunun yanında yaş dayanar",
+      "meaning": "Bazen suçu olmayan insanlar da suçlunun yanında zarar görebilir."
+    },
+    {
+      "id": 408,
+      "text": "Laf lafı açar laf da kutuyu",
+      "meaning": "İnsanlar konuştukça bütün sırlarını ortaya dökerler."
+    },
+    {
+      "id": 409,
+      "text": "Laf torbaya girmez",
+      "meaning": "Söylenmiş bir söz artık saklanamaz ve yalanlanamaz."
+    },
+    {
+      "id": 410,
+      "text": "Lafla peynir gemisi yürümez",
+      "meaning": "Boş sözlerle, sadece konuşarak hiçbir iş yürütülmez."
+    },
+    {
+      "id": 411,
+      "text": "Leyleğin ömrü lak lak ile geçer",
+      "meaning": "Çalışmayan, bir meşguliyeti olmayan insanlar zamanlarını boş boş konuşarak geçirirler."
+    },
+    {
+      "id": 412,
+      "text": "Mahkeme kadıya mülk değil",
+      "meaning": "Bir mevki orada oturan kimsenin kişisel mekânı değildir. Kişi zamanı geldiğinde mekânını devretmeyi bilmelidir."
+    },
+    {
+      "id": 413,
+      "text": "Mal canın yongasıdır",
+      "meaning": "İnsan için malı çok kıymetlidir. Malına gelen zarara canına gelmiş kadar üzülebilir."
+    },
+    {
+      "id": 414,
+      "text": "Malın iyisi boğazdan geçer",
+      "meaning": "Malı gösteriş için kullanmamak gerek. Maldan yararlanmayı bilmelidir."
+    },
+    {
+      "id": 415,
+      "text": "Mart ayı dert ayı",
+      "meaning": "Mart ayında havaların değişmesi sebebiyle artan hastalıkları anlatmak için kullanılan bir atasözüdür."
+    },
+    {
+      "id": 416,
+      "text": "Mart kapıdan baktırır, kazmakürek yaktırır",
+      "meaning": "Mart ayında bahar geldi diye sevinmemek gerekir, öyle soğuklar yapar ki kazma küreği bile yakacak durumda kalırsınız. Tedbirli olmak gerekir."
+    },
+    {
+      "id": 417,
+      "text": "Maşa varken elini ateşe sokma",
+      "meaning": "Başka birine yaptırabileceğin tehlikeli bir işe kendin girişmemelisin."
+    },
+    {
+      "id": 418,
+      "text": "Mayasız yoğurt tutmaz",
+      "meaning": "Bir işte başarı kazanmak için az da olsa bir yatırım yapılmalıdır."
+    },
+    {
+      "id": 419,
+      "text": "Mazlumun ahı, indirir şahı",
+      "meaning": "Güçlü ve mevki sahibi insanlar insanlara zulmettiklerinde o masum insanların bedduası onları yok etmeye yeter."
+    },
+    {
+      "id": 420,
+      "text": "Meramın elinden bir şey kurtulmaz",
+      "meaning": "Bir şeyi çok isteyip ona dört elle sarıldığımızda onu mutlaka elde ederiz."
+    },
+    {
+      "id": 421,
+      "text": "Merdiven ayak ayak çıkılır",
+      "meaning": "Yüksek mevkilere aşamalardan geçirilerek gelinir."
+    },
+    {
+      "id": 422,
+      "text": "Merhametten maraz doğar",
+      "meaning": "Bir insana çok yardım ettiğimizde o insan buna alışır ve hep daha fazlasını isteyerek bizi kullanmaya başlar."
+    },
+    {
+      "id": 423,
+      "text": "Mescide gerek olan meyhaneharamdır",
+      "meaning": "Her şeyin yakıştığı mekân ayrıdır. Bir yere özgü olan şey başka bir yere yakışmayabilir."
+    },
+    {
+      "id": 424,
+      "text": "Meyhaneciden şahit iştemişler,mezeciyi göstermiş",
+      "meaning": "Uygunsuz bir iş yapan kimsenin haklı olduğunu kanıtlamak için tanık gösterdiği kişi de kendisiyle çıkar ilişkisi olan biridir."
+    },
+    {
+      "id": 425,
+      "text": "Meyveli ağacı taşlarlar",
+      "meaning": "Yetenekli kişiler onları kıskanan kişiler tarafından hep kötülenir, eleştirilir."
+    },
+    {
+      "id": 426,
+      "text": "Mızrak çuvala sığmaz",
+      "meaning": "Bazı gerçekler hiçbir şekilde gizlenemez."
+    },
+    {
+      "id": 427,
+      "text": "Minare de doğru ama işi eğri",
+      "meaning": "Kimileri çok dürüst görünür ama onları tanıyanlar ne kadar sahtekâr olduğunu bilir."
+    },
+    {
+      "id": 428,
+      "text": "Minareyi çalan kılıfını hazırlar",
+      "meaning": "Saklanması zor olan bir kabahat işleyen kişi yakalanmamak için tüm önlemleri alır."
+    },
+    {
+      "id": 429,
+      "text": "Misafir ev sahibinin kuzusudur",
+      "meaning": "Bir kişi misafir olduğu evde ev sahibinin düzenine uymalıdır."
+    },
+    {
+      "id": 430,
+      "text": "Misafir kısmeti ile gelir",
+      "meaning": "Bir kişi bir eve habersiz geldiğinde ona ağırlayacak olanlar mutlaka bulunur. Ev sahibi habersiz gelen misafirden paniğe kapılmamalıdır."
+    },
+    {
+      "id": 431,
+      "text": "Misafir misafiri istemez, evsahibi ikisini de",
+      "meaning": "Bir eve aynı anda giden iki ayrı misafir ev sahibi kendisiyle çok ilgilenemeyeceği için mutsuz olur. Ev sahibi iki ayrı misafirle ilgilenmek zorunda kalıp her ikisini de memnun edemeyeceğini düşündüğü için daha çok mutsuz olur."
+    },
+    {
+      "id": 432,
+      "text": "Misafir on kısmetle gelir, biriniyer dokuzunu evde bırakır",
+      "meaning": "Misafirin geldiği evde bereket bolluk olur."
+    },
+    {
+      "id": 433,
+      "text": "Misafirin şaşkını ev sahibini ağırlar",
+      "meaning": "Misafir olduğumuz yerde ev sahibinin işine karışmamak, onun düzenini bozmamak gerekir."
+    },
+    {
+      "id": 434,
+      "text": "Misafirlik üç gündür",
+      "meaning": "Bir evde fazla kalınacaksa ev sahibine mutlaka yardım edilmesi gerekir."
+    },
+    {
+      "id": 435,
+      "text": "Muhabbet iki baştan olur",
+      "meaning": "İki kişinin anlaşabilmesi için iki tarafın da anlayışlı olması gerekir."
+    },
+    {
+      "id": 436,
+      "text": "Mum dibine ışık vermez",
+      "meaning": "İnsanın kendi ve yakınlarından ziyade başkalarına yararı daha fazladır."
+    },
+    {
+      "id": 437,
+      "text": "Mum yanmayınca pervanedönmez",
+      "meaning": "Bazı güzelliklere kavuşmak istiyorsak gereken koşulları sağlamamız gerekir."
+    },
+    {
+      "id": 438,
+      "text": "Mühür kimdeyse Süleymanodur",
+      "meaning": "Bir işte yetki kimdeyse kararı da o verir."
+    },
+    {
+      "id": 439,
+      "text": "Namaza meyli olmayanınkulağı ezanda olmaz",
+      "meaning": "Bir işe, bir şeye ilgi duymayan biri o şeyin ya da işin hiçbir şeyiyle ilgilenmez."
+    },
+    {
+      "id": 440,
+      "text": "Nasihat istersen tembele işbuyur",
+      "meaning": "Tembel insanlar iş yapmamak için bir sürü bahane uydurur. Bir de üstelik size akıl vermeye kalkarlar."
+    },
+    {
+      "id": 441,
+      "text": "Ne doğarsan aşına o çıkarkarşına",
+      "meaning": "Yaşadığımız her şey daha önce yaptıklarımızın bir sonucudur."
+    },
+    {
+      "id": 442,
+      "text": "Ne oldum dememeli ne olacağım demeli",
+      "meaning": "İnsan bugüne güvenip de şımarmamalı, geleceğini düşünmeli."
+    },
+    {
+      "id": 443,
+      "text": "Ne verirsen elinle o gider seninle",
+      "meaning": "Bu dünyada ne kadar iyilik yaparsan öteki hayatta o kadar karşılığını görürsün."
+    },
+    {
+      "id": 444,
+      "text": "Nefesine güvenen borazancıbaşı olur",
+      "meaning": "Başarabileceğini inandığınız zor işleri yapmaktan çekinmeyin."
+    },
+    {
+      "id": 445,
+      "text": "Nerede birlik, orada dirlik",
+      "meaning": "Dayanışma içinde olmak huzur ve mutluluk getirir."
+    },
+    {
+      "id": 446,
+      "text": "Nerede hareket orada bereket",
+      "meaning": "Çok çalışan insanlar bol kazanç sağlarlar."
+    },
+    {
+      "id": 447,
+      "text": "Nikâhta keramet vardır",
+      "meaning": "Evlilik insanları birbirine yakınlaştırır. İnsanlar evlenince birbirini sever."
+    },
+    {
+      "id": 448,
+      "text": "Oğlan anası kapı arkası, kızanası minder kabası",
+      "meaning": "Eve gelin geldikten sonra oğlanın annesi kapı dışarı edilecek gibi görülür, kız annesi baş köşeye oturtulur."
+    },
+    {
+      "id": 449,
+      "text": "Oğlan dayıya, kız halaya çeker",
+      "meaning": "Doğan çocukların cinsiyeti ile ilgili yapılan bir yorumu ifade eder."
+    },
+    {
+      "id": 450,
+      "text": "Olacakla öleceğe çare bulunmaz",
+      "meaning": "İnsanın kaderinde ne varsa o olur. İnsan kaderini değiştiremez."
+    },
+    {
+      "id": 451,
+      "text": "Olan dört bağlar, olmayan dertbağlar",
+      "meaning": "Zengin kimse istediği gibi yaşarken yoksul kimse hep sıkıntı içinde yaşar."
+    },
+    {
+      "id": 452,
+      "text": "Olmaz olmaz deme, olmazolmaz",
+      "meaning": "Dünyada gerçekleşmeyecek. hiçbir şey yoktur, her şey olur. O yüzden peşin karar vermemek gerekir."
+    },
+    {
+      "id": 453,
+      "text": "Olursan kazık olma, tokmak ol",
+      "meaning": "Ezilen biri olacağına, güçlü ve ezen biri ol."
+    },
+    {
+      "id": 454,
+      "text": "On para on aslanın ağzında",
+      "meaning": "Geçinmek çok zordur. Para kazanmak zor bir şeydir."
+    },
+    {
+      "id": 455,
+      "text": "Onmadık yılın yağmuru harman vakti yağar",
+      "meaning": "Zamanında olması gereken şey zamanından sonra olursa hiçbir şeye yaramadığı gibi o şeyi zarara bile uğratabilir."
+    },
+    {
+      "id": 456,
+      "text": "Orman olur da domuz olmazmı?",
+      "meaning": "Uygun ortamlarda bundan çıkar sağlayan kötüler de olacaktır."
+    },
+    {
+      "id": 457,
+      "text": "Ortak malın eli sakat olur",
+      "meaning": "Ortak kullanılan mal çabuk eskir, yıpranır."
+    },
+    {
+      "id": 458,
+      "text": "Ortak gemisi yürümüş, elti gemisi yürümemiş",
+      "meaning": "Bir erkeğin iki karısı bile bir şekilde anlaşabilir; fakat kardeş karıları bir türlü geçinemez."
+    },
+    {
+      "id": 459,
+      "text": "Otu çek köküne bak",
+      "meaning": "Bir kişiyi tanımak isterseniz onun geçmişini atalarını araştırın."
+    },
+    {
+      "id": 460,
+      "text": "Öfke baldan tatlıdır",
+      "meaning": "Öfkeye kapılan insan öfkesini dışarı vurduğunda rahatlama hisseder."
+    },
+    {
+      "id": 461,
+      "text": "Öfkede akıl olmaz",
+      "meaning": "İnsan öfkelendiğinde gözü hiçbir şeyi görmez, kendini kaybeder."
+    },
+    {
+      "id": 462,
+      "text": "Öfkeyle kalkan zararla oturur",
+      "meaning": "Öfkelenen insan kendini kaybettiği için kendisine de çevresini de zarar verir."
+    },
+    {
+      "id": 463,
+      "text": "Öksüz hırsızlığa çıkmış, ayakşamdan doğmuş",
+      "meaning": "Bir kimse hep şansızsa karşısına hep bir engel çıkar."
+    },
+    {
+      "id": 464,
+      "text": "Öksüz oğlan göbeğini kendikeser",
+      "meaning": "Yardım alacak kimsesi olmayan insanlar kendi işlerini kendileri görürler."
+    },
+    {
+      "id": 465,
+      "text": "Öksüzün karnına vurmuşlar, vayarkam demiş",
+      "meaning": "Bir kimsenin koruyanı yoksa kötülüklere karşı koymakta zorlanır."
+    },
+    {
+      "id": 466,
+      "text": "Öküz tekini bulmadan çifteyürümez",
+      "meaning": "Aptal bir insan bir iş yapacağı zaman yanına genellikle kendisi gibi olan birini katar."
+    },
+    {
+      "id": 467,
+      "text": "Ölenle ölünmez",
+      "meaning": "Ölen birinin ardından çok yıpranmak doğru değildir. Ağlamak ölen kişiyi geri getirmeyecektir."
+    },
+    {
+      "id": 468,
+      "text": "Ölmüş eşek kurttan korkmaz",
+      "meaning": "Kaybedecek bir şeyi olmayan birini kolay kolay korkutamazsınız."
+    },
+    {
+      "id": 469,
+      "text": "Ölüm dirim bizim için",
+      "meaning": "Ölüm her an başımıza gelebilir."
+    },
+    {
+      "id": 470,
+      "text": "Ölüm hak miras helal",
+      "meaning": "Ölenin ardından miras paylaşmak son derece normaldir. Çünkü ölüm insanın engelleyebileceği bir şey değildir."
+    },
+    {
+      "id": 471,
+      "text": "Ölümden öte köy yoktur",
+      "meaning": "Ne olursa olsun bu işi yapacağım, her şeyi göze aldım."
+    },
+    {
+      "id": 472,
+      "text": "Ölümü gören hastalığa razıolur",
+      "meaning": "Uğrayacağı küçük zararı kabul etmeyen kişi daha büyük bir zarara uğrayacağını anlarsa bu küçük zararı kolaylıkla kabul eder."
+    },
+    {
+      "id": 473,
+      "text": "Ölüsü olan bir gün ağlar, delisiolan her gün ağlar",
+      "meaning": "İnsan bir yakınını kaybettiğinde bunu kabullenmesi daha kolay olur; yakını ise bunun üzüntüsünü sürekli çeker."
+    },
+    {
+      "id": 474,
+      "text": "Önce iğneyi kendine batır,sonra çuvaldızı başkasına",
+      "meaning": "İnsan önce küçük, incitici bir işlemin kendine yapacağı etkiyi düşünmeli. Ondan sonra bunun daha ağırını başkasına uygulamanın doğru olup olmadığına karar vermelidir."
+    },
+    {
+      "id": 475,
+      "text": "Öpülecek el ısırılamaz",
+      "meaning": "Saygıyı hak eden kişilere çok iyi davranılmalıdır."
+    },
+    {
+      "id": 476,
+      "text": "Örtük pazar, ara bozar",
+      "meaning": "Bir alışveriş yapılırken pazarlıkta koşullar tam belirtilmezse ilerde daha büyük anlaşmazlıklar çıkabilir."
+    },
+    {
+      "id": 477,
+      "text": "Paça ıslanmadan balık tutulmaz",
+      "meaning": "Zahmete, sıkıntıya girmeden başarıya ulaşılmaz."
+    },
+    {
+      "id": 478,
+      "text": "Papaz her gün pilav yemez",
+      "meaning": "İnsan her zaman aynı koşulları bulamaz, koşullar değişebilir."
+    },
+    {
+      "id": 479,
+      "text": "Para dediğin el kiri",
+      "meaning": "Para elde kalmaz, harcanır gider. Çok da önemsememek gerekir."
+    },
+    {
+      "id": 480,
+      "text": "Para ile imanın kimden olduğubilinmez",
+      "meaning": "Para ortaya konup herkese gösterilen şeylerden değildir. İman da kişinin içindedir. Bundan dolayı kimin zengin kimin imanlı olduğu bilinmez."
+    },
+    {
+      "id": 481,
+      "text": "Para isteme benden buz gibisoğurum senden",
+      "meaning": "İnsanlar borç istenmesinden hiç hoşlanmazlar; çünkü geri alamayacakları olasılığı vardır."
+    },
+    {
+      "id": 482,
+      "text": "Para parayı çeker",
+      "meaning": "Paralı insanların her zaman daha çok para kazanma şansı vardır."
+    },
+    {
+      "id": 483,
+      "text": "Paranın dini imanı olmaz",
+      "meaning": "Para her yerde, her koşulda çok büyük güçtür."
+    },
+    {
+      "id": 484,
+      "text": "Paranın gittiğine bakma, işininbittiğine bak",
+      "meaning": "Bitmesi gereken bir iş için para harcamaktan çekinmemek gerekir. İşini gördükten sonra yaptığın harcamanın önemi yoktur."
+    },
+    {
+      "id": 485,
+      "text": "Paranın yüzü sıcaktır",
+      "meaning": "Para çok çekicidir."
+    },
+    {
+      "id": 486,
+      "text": "Parası ucuz olanın kendisi kıymetli olur",
+      "meaning": "Para harcamaktan çekinmeyen insanları herkes sever, herkes onun etrafında olur."
+    },
+    {
+      "id": 487,
+      "text": "Parasını aziz eden kendini rezileder",
+      "meaning": "Parayı çok seven cimri insanlar zamanla herkesi kendine güldürür."
+    },
+    {
+      "id": 488,
+      "text": "Parayı veren düdüğü çalar",
+      "meaning": "İnsan parasını verdikten sonra istediğini elde edebilir."
+    },
+    {
+      "id": 489,
+      "text": "Pazarda herkes ambardakiunu kadar konuşur",
+      "meaning": "Bir kimse yetenekleri ve sahip oldukları kadar söz sahibidir."
+    },
+    {
+      "id": 490,
+      "text": "Pehlivan kispetinin yağındanbellidir",
+      "meaning": "Bazı şeyler görünüşünden kendini belli eder."
+    },
+    {
+      "id": 491,
+      "text": "Antakyadan sinek gelir",
+      "meaning": "Bir kişinin malı iyiyse müşteri bulmakta zorluk çekmez."
+    },
+    {
+      "id": 492,
+      "text": "Perşembenin gelişi çarşambadan bellidir",
+      "meaning": "Bir şeyin nasıl sonuçlanacağı gelişme aşamalarından bellidir. İyi gidiyorsa iyi olur, kötü gidiyorsa düzelmesi çok zordur."
+    },
+    {
+      "id": 493,
+      "text": "Peynir ekmek, hazır yemek",
+      "meaning": "Yemek yapmayı sevmeyenler için peynir ekmek kotarılmış yemektir. Peynir ekmek öğündür."
+    },
+    {
+      "id": 494,
+      "text": "Pilavdan dönenin kaşığı kırılsın",
+      "meaning": "Bir işte başarılı olmak istiyorsak sonuna kadar savaşmalıyız."
+    },
+    {
+      "id": 495,
+      "text": "Rahvan at kendini yorar",
+      "meaning": "Bir işi gereksiz uzatmanın anlamı yoktur. Kişi kendisi zarar görür."
+    },
+    {
+      "id": 496,
+      "text": "Ramazanda yalan söyleyeninbayramda yüzü kara olur",
+      "meaning": "Bir insan ne kadar yalan söylerse söylesin bu yalanlar bir gün ortaya çıkar ve kimsenin yüzünü bakamaz olur."
+    },
+    {
+      "id": 497,
+      "text": "Rüşvet kapıdan girince insafbacadan çıkar",
+      "meaning": "Rüşvet alan kişi adaletsiz ve uygunsuz davrandığı için doğru yoldan sapar."
+    },
+    {
+      "id": 498,
+      "text": "Rüzgâr erken fırtına biçer",
+      "meaning": "Kötü davranarak başkasına zarar veren kişi daha şiddetli bir tepkiyle karşılaşır."
+    },
+    {
+      "id": 499,
+      "text": "Rüzgâr esmeyince yaprakkımıldamaz",
+      "meaning": "Her şeyin bir sebebi vardır. Durduk yere hiçbir şey olmaz."
+    },
+    {
+      "id": 500,
+      "text": "Rüzgâra tüküren kendi yüzünetükürür",
+      "meaning": "Bizden daha kuvvetli insanlara meydan okursak zarar gören biz oluruz."
+    },
+    {
+      "id": 501,
+      "text": "Rüzgârın önüne düşmeyenyorulur",
+      "meaning": "Toplum kurallarının dışına çıkıp kuralsız davranırsak zararlı çıkarız."
+    },
+    {
+      "id": 502,
+      "text": "Rüzgârlı günde pamuk atılmaz",
+      "meaning": "Her iş uygun zamanında olmalı. Uygunsuz zamanda yapılan iş o kişiyi zarara uğratabilir."
+    },
+    {
+      "id": 503,
+      "text": "Rüzgârlı havanın kuytusu, yağmurlu havanın uykusu",
+      "meaning": "Kişi üstüne vazife olmayan işlere karışmamalıdır."
+    },
+    {
+      "id": 504,
+      "text": "Sabır acıdır, meyvesi tatlıdır",
+      "meaning": "Kötü bir duruma sabretmek, onun geçmesini beklemek çok zordur; fakat sonunda çok mutlu oluruz."
+    },
+    {
+      "id": 505,
+      "text": "Sabır ile koruk helva, dut yaprağı atlas olur",
+      "meaning": "Sabırlı olursak en olmayacak şeyler bile gerçekleşir."
+    },
+    {
+      "id": 506,
+      "text": "Sabreden derviş, muradınaermiş",
+      "meaning": "Sabretmeyi bilen insan sonunda mutlaka istediğine ulaşır."
+    },
+    {
+      "id": 507,
+      "text": "Sabrın sonu selamettir",
+      "meaning": "Sabrın sonunda mutlaka rahata kavuşuruz."
+    },
+    {
+      "id": 508,
+      "text": "Sağır işitmez uydurur",
+      "meaning": "Bir şeyin iç yüzünü bilmeyen kişi görüntüye bakarak yorum yapar."
+    },
+    {
+      "id": 509,
+      "text": "Sağlık varlıktan yeğdir",
+      "meaning": "Sağlık en büyük zenginliktir. Varlığın olsa da sağlığın olmadığı zaman bunun hiçbir anlamı olmaz."
+    },
+    {
+      "id": 510,
+      "text": "Sahipsiz eve it buyruk",
+      "meaning": "İnsanların çok değer vermediği işlerde genellikle kalitesiz insanlar hakim olur."
+    },
+    {
+      "id": 511,
+      "text": "Sakınılan göze çöp batar",
+      "meaning": "Üzerine çok düşülen, çok korunan, çok esirgenen şeylerin kazaya uğrama riski daha fazladır."
+    },
+    {
+      "id": 512,
+      "text": "Sakla beni varken, bulunayımsana yokken",
+      "meaning": "(Sakla samanı gelir zamanı.) Elimizdekileri koruyup bir bölümünü geleceği düşünürek saklamalıyız."
+    },
+    {
+      "id": 513,
+      "text": "Sakla samanı gelir zamanı",
+      "meaning": "Tutumlu davranılmalı, değersiz bir şeyin bile bir gün işimize yarayacağı unutulmamalıdır."
+    },
+    {
+      "id": 514,
+      "text": "Sana taşla vurana sen aşla vur",
+      "meaning": "Biri bize kötülük ettiğinde ona biz iyilikle karşılık vermeliyiz. Kötülüğe kötülükle karşılık verirsek onun kadar kötü oluruz."
+    },
+    {
+      "id": 515,
+      "text": "Sana vereyim bir öğüt, ununuelinle öğüt",
+      "meaning": "Kişi yapabileceği şeyleri başkasından istememeli, kendi yapmalıdır."
+    },
+    {
+      "id": 516,
+      "text": "Sanat altın bileziktir",
+      "meaning": "Bir meslekte ustalaşmış kişi sanatıyla para kazanarak asla yoksulluk yaşamaz."
+    },
+    {
+      "id": 517,
+      "text": "Sap döner keser döner, güngelir hesap döner",
+      "meaning": "Bazı şeyler tasarlandığı gibi gerçekleşmeyebilir; yolunda giden işler de bir anda bozulabilir."
+    },
+    {
+      "id": 518,
+      "text": "Sarımsağı gelin etmişler, kırkgün kokusu çıkmamış",
+      "meaning": "İnsanları tanımak için uzun zaman gerekir. Çünkü bazı kusurlarını çok uzun süre saklayabilirler."
+    },
+    {
+      "id": 519,
+      "text": "Sayılı koyunu kurt kapmaz",
+      "meaning": "Bir malı birine emanet ettiğinizde sayıp ölçün ki iyi korunsun."
+    },
+    {
+      "id": 520,
+      "text": "Sebepsiz kuş bile uçmaz",
+      "meaning": "Kılavuz ve yardımcı olmadan hiçbir iş başarılmaz.(Delilsiz cennete gidilmez.)"
+    },
+    {
+      "id": 521,
+      "text": "Sefa ile yenen cefa ile kazanılır",
+      "meaning": "Parayı kazanmak çok zor, harcamak çok kolaydır."
+    },
+    {
+      "id": 522,
+      "text": "Sel gider kum kalır",
+      "meaning": "Gelip geçici şeylere güvenmemek gerekir."
+    },
+    {
+      "id": 523,
+      "text": "Sel ile gelen yel ile gider",
+      "meaning": "Emek verilmeden kazanılan para çarçur olur, kolayca harcanır."
+    },
+    {
+      "id": 524,
+      "text": "Sen ağa ben ağa, bu ineğikim sağa?",
+      "meaning": "İnsanlar üzerine düşen görevi yapmazsa işler yürümez."
+    },
+    {
+      "id": 525,
+      "text": "Sen işlersen mal işler, insanböyle genişler",
+      "meaning": "İnsan çalıştığı sürece malı verimli hâle gelir, kazancı artar."
+    },
+    {
+      "id": 526,
+      "text": "Sen işten korkma, iş sendenkorksun",
+      "meaning": "Yapacağımız işlerden korkmamalıyız. Azimli olursak üstesinden gelemeyeceğimiz hiçbir şey yoktur."
+    },
+    {
+      "id": 527,
+      "text": "Serçeden korkan darı ekmez",
+      "meaning": "Bir işin tehlikesinden korkan kimse o işe hiç başlamamalıdır."
+    },
+    {
+      "id": 528,
+      "text": "Sermayen bir yumurta ise taşasal",
+      "meaning": "Bir işe başlarken elindeki şey çok değersizse en iyisi o işe başlamamandır."
+    },
+    {
+      "id": 529,
+      "text": "Mısıra sultan ise",
+      "meaning": "Eğer biri seni sevmiyorsa kim olursa olsun o kimseden uzak dur. Eğer biri seni seviyorsa ne kadar senden aşağıda da olsa sevgisine karşılık ver."
+    },
+    {
+      "id": 530,
+      "text": "Seyrek git dostuna kalksın ayaküstüne",
+      "meaning": "İyi ağırlanmak istiyorsanız bir yere sık sık gitmemeli, insanları bıktırmamalısınız."
+    },
+    {
+      "id": 531,
+      "text": "Sırça köşkte oturan komşusunataş atmaz",
+      "meaning": "En küçük tehlikede zarar görecek durumda olan bir kişi başkalarına sataşmamalıdır."
+    },
+    {
+      "id": 532,
+      "text": "Sinek küçüktür ama midebulandırır",
+      "meaning": "Bazı şeyler çok önemsiz görünse de insana rahatsızlık ve zarar verebilir."
+    },
+    {
+      "id": 533,
+      "text": "Sinek pekmezciyi tanır",
+      "meaning": "Akıllı biri çıkarının nerede alacağını bilir."
+    },
+    {
+      "id": 534,
+      "text": "Sirkesini sarımsağını düşünenpaçayı yiyemez",
+      "meaning": "Bir şeyleri başarmak istiyorsak bazı sıkıntılara katlanmak zorundayız."
+    },
+    {
+      "id": 535,
+      "text": "Sitteisevir, kapıyı çevir",
+      "meaning": "Tehlike gördüğümüz yerde mutlaka tedbirli davranmalıyız."
+    },
+    {
+      "id": 536,
+      "text": "Sofu soğan yemez, buluncasapını komaz",
+      "meaning": "Millete akıl verenler fırsatı bulduklarında söylediklerinin tam tersini yaparlar."
+    },
+    {
+      "id": 537,
+      "text": "Soğanın acısını yiyen bilmez,doğrayan bilir",
+      "meaning": "Zor bir işin nasıl başarıldığını o işi yaparken sıkıntı çekenler bilir. İşten yarar sağlayanlar bilmez."
+    },
+    {
+      "id": 538,
+      "text": "Son gülen iyi güler",
+      "meaning": "Bir durum ya da olayın sonucunu görmek için acele edilmemelidir. Başta kötü görünen bir durum iyiye gidebilir."
+    },
+    {
+      "id": 539,
+      "text": "Son pişmanlık fayda etmez",
+      "meaning": "Bir işe başlarken çok iyi düşünmeli, öyle karar vermeliyiz. Sonradan pişman olduğumuzda şikâyet etmenin bir faydası olmaz."
+    },
+    {
+      "id": 540,
+      "text": "Sona kalan dona kalır",
+      "meaning": "Geciktirilen işlerden beklenen sonuç çıkmaz. Her iş zamanında yapılmalıdır."
+    },
+    {
+      "id": 541,
+      "text": "Sonradan gelen devlet devlet değildir",
+      "meaning": "Yaşlılıkta gelen zenginliğin bir anlamı olmaz. Ömür azalmış, insan ne kadar kullanabilir servetini?"
+    },
+    {
+      "id": 542,
+      "text": "Sora sora Bağdat bulunur",
+      "meaning": "Başkalarının fikrine başvurursak sorunlarımıza çözüm bulabiliriz. Fikir almak önemlidir."
+    },
+    {
+      "id": 543,
+      "text": "Soran yanılmamış",
+      "meaning": "Bilmediğimiz bir işi tek başımıza yapmamalı, bir bilene danışmalıyız."
+    },
+    {
+      "id": 544,
+      "text": "Soydur çeker",
+      "meaning": "Bir kişi kötüyse ailesinde, soyunda mutlaka benzediği biri vardır."
+    },
+    {
+      "id": 545,
+      "text": "Söyleyenden dinleyenden arifgerek",
+      "meaning": "Bir bilgi veya öğüt verildiğinde bu bilginin ya da öğüdün gerçek değerini anlayabilmek için dinleyenin de bilgili ve anlayışlı olması gerekir."
+    },
+    {
+      "id": 546,
+      "text": "Söyleyene bakma, söyletenebak",
+      "meaning": "Her durumun, olayın arkasında bir neden vardır. Her şeyin bir sebebi vardır."
+    },
+    {
+      "id": 547,
+      "text": "Söz ağızdan çıkar",
+      "meaning": "Kişi bir söz verdiyse mutlaka sözünü tutmalıdır."
+    },
+    {
+      "id": 548,
+      "text": "Söz dediğin yaş deridir, nereyeçekersen oraya gider",
+      "meaning": "Söz söylerken dikkatli olunmalıdır. Bazen farklı bir anlam verilerek yanlış değerlendirilmelidir."
+    },
+    {
+      "id": 549,
+      "text": "Söz gümüşse sükût altındır",
+      "meaning": "Bazen susmayı da bilmek gerekir. İnsan çok konuştuğunda hata yapabilir."
+    },
+    {
+      "id": 550,
+      "text": "Söz var dağa çıkarır, söz vardağdan indirir",
+      "meaning": "Sözlerimiz karşımızdaki öfkelendirebilir de yatıştırabilir de. Bu yüzden söylediklerimize dikkat etmeliyiz."
+    },
+    {
+      "id": 551,
+      "text": "Söz var iş bitirir, söz var baş yitirir",
+      "meaning": "Sözü güzel kullanırsak çok güzel sonuçlar elde edebiliriz. Fakat akılsızca söylenen bir söz yüzünden başımız derde bile girebilir."
+    },
+    {
+      "id": 552,
+      "text": "Söz verme verdinse dönme",
+      "meaning": "Kişi söz verdiyse mutlaka yerine getirmelidir."
+    },
+    {
+      "id": 553,
+      "text": "Sözü söyle alana kulağındakalana",
+      "meaning": "Öğüt verilen kişi bunları anlayacak biri olmalı ki öğütleri işe yararsın."
+    },
+    {
+      "id": 554,
+      "text": "Sözünü bil pişir,ağzını der devşir",
+      "meaning": "İnsan söylediği sözlere dikkat etmelidir, dikkatli konuşmalıdır."
+    },
+    {
+      "id": 555,
+      "text": "Su akarken testiyi doldurmalı",
+      "meaning": "Bol kazandığımız dönemlerde ilerisi için para biriktirmek, mal mülk edinmek gerekir."
+    },
+    {
+      "id": 556,
+      "text": "Su aktığı yere yine akar",
+      "meaning": "Bir fırsat kaçtı diye üzülmemek gerekir. Yarının ne getireceği belli olmaz."
+    },
+    {
+      "id": 557,
+      "text": "Su bulanmayınca durulmaz",
+      "meaning": "Bir konu aydınlığa kavuşacağı ana kadar bazı çatışmaların yaşanması olağandır."
+    },
+    {
+      "id": 558,
+      "text": "Su bulununca teyemmmümbozulur",
+      "meaning": "Daha iyi bir seçenek ortaya çıktığında daha önceki geçici çözümler önemini yitirir."
+    },
+    {
+      "id": 559,
+      "text": "Su içene yılan bile dokunmaz",
+      "meaning": "Düşman da olsa hayati bir ihtiyacı karşılayan birine o sırada asla kötülük yapılmaz."
+    },
+    {
+      "id": 560,
+      "text": "Su küçüğün söz büyüğün",
+      "meaning": "Küçükler korunmalı, büyükler sayılmalıdır."
+    },
+    {
+      "id": 561,
+      "text": "Su testisi su yolunda kırılır",
+      "meaning": "Kötü işlerle uğraşan kişilerin başına mutlak kötü şeyler gelir."
+    },
+    {
+      "id": 562,
+      "text": "Su uyur düşman uyumaz",
+      "meaning": "Düşmanlarımız kötülük yapmak için fırsat kollayabilirler, onların sessizliği bizi yanıltmamalı."
+    },
+    {
+      "id": 563,
+      "text": "Suyu getiren de bir testiyi kıranda",
+      "meaning": "İyilik mükâfatsız kötülük de cezasız kalabilir. Bazen yapacak bir şey kalmaz."
+    },
+    {
+      "id": 564,
+      "text": "Suyun yavaş akanından, insanın yere bakanından kork",
+      "meaning": "Sinsi insanlardan zarar gelebilir. Dikkat etmek gerekir."
+    },
+    {
+      "id": 565,
+      "text": "Sükût ikrardan gelir",
+      "meaning": "Bir suçlamaya karşı gelememek onu kabul etmek demektir."
+    },
+    {
+      "id": 566,
+      "text": "Sürüden ayrılanı kurt kapar",
+      "meaning": "Birlikte yola çıktığı kişileri terk eden kişi sonunda yalnız kalır ve başını derde sokar."
+    },
+    {
+      "id": 567,
+      "text": "Sütle giren huy canla çıkar",
+      "meaning": "İnsan küçük yaşta hangi huylara sahipse ölene kadar o huylarından vazgeçemez."
+    },
+    {
+      "id": 568,
+      "text": "Sütten ağzı yanan yoğurduüfleyerek yer",
+      "meaning": "Kişi bir olayda kötü bir tecrübe edindiyse bundan sonra daha dikkatli davranır."
+    },
+    {
+      "id": 569,
+      "text": "Şahin avını nerde olsa alır",
+      "meaning": "İşini bilen kişi nerede olursa olsun geçinir."
+    },
+    {
+      "id": 570,
+      "text": "Şahin ile deve avlanmaz",
+      "meaning": "Küçük insanlarla çok büyük işler yapamazsınız."
+    },
+    {
+      "id": 571,
+      "text": "Şap ile şeker bir değil",
+      "meaning": "Birbirine çok benzediği zannedilen şeyler arasında mutlaka çok büyük farklar vardır."
+    },
+    {
+      "id": 572,
+      "text": "Şaraptan bozma sirke keskinolur",
+      "meaning": "Sonradan azan kimse öteden beri şaşırmış olandan daha azgın olur."
+    },
+    {
+      "id": 573,
+      "text": "Şaşkın ördek başını bırakır, kıçından dalar",
+      "meaning": "Kişi bir işe en baştan başlamalı, herhangi bir yerinden başlamamalı. Düzeni tutturamaz."
+    },
+    {
+      "id": 574,
+      "text": "Şeriatın kestiği parmak acımaz",
+      "meaning": "Adaletli verilen karar can yakmaz."
+    },
+    {
+      "id": 575,
+      "text": "Şeyh uçmaz müridi uçurur",
+      "meaning": "Bir insanı yücelten, onu adam eden yakın çevresidir."
+    },
+    {
+      "id": 576,
+      "text": "Şeytan adamı kandırır amasuyunu ısıtıvermez",
+      "meaning": "Bizi kötü yola sokan kişi pişmanlık duyduğumuzda yanımızdan kaçar, bize destek olmaz."
+    },
+    {
+      "id": 577,
+      "text": "Şeytanın dostluğu darağacına kadardır",
+      "meaning": "Bizi kötü yola sokan kişiler başımız derde girdiğinde yanından yok olurlar."
+    },
+    {
+      "id": 578,
+      "text": "Şeytanla kabak ekeninkabak başına patlar",
+      "meaning": "Sahtekar kişilerle ortaklık eden kişilerin başı mutlaka belaya girer."
+    },
+    {
+      "id": 579,
+      "text": "Şimşeği görülen buluttankorkulmaz",
+      "meaning": "Bir tehlikenin geleceğini önceden haber alırsak veya birinin bir kötülük yapacağını hareketlerinden anlarsak kendimizi korumak için önemlimizi önceden alırız."
+    },
+    {
+      "id": 580,
+      "text": "Şimşek çakmadan gök gürüldemez",
+      "meaning": "Her şeyin bir sebebi vardır."
+    },
+    {
+      "id": 581,
+      "text": "Tabak sevdiği deriyi yerdenyere çarpar",
+      "meaning": "İnsan sevdiği kişiyi eğitirken ona bazen sert davranabilir. Bu onu eğitmek içindir."
+    },
+    {
+      "id": 582,
+      "text": "Tan yeri ağarınca hırsızın gözükararır",
+      "meaning": "Kötü işler üzerinde kazanç sağlayan kişiler bu imkânlar ellerinden alındığında ne yapacağını bilemez."
+    },
+    {
+      "id": 583,
+      "text": "Tarlada izi olmayanın harmanda yüzü olmaz",
+      "meaning": "İşine kendini vermeyen ondan verim alamaz."
+    },
+    {
+      "id": 584,
+      "text": "Taş yerinde ağırdır",
+      "meaning": "İnsan bilindiği, tanındığı çevrede saygı görür ve sevilir."
+    },
+    {
+      "id": 585,
+      "text": "Taşıma su ile değirmen dönmez",
+      "meaning": "Kişi bir işi yaparken kendi gücüne güvenmeli, başkalarından aldığı destekle bütün iş görülmez."
+    },
+    {
+      "id": 586,
+      "text": "Tatlı dil yılanı deliğinden çıkarır",
+      "meaning": "Uygun bir dille konuştuğunuzda herkesi etkiler ve yola getirirsiniz."
+    },
+    {
+      "id": 587,
+      "text": "Tatsız aşa tuz neylesin, akılsızbaşa söz neylesin",
+      "meaning": "Bir şey en baştan bozuksa onu düzeltmek çok zordur."
+    },
+    {
+      "id": 588,
+      "text": "Tavşan dağa küsmüş, dağınhaberi olmamış",
+      "meaning": "Birinin öfkesi ya da küsmesi ona değer vermeyen ya da onun hislerinden haberdar olmayan biri için önemsizdir."
+    },
+    {
+      "id": 589,
+      "text": "Tavuğun sadakası bir yumurta",
+      "meaning": "İmkânları sınırlı kişilerin yapacakları yardım de kısıtlıdır."
+    },
+    {
+      "id": 590,
+      "text": "Tayfanın akıllısı geminin dümeninden uzak durur",
+      "meaning": "Akıllı işçi beceremeyeceği yönetim işine el atmaz."
+    },
+    {
+      "id": 591,
+      "text": "Taze bardağın suyu soğuk olur",
+      "meaning": "Hayatına giren yeni şeyler, yeni dostlar kişiye hoş görünür."
+    },
+    {
+      "id": 592,
+      "text": "Tebdilimekânda ferahlık var",
+      "meaning": "İnsan çok bunaldığı zamanlarda yer değişikliği yaparsa rahatlar ve mutlu olur."
+    },
+    {
+      "id": 593,
+      "text": "Tekkeyi bekleyen çorbayı içer",
+      "meaning": "Sabrederek bekleyenler,çalışanlar sonunda bunun karşılığını alır."
+    },
+    {
+      "id": 594,
+      "text": "Tembele kapını ört demişler,yel eser örter demiş",
+      "meaning": "Tembel insanların kendilerine de başkalarına da faydası olmaz."
+    },
+    {
+      "id": 595,
+      "text": "Terazi var tartı var, her şeyin birvakti var",
+      "meaning": "Bir şey yaparken iyice düşünmek, zamanını iyi ayarlamak gerekir."
+    },
+    {
+      "id": 596,
+      "text": "Terzi kendi söküğünü dikemez",
+      "meaning": "Başkalarına çok yararı olan kişi aynı konuda kendine ya da en yakınına pek yararlı olamaz."
+    },
+    {
+      "id": 597,
+      "text": "Testi kırılsa da kulpu elinde kalır",
+      "meaning": "Varlıklı kişiler zarar da etseler yine de yoksul kalmazlar."
+    },
+    {
+      "id": 598,
+      "text": "Teşbihte hata olmaz",
+      "meaning": "Bir şeyi ya da durumu açıklamak için yapılan benzetmelerde benzetme tam olarak uymasa da genel anlamda doğrudur."
+    },
+    {
+      "id": 599,
+      "text": "Tırnağın varsa başını kaşı",
+      "meaning": "Tek başımıza yapabileceğimiz şeylerde başkasından yardım beklememeliyiz."
+    },
+    {
+      "id": 600,
+      "text": "Tilki tilkiliğini bildirinceye kadarpost elden gider",
+      "meaning": "Bir gerçeyi anlatıncaya kadar çoğu kez insanın başına bir sürü şey gelir."
+    },
+    {
+      "id": 601,
+      "text": "Tilkinin dönüp dolaşacağı geleceği yer kürkçü dükkânıdır",
+      "meaning": "Ne olursa, nereye giderse gitsin kişi alıştığı çevreye mutlaka geri döner."
+    },
+    {
+      "id": 602,
+      "text": "Tok açın halinden anlamaz",
+      "meaning": "Yoksul insanların durumunu, bunu yaşamayanlar bilemez."
+    },
+    {
+      "id": 603,
+      "text": "Tok ağırlaması güçtür",
+      "meaning": "Karnı tok olana yemek beğendiremezsin."
+    },
+    {
+      "id": 604,
+      "text": "Toprağı işleyen ekmeği dişler",
+      "meaning": "Yaptığı işin hakkıyla yapan kişi sonunda çabalarının karşılığını alır."
+    },
+    {
+      "id": 605,
+      "text": "Tutulan sakal yolunur",
+      "meaning": "Zor durumda olan biri çaresizlik içinde başkaları tarafından daha da zor duruma sokulur."
+    },
+    {
+      "id": 606,
+      "text": "Ucuz etin yahnisi yavan olur",
+      "meaning": "Düşük maliyetle satılan şeylerin kalitesiz olma olasılığı daha yüksektir."
+    },
+    {
+      "id": 607,
+      "text": "ummadığın taş baş yarar",
+      "meaning": "Elinden bir şey gelemez sandığımız kişiler büyük işler başarıp bizi şaşırtabilirler."
+    },
+    {
+      "id": 608,
+      "text": "Umut fakirin ekmeğidir",
+      "meaning": "Yoksullar bir gün bolluğa kavuşacağı günü hayal ederek beslenirler."
+    },
+    {
+      "id": 609,
+      "text": "Uyuyan yılanın kuyruğunabasma",
+      "meaning": "Size zarar vermeyecek kişiye ilişip onu saldırgan duruma getirmemelisiniz."
+    },
+    {
+      "id": 610,
+      "text": "Uzak yerin salığını kervan getirir",
+      "meaning": "Uzaklarla ilgili en doğru haberi oralardan gelenlerden alırsınız."
+    },
+    {
+      "id": 611,
+      "text": "Ürümesini bilmeyen köpek, sürüye kurt getirir",
+      "meaning": "Bir toplulukta nasıl davranılması gerektiğini bilmeyen kimseler kendileriyle birlikte başkalarının da başına dert açarlar."
+    },
+    {
+      "id": 612,
+      "text": "sun, geline etme kızındabulursun",
+      "meaning": "Korumanız altında olan insanlara iyi davranmalısınız; yoksa kendi evladınız da aynı kötü davranışa uğrayabilir."
+    },
+    {
+      "id": 613,
+      "text": "Üzüm üzüme baka bakakararır",
+      "meaning": "Sürekli birlikte olan kişiler birbirlerinin huyunu almaya başlar, birbirine benzerler."
+    },
+    {
+      "id": 614,
+      "text": "Üzümünü ye bağını sorma",
+      "meaning": "Yararlandığınız herhangi bir şeyin nereden geldiğini öğrenmek boş çabadır. Önemli olan neden değil, sonuçtur."
+    },
+    {
+      "id": 615,
+      "text": "Vakit nakittir",
+      "meaning": "Zaman paradan daha değerlidir. Parayı kaybederseniz yeniden kazanma şansınız vardır; oysa zamanı kaybederseniz zamanın bir daha geri gelmesi mümkün değildir."
+    },
+    {
+      "id": 616,
+      "text": "Vakitsiz öten horozun başınıkeserler",
+      "meaning": "Her söz zamanında ve yerinde söylenmelidir. Zamanı gelmeden söylenmesi büyük zararlara yol açabilir, söyleyen ceza da görebilir."
+    },
+    {
+      "id": 617,
+      "text": "Varını veren utanmamış",
+      "meaning": "İnsan birileri kendisinden yardım istediğinde gücü ne kadarsa o kadar yardım yapabilir. Fazlasını veremediği için utanmamalıdır."
+    },
+    {
+      "id": 618,
+      "text": "Varışına gelişim, tarhana aşınabulgur aşım",
+      "meaning": "Birine nasıl davranırsanız karşılığını da o şekilde görürsünüz."
+    },
+    {
+      "id": 619,
+      "text": "Varsa hünerin var her yerdeyerin",
+      "meaning": "Bir kişi sahip olduğu yetenek ve beceriyle her yerde saygınlık kazanır."
+    },
+    {
+      "id": 620,
+      "text": "Ver elindeki sapı git dolan kapıkapı",
+      "meaning": "Elindekini, avucundakini düşüncesizce harcarsan başkalarından yardım dilenmek zorunda kalırsın."
+    },
+    {
+      "id": 621,
+      "text": "Ver yiğidi yiğide, Mevla rızkınıyetire",
+      "meaning": "Evlenmek isteyenlere Allah yardım eder."
+    },
+    {
+      "id": 622,
+      "text": "Veren eli herkes öper",
+      "meaning": "Yardımsever kimse herkesten saygı görür, herkesçe sevilir."
+    },
+    {
+      "id": 623,
+      "text": "Verirsen veresiye batarsın karasuya",
+      "meaning": "Veresiye veren kişi karşılığını alamadığı durumlarda tüm sermayesini tüketebilir."
+    },
+    {
+      "id": 624,
+      "text": "Vermeyince mabut, ne yapsın Mahmut",
+      "meaning": "Tanrı rahat bir yaşam veya yetenek kısmet etmemişse kulun elinden bir şey gelmez."
+    },
+    {
+      "id": 625,
+      "text": "Ya işten artar ya dişten",
+      "meaning": "Para biriktirmek için ya çok çalışmak ya da çok tutumlu olmak gerekir."
+    },
+    {
+      "id": 626,
+      "text": "Ya olduğun gibi görün yagöründüğün gibi ol",
+      "meaning": "İnsanlar gerçek kimliklerini saklamadan olduğu gibi davranmalıdır."
+    },
+    {
+      "id": 627,
+      "text": "Yabancı koyun kenara yatar",
+      "meaning": "Bir kimse yeni girdiği bir çevrede önceleri çekingen davranabilir."
+    },
+    {
+      "id": 628,
+      "text": "Yağ yiyen köpek tüyündenbelli olur",
+      "meaning": "Durup dururken yaşama düzeyinde bir yükselme olan kişi kendisinden şüphe edildiği gibi çalıp çırpıyordur."
+    },
+    {
+      "id": 629,
+      "text": "Yağına kıyamayan çöreğiniyoz yer",
+      "meaning": "Bir işte özveriyle çalışmayan kişi elde edeceği şeyin kusursuz olmasını beklememelidir."
+    },
+    {
+      "id": 630,
+      "text": "Yağmur yağsın da varsın kerpiççi ağlasın",
+      "meaning": "Bazı insanlar kendi çıkarları için başkalarının zarar görmesini isteyebilir. Bu çok kötü bir durumdur."
+    },
+    {
+      "id": 631,
+      "text": "Yakın dost hayırsız hısımdanyeğdir",
+      "meaning": "Bazı dostlar akrabalardan daha değerlidir."
+    },
+    {
+      "id": 632,
+      "text": "Yalancının evi yanmış, kimseinanmamış",
+      "meaning": "Sürekli yalan söyleyen kişiler bir gün doğruyu da söyleseler karşı tarafta yarattıkları güvensizlik nedeniyle kimseyi inandıramazlar."
+    },
+    {
+      "id": 633,
+      "text": "Yalancının mumu yatsıyakadar yanar",
+      "meaning": "Her yalan mutlaka bir gün ortaya çıkar."
+    },
+    {
+      "id": 634,
+      "text": "Yalnız öküz çifte koşulmaz",
+      "meaning": "Başkalarının desteğine ihtiyaç duyduğumuzda mutlaka yardım almalı, tek başımıza hareket etmemeliyiz."
+    },
+    {
+      "id": 635,
+      "text": "Yalnız taş duvar olmaz",
+      "meaning": "İnsan bir başına bütün güçlüklere karşı koyamaz."
+    },
+    {
+      "id": 636,
+      "text": "Yanık yerin otu tez biter",
+      "meaning": "Ne kadar acı yaşasak da bunları unutarak mutlu olmaya bakmalıyız."
+    },
+    {
+      "id": 637,
+      "text": "Yanlış da bir nakış",
+      "meaning": "Yapılan yanlışlar kişilere deneyim olarak geri döner."
+    },
+    {
+      "id": 638,
+      "text": "Yanlış hesap Bağdattan döner",
+      "meaning": "Yanlış yolda olduğunu anlayan kişi o işe ne kadar emek vermiş olursa olsun mutlaka yanlışından dönmelidir."
+    },
+    {
+      "id": 639,
+      "text": "Yapı taşı yapıdan kalmaz",
+      "meaning": "İşinde usta olan kişi asla işsiz kalmaz."
+    },
+    {
+      "id": 640,
+      "text": "Yara sıcakken sarılır",
+      "meaning": "Bir sorun için gerekli yardım hiç geciktirmeden yapılmalıdır."
+    },
+    {
+      "id": 641,
+      "text": "Yarım elma gönül alma",
+      "meaning": "Küçük de olsa birine hediye vermek mutluluk vericidir."
+    },
+    {
+      "id": 642,
+      "text": "Yarım hekim candan eder,yarım hoca dinden eder",
+      "meaning": "Bir iş uzmanına yaptırılmazsa çok kötü sonuçlara neden olabilir."
+    },
+    {
+      "id": 643,
+      "text": "Yarına kalan davadan korkma",
+      "meaning": "Bir tartışmayı uzatmaya gerek yoktur. İki tarafın da sakinleşmesini beklemek en doğru sözümdür."
+    },
+    {
+      "id": 644,
+      "text": "Yas kesen baş keser",
+      "meaning": "Yaş ağaç kesmek büyük bir suçtur."
+    },
+    {
+      "id": 645,
+      "text": "Yaşı at pazarında sorarlar",
+      "meaning": "İnsanın değeri yaşıyla değil, bilgisi ve görgüsüyle ölçülür."
+    },
+    {
+      "id": 646,
+      "text": "Yatan aslandan gezen tilkiyağdır",
+      "meaning": "Az güçlü olup çalışan, çok güçlü olup çalışmayandan da daha başarılı olur."
+    },
+    {
+      "id": 647,
+      "text": "Yatan öküze yem yok",
+      "meaning": "Çalışmayan kişi kazançtan pay beklememelidir."
+    },
+    {
+      "id": 648,
+      "text": "Yatanın yürüyene borcu var",
+      "meaning": "Tembel insanların elde ettiği bazı şeyler çalışkanların sayesindedir."
+    },
+    {
+      "id": 649,
+      "text": "Yavaş atın çiftesi pek olur",
+      "meaning": "Yumuşak huylu kişiler öfkelendikleri zaman çok sert davranışlar sergileyebilir."
+    },
+    {
+      "id": 650,
+      "text": "Yavaş tükürüğün sakala zararıvar",
+      "meaning": "Bazen sert tepki vermemiz gereken durumlarda gevşek davranırsak bunun bize zararı dokunur."
+    },
+    {
+      "id": 651,
+      "text": "Yavuz hırsız ev sahibini bastırır",
+      "meaning": "Arsız, açıkgöz kişi haksızken bile haklı çıkmayı bilir."
+    },
+    {
+      "id": 652,
+      "text": "Yaz yalan, kış gerçek",
+      "meaning": "İyi günler gelip geçicidir; yaşam zorluklarla doludur."
+    },
+    {
+      "id": 653,
+      "text": "Yazın başı pişenin kışın aşı pişer",
+      "meaning": "Gençliğinde çok çalışıp varlık edinen kişi hastalığında ve yaşlılığında hiç sıkıntı çekmez."
+    },
+    {
+      "id": 654,
+      "text": "Yazın gölge hoş, kışın çuvalboş",
+      "meaning": "İyi ve sağlıklı günlerinde çalışmayan kişi zor günlerinde aç kalır."
+    },
+    {
+      "id": 655,
+      "text": "Yel kayadan ne koparır",
+      "meaning": "Çok sağlam ve güçlü kişiler önemsiz ve zayıf durumlardan hiç etkilenmezler."
+    },
+    {
+      "id": 656,
+      "text": "Yemeyenin malını yerler",
+      "meaning": "Cimri kişinin yemeğe kıyamayarak biriktirdiği malı ve parayı eninde sonunda başkaları yer."
+    },
+    {
+      "id": 657,
+      "text": "demişler, serde kabadayılıkvar demiş",
+      "meaning": "Herkesten farklı davranan kişiler bunun kendi yetersizliğinden değil de üstünlüğünden kaynaklandığını sanırlar."
+    },
+    {
+      "id": 658,
+      "text": "Yenice eleğim seni nerelereasayım?",
+      "meaning": "Yeni satın alınan şeyler hep çok değerlidir."
+    },
+    {
+      "id": 659,
+      "text": "Yerdeki yüze basılmaz",
+      "meaning": "Alçak gönüllü, tevazu sahibi kişilere saygılı olmak gerekir."
+    },
+    {
+      "id": 660,
+      "text": "Yerin kulağı var",
+      "meaning": "Gizli bir şey söylenirken birilerinin duyma ihtimali göz ardı edilmemeli, dikkatli konuşulmalıdır."
+    },
+    {
+      "id": 661,
+      "text": "Yerini bilmeyen yılda bir katurba eskitir",
+      "meaning": "Sürekli iş değiştiren kişi oradan oraya sürüklenerek kendini yıpratır."
+    },
+    {
+      "id": 662,
+      "text": "Yılanın başı küçükken ezilir",
+      "meaning": "Bir tehlike büyümeden ona karşı önlem alınmalıdır."
+    },
+    {
+      "id": 663,
+      "text": "Yılanın sevmediği ot deliğininağzında biter",
+      "meaning": "Kötü düşünceli kişiler hep kötü şeylerle karşılaşır."
+    },
+    {
+      "id": 664,
+      "text": "Yiğidin malı meydandadır",
+      "meaning": "Dürüst ve onurlu kişiler sahip oldukları şeyleri göstermekten çekinmezler, mal mülk konusunda şeffaf olurlar."
+    },
+    {
+      "id": 665,
+      "text": "Yiğidin sözü demirin kertiği",
+      "meaning": "Mert kişi asla sözünden dönmez, mutlaka sözünü yerine getirir."
+    },
+    {
+      "id": 666,
+      "text": "Yiğit arkasından vurulmaz",
+      "meaning": "Bir kimse yokluğunda değil yüzüne karşı eleştirilmelidir."
+    },
+    {
+      "id": 667,
+      "text": "Yiğit başından devlet ırakdeğildir",
+      "meaning": "Yiğit ve mert kişiler çok yüksek makamlara gelir."
+    },
+    {
+      "id": 668,
+      "text": "Yiğit bin yaşar, fırsat bir düşer",
+      "meaning": "Bazı fırsatlar insanın eline hayatı boyunca ancak bir kere geçer, iyi değerlendirmek gerekir."
+    },
+    {
+      "id": 669,
+      "text": "Yiğit lakabıyla anılır",
+      "meaning": "Yiğit kişi, mert kişi kazandığı ünle tanınır."
+    },
+    {
+      "id": 670,
+      "text": "Yiğit meydanda belli olur",
+      "meaning": "Cesur ve mert kişiler zor durumlar ve mücadeleler karşısında kendilerini belli eder."
+    },
+    {
+      "id": 671,
+      "text": "Yiğit yarasına yiğit katlanır",
+      "meaning": "Mert bir insanı asıl üzen aşağılık biri tarafından zarar görmektir. Kendi gibi mert bir insan tarafından uğrayacağı zarara katlanır."
+    },
+    {
+      "id": 672,
+      "text": "Yiğit yüzüne tükürme, leşinetükürür",
+      "meaning": "Mert ve cesur insan aşağılanmaktansa ölmeyi tercih eder."
+    },
+    {
+      "id": 673,
+      "text": "Yoksul âlâ ata binse selamalmaz",
+      "meaning": "Görmemiş kişi yüksek yerlere geldiğinde başkalarını küçümser."
+    },
+    {
+      "id": 674,
+      "text": "Yoktan yonga çıkmaz",
+      "meaning": "Olmayan bir şeye umut bağlanmaz."
+    },
+    {
+      "id": 675,
+      "text": "Yol bilen kervana katılmaz",
+      "meaning": "Bilgili kişi başkalarının rehberliğine ihtiyaç duymaz."
+    },
+    {
+      "id": 676,
+      "text": "Yol ile giden yanılmaz",
+      "meaning": "Doğru yolda olan kişi zorluk çekmez."
+    },
+    {
+      "id": 677,
+      "text": "Yol sormakla bulunur",
+      "meaning": "Bir işe başlamak için bilmediklerimizi sormak, öğrenmek gerekir."
+    },
+    {
+      "id": 678,
+      "text": "Yol yürümekle borç vermekletükenir",
+      "meaning": "Nasıl yol yürüyerek borç ödeyerek bitirilirse bir iş de üzerinde sürekli uğraşılarak, çalışılarak başarılır."
+    },
+    {
+      "id": 679,
+      "text": "Yolcu yolunda gerek",
+      "meaning": "Herkes kendi işinde gücünde olmalıdır."
+    },
+    {
+      "id": 680,
+      "text": "Yoldan kal yoldaştan kalma",
+      "meaning": "Yolculukta arkadaş çok önemlidir. İnsan iyi bir arkadaşla yolculuk yapmak için gerekirse yolculuğunu geri bırakmalı, ona uymalıdır."
+    },
+    {
+      "id": 681,
+      "text": "Yularsız ata binilmez",
+      "meaning": "Kuralları belirsiz, gevşek bir işin başına geçilmez."
+    },
+    {
+      "id": 682,
+      "text": "Yumurtadan çıkan yine yumurta çıkarır",
+      "meaning": "Herkes kendi soyuna çeker, soyunun özelliklerini taşır."
+    },
+    {
+      "id": 683,
+      "text": "Yuvarlanan taş yosun tutmaz",
+      "meaning": "1) Durmadan yer yurt değiştiren kişi varlık edinemez. 2) Sürekli iş değiştiren kimse başarılı olamaz."
+    },
+    {
+      "id": 684,
+      "text": "Yuvayı yapan dişi kurtur",
+      "meaning": "Ailenin düzenini sağlayan kadındır."
+    },
+    {
+      "id": 685,
+      "text": "Yük altında eşek anırmaz",
+      "meaning": "Büyük sorumluluk alan insanlar olur olmaz isteklerde bulunmamalıdır."
+    },
+    {
+      "id": 686,
+      "text": "Yük altında eşek kalır",
+      "meaning": "İyi insan bir kimseden gördüğü iyiliği unutmaz, karşılığını verir."
+    },
+    {
+      "id": 687,
+      "text": "Yüksek dağın başı dumanlıolur",
+      "meaning": "Önemli mevkilerde olan insanların başlarından sıkıntı eksik olmaz. Büyük başın derdi büyük olur."
+    },
+    {
+      "id": 688,
+      "text": "Yürük ata kamçı olmaz",
+      "meaning": "Sorumluluğunu bilerek işini yapan kişiye nasihat etmeye gerek yoktur."
+    },
+    {
+      "id": 689,
+      "text": "Yüz yüzden utanır",
+      "meaning": "Bir kimseden bir şey isterken aracı kullanmamalı, istediğimizi doğrudan kendimiz belirtmeliyiz."
+    },
+    {
+      "id": 690,
+      "text": "Yüzü güzel olanın huyu dagüzel olur",
+      "meaning": "Bir kişinin nasıl biri olduğu duruşuyla, gülüşüyle, yüzüyle belli olur."
+    },
+    {
+      "id": 691,
+      "text": "Zahmetsiz rahmet olmaz",
+      "meaning": "Sıkıntılara katlanmadan, güçlüklerle mücadele etmeden bir işten verim alınmaz."
+    },
+    {
+      "id": 692,
+      "text": "Zaman sana uymazsa senzamana uy",
+      "meaning": "Kişi, zamana ayak uydurmalı, çağının gerisinde kalmamalı."
+    },
+    {
+      "id": 693,
+      "text": "Zararın neresinden dönülsekârdır",
+      "meaning": "Sürüp giden zararlı bir işten ne denli erken vazgeçersek daha sonra uğrayacağımız zararı o denli azaltmış, sonuç olarak da o kadar kâr etmiş oluruz."
+    },
+    {
+      "id": 694,
+      "text": "Zemheride yoğurt isteyencebinde bir inek taşır",
+      "meaning": "Gerçekleşmesi imkânsız bir zamanda bir şey isteyen kişi, istediğini gerçekleştirecek çözümü yaratmak zorundadır."
+    },
+    {
+      "id": 695,
+      "text": "züğürt düz ovada yolunuşaşırır",
+      "meaning": "Zengin kişiler paraları olduğu için en zor şeyleri bile becerebilir, yoksullar ise en alacak işlerin bile altından kalkamazlar."
+    },
+    {
+      "id": 696,
+      "text": "Zengin kesesini döver, züğürtdizini",
+      "meaning": "Bir iş yapmak gerektiği zaman zengin para diye kesesini döver, züğürt ise yapmak istediği işi parasızlık yüzünden yapamayacağı için dövünür durur."
+    },
+    {
+      "id": 697,
+      "text": "Zenginin azgını kürk giyer yazgünü",
+      "meaning": "Görgüsüz insanlar zenginliklerini abartarak gereksiz savurganlık yaparlar."
+    },
+    {
+      "id": 698,
+      "text": "Zenginin malı, züğürdün çenesini yorar",
+      "meaning": "Yoksul insanlar sürekli olarak zenginlerin ne yapıp ettiğinden söz eder."
+    },
+    {
+      "id": 699,
+      "text": "Zor oyunu bozar",
+      "meaning": "Düzgün yürüyen bir iş zorla başka tarafa çevrilirse iş alt üst olur."
+    },
+    {
+      "id": 700,
+      "text": "Zora dağlar dayanmaz",
+      "meaning": "Güç ve çabayla bütün engeller ortadan kalkar."
+    },
+    {
+      "id": 701,
+      "text": "Zorla güzellik olmaz",
+      "meaning": "İçine sinmeyen hiçbir şeyi insanlara kabul ettiremezsiniz. Herkes kendi beğenisini ölçü kabul eder."
+    },
+    {
+      "id": 702,
+      "text": "Zurnada peşrev olmaz neçıkarsa bahtına",
+      "meaning": "Gelişigüzel ve plansız yapılan bir işin sonunun nasıl olacağı bilinmez. İyi de olabilir kötü de."
+    },
+    {
+      "id": 703,
+      "text": "Züğürt olup düşünmektenseuyuz olup kaşınmak yeğdir",
+      "meaning": "Çok önemsiz de olsa bir şeyle uğraşmak hiçbir şey yapmamaktan iyidir."
+    },
+    {
+      "id": 704,
+      "text": "Zürafanın düşkünü beyaz giyerkış günü",
+      "meaning": "Daha önce daha iyi bir konumdayken kişi bu konumunu kaybettiğinde eskisi gibi görünmek için olanaklarını zorlarsa verdiği çabayla kendini gülünç duruma sokabilir. KAYNAKÇA Atasözleri ve Deyimler Sözlüğü / Çalışkan Arı Yayıncılık / Kadriye MÜFTÜOĞLU. / Ankara. 2019 Atasözleri Sözlüğü / İnkılap Yayınları / Ömer Asım Aksoy. İstanbul 1995"
+    }
+  ]
+}

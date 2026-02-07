@@ -1,6 +1,7 @@
 ﻿// Oyun Durumu
 let gameState = {
-    proverbs: [],
+    deyimler: [],
+    atasozleri: [],
     currentProverb: null,
     currentMode: null,
     score: 0,
@@ -18,22 +19,29 @@ let gameState = {
     askedProverbs: []
 };
 
-// Sayfa yüklendiğinde atasözlerini yükle
+// Sayfa yüklendiğinde her iki dosyayı da yükle
 window.onload = async function () {
-    await loadProverbs();
+    await loadAllData();
     updateStats();
 };
 
-// Atasözlerini dış JSON dosyasından yükle
-async function loadProverbs() {
+// Tüm verileri yükle
+async function loadAllData() {
     try {
-        const response = await fetch('proverbs.json');
-        const data = await response.json();
-        gameState.proverbs = data.proverbs;
-        console.log(gameState.proverbs.length + ' atasözü yüklendi!');
+        // Deyimleri yükle
+        const deyimlerResponse = await fetch('deyimler.json');
+        const deyimlerData = await deyimlerResponse.json();
+        gameState.deyimler = deyimlerData.deyimler;
+        console.log(gameState.deyimler.length + ' deyim yüklendi!');
+        
+        // Atasözlerini yükle
+        const atasozleriResponse = await fetch('atasozleri.json');
+        const atasozleriData = await atasozleriResponse.json();
+        gameState.atasozleri = atasozleriData.atasozleri;
+        console.log(gameState.atasozleri.length + ' atasözü yüklendi!');
     } catch (error) {
         console.error('Hata:', error);
-        alert('Atasözleri yüklenemedi!');
+        alert('Veriler yüklenemedi!');
     }
 }
 
@@ -238,45 +246,63 @@ function showFillBlankQuestion() {
     showOptions(options, missingWord);
 }
 
-// Çoktan Seçmeli Oyunu
+// Çoktan Seçmeli Oyunu (Atasözleri)
 function showMultipleChoiceQuestion() {
     const proverb = gameState.currentProverb;
     
     document.getElementById('questionText').innerHTML = `
         <div style="margin-bottom: 20px;">Bu anlam hangi atasözüne aittir?</div>
-        <div style="color: #667eea; font-size: 1.1em; font-style: italic; line-height: 1.6;">
+        <div style="color: #2D3142; font-size: 1.1em; font-style: italic; line-height: 1.6;">
             "${proverb.meaning}"
         </div>
     `;
     
-    const options = [proverb.text, ...proverb.wrongAnswers];
+    // Yanlış cevaplar için rastgele diğer atasözlerini seç
+    const wrongOptions = [];
+    const otherProverbs = gameState.atasozleri.filter(p => p.id !== proverb.id);
+    
+    while (wrongOptions.length < 3 && otherProverbs.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherProverbs.length);
+        const wrongOption = otherProverbs[randomIndex].text;
+        if (!wrongOptions.includes(wrongOption)) {
+            wrongOptions.push(wrongOption);
+        }
+        otherProverbs.splice(randomIndex, 1);
+    }
+    
+    const options = [proverb.text, ...wrongOptions];
     options.sort(() => Math.random() - 0.5);
     
     showOptions(options, proverb.text);
 }
 
-// Eşleştirme Oyunu
+// Eşleştirme Oyunu (Deyimler)
 function showMatchingQuestion() {
     const proverb = gameState.currentProverb;
     
     document.getElementById('questionText').innerHTML = `
-        <div style="color: #667eea; font-size: 1.3em; font-weight: bold; margin-bottom: 20px;">
+        <div style="color: #2D3142; font-size: 1.3em; font-weight: bold; margin-bottom: 20px;">
             "${proverb.text}"
         </div>
-        <div>Bu sözün anlamı nedir?</div>
+        <div>Bu deyimin anlamı nedir?</div>
     `;
     
-    const options = [proverb.meaning];
+    // Yanlış cevaplar için rastgele diğer deyimlerin anlamlarını seç
+    const wrongOptions = [];
+    const otherProverbs = gameState.deyimler.filter(p => p.id !== proverb.id);
     
-    const otherProverbs = gameState.proverbs.filter(p => p.id !== proverb.id);
-    for (let i = 0; i < 3 && i < otherProverbs.length; i++) {
-        const randomProverb = otherProverbs[Math.floor(Math.random() * otherProverbs.length)];
-        if (!options.includes(randomProverb.meaning)) {
-            options.push(randomProverb.meaning);
+    while (wrongOptions.length < 3 && otherProverbs.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherProverbs.length);
+        const wrongOption = otherProverbs[randomIndex].meaning;
+        if (!wrongOptions.includes(wrongOption) && wrongOption !== proverb.meaning) {
+            wrongOptions.push(wrongOption);
         }
+        otherProverbs.splice(randomIndex, 1);
     }
     
+    const options = [proverb.meaning, ...wrongOptions];
     options.sort(() => Math.random() - 0.5);
+    
     showOptions(options, proverb.meaning);
 }
 
@@ -544,25 +570,25 @@ function displayLeaderboard(scores) {
     });
 }
 
-// ✅ Yardımcı: Rastgele atasözü getir (zorluk seviyesine göre)
+// ✅ Yardımcı: Rastgele soru getir (oyun moduna göre)
 function getRandomProverb() {
-    if (gameState.proverbs.length === 0) return null;
-    
-    // Mevcut zorluk seviyesine uygun atasözlerini filtrele
-    let filteredProverbs = gameState.proverbs.filter(p => p.difficulty === gameState.currentDifficulty);
-    
-    // Eğer o zorlukta soru yoksa, tüm sorulardan seç
-    if (filteredProverbs.length === 0) {
-        filteredProverbs = gameState.proverbs;
+    // Oyun moduna göre doğru veri setini seç
+    let dataSource;
+    if (gameState.currentMode === 'multipleChoice') {
+        dataSource = gameState.atasozleri; // Çoktan seçmeli için atasözleri
+    } else {
+        dataSource = gameState.deyimler; // Eksik kelime ve eşleştirme için deyimler
     }
     
+    if (dataSource.length === 0) return null;
+    
     // Daha önce sorulmamış soruları filtrele
-    let availableProverbs = filteredProverbs.filter(p => !gameState.askedProverbs.includes(p.id));
+    let availableProverbs = dataSource.filter(p => !gameState.askedProverbs.includes(p.id));
     
     // Eğer tüm sorular sorulduysa, listeyi sıfırla
     if (availableProverbs.length === 0) {
         gameState.askedProverbs = [];
-        availableProverbs = filteredProverbs;
+        availableProverbs = dataSource;
     }
     
     const index = Math.floor(Math.random() * availableProverbs.length);
