@@ -629,7 +629,10 @@ function displayLeaderboard(scores) {
     
     container.innerHTML = '';
     
-    scores.forEach((score, index) => {
+    // En iyi 20 kişiyi göster
+    const topScores = scores.slice(0, 20);
+    
+    topScores.forEach((score, index) => {
         const item = document.createElement('div');
         item.className = 'leaderboard-item';
         
@@ -674,6 +677,17 @@ function displayLeaderboard(scores) {
         
         container.appendChild(item);
     });
+    
+    // Toplam skor sayısını göster
+    if (scores.length > 20) {
+        const moreInfo = document.createElement('div');
+        moreInfo.style.textAlign = 'center';
+        moreInfo.style.padding = '15px';
+        moreInfo.style.color = '#9094A6';
+        moreInfo.style.fontSize = '0.9em';
+        moreInfo.innerHTML = `En iyi 20 oyuncu gösteriliyor (Toplam: ${scores.length})`;
+        container.appendChild(moreInfo);
+    }
 }
 
 // ✅ Yardımcı: Rastgele soru getir (oyun moduna göre)
