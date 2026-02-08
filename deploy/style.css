@@ -1189,22 +1189,39 @@ h1 {
 
 /* Oyun Bitişi Modal */
 .game-over-content {
-    max-width: 500px;
+    max-width: 350px;
     position: relative;
     overflow: hidden;
+    padding: 25px;
+}
+
+.game-over-content .modal-mascot {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.game-over-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+
+.game-over-content .modal-subtitle {
+    font-size: 0.95em;
+    margin-bottom: 18px;
 }
 
 .result-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin: 25px 0;
+    gap: 10px;
+    margin: 18px 0;
 }
 
 .stat-box {
     background: linear-gradient(135deg, #F5F5F5, #E8E8E8);
-    padding: 20px;
-    border-radius: 20px;
+    padding: 12px;
+    border-radius: 15px;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -1214,26 +1231,31 @@ h1 {
 }
 
 .stat-icon {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.4em;
+    margin-bottom: 6px;
 }
 
 .stat-value {
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-weight: bold;
     color: #FFB4B4;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .stat-label {
-    font-size: 0.9em;
+    font-size: 0.75em;
     color: #9094A6;
 }
 
 .modal-buttons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+}
+
+.game-over-content .modal-btn {
+    padding: 12px;
+    font-size: 1em;
 }
 
 .btn-secondary {
@@ -1293,20 +1315,25 @@ h1 {
 }
 
 @media (max-width: 600px) {
+    .game-over-content {
+        max-width: 320px;
+        padding: 20px;
+    }
+    
     .result-stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 8px;
     }
     
     .stat-box {
-        padding: 15px 10px;
+        padding: 10px 8px;
     }
     
     .stat-icon {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     
     .stat-value {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 }
