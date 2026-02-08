@@ -1,6 +1,7 @@
 ﻿// Oyun Durumu
 let gameState = {
-    proverbs: [],
+    deyimler: [],
+    atasozleri: [],
     currentProverb: null,
     currentMode: null,
     score: 0,
@@ -18,36 +19,76 @@ let gameState = {
     askedProverbs: []
 };
 
-// Sayfa yüklendiğinde atasözlerini yükle
+// Sayfa yüklendiğinde her iki dosyayı da yükle
 window.onload = async function () {
-    await loadProverbs();
+    await loadAllData();
     updateStats();
 };
 
-// Atasözlerini dış JSON dosyasından yükle
-async function loadProverbs() {
+// Tüm verileri yükle
+async function loadAllData() {
     try {
-        const response = await fetch('proverbs.json');
-        const data = await response.json();
-        gameState.proverbs = data.proverbs;
-        console.log(gameState.proverbs.length + ' atasözü yüklendi!');
+        // Deyimleri yükle
+        const deyimlerResponse = await fetch('deyimler.json');
+        const deyimlerData = await deyimlerResponse.json();
+        gameState.deyimler = deyimlerData.deyimler;
+        console.log(gameState.deyimler.length + ' deyim yüklendi!');
+        
+        // Atasözlerini yükle
+        const atasozleriResponse = await fetch('atasozleri.json');
+        const atasozleriData = await atasozleriResponse.json();
+        gameState.atasozleri = atasozleriData.atasozleri;
+        console.log(gameState.atasozleri.length + ' atasözü yüklendi!');
     } catch (error) {
         console.error('Hata:', error);
-        alert('Atasözleri yüklenemedi!');
+        alert('Veriler yüklenemedi!');
     }
 }
 
 // Oyunu başlat
 function startGame(mode) {
-    // Her oyunda isim sor
-    const name = prompt('Lütfen adınızı girin:');
-    if (!name || name.trim() === '') {
-        alert('Oyuna başlamak için isim girmelisiniz!');
+    gameState.currentMode = mode;
+    
+    // Modal'ı göster
+    const modal = document.getElementById('nameModal');
+    modal.classList.add('show');
+    
+    // Input'a focus ver
+    setTimeout(() => {
+        document.getElementById('playerNameInput').focus();
+    }, 400);
+    
+    // Enter tuşu ile de başlatabilsin
+    document.getElementById('playerNameInput').onkeypress = function(e) {
+        if (e.key === 'Enter') {
+            submitName();
+        }
+    };
+}
+
+// İsmi kaydet ve oyunu başlat
+function submitName() {
+    const nameInput = document.getElementById('playerNameInput');
+    const name = nameInput.value.trim();
+    
+    if (!name || name === '') {
+        // Input'u salla
+        nameInput.classList.add('shake');
+        setTimeout(() => nameInput.classList.remove('shake'), 500);
         return;
     }
-    gameState.playerName = name.trim();
     
-    gameState.currentMode = mode;
+    gameState.playerName = name;
+    localStorage.setItem('playerName', name);
+    
+    // Modal'ı kapat
+    const modal = document.getElementById('nameModal');
+    modal.classList.remove('show');
+    
+    // Input'u temizle
+    nameInput.value = '';
+    
+    // Oyunu başlat
     gameState.score = 0;
     gameState.streak = 0;
     gameState.correctAnswers = 0;
@@ -57,7 +98,7 @@ function startGame(mode) {
     gameState.askedProverbs = [];
     
     // Oyun moduna göre başlangıç süresi
-    if (mode === 'fillBlank') {
+    if (gameState.currentMode === 'fillBlank') {
         gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
     } else {
         gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
@@ -238,45 +279,63 @@ function showFillBlankQuestion() {
     showOptions(options, missingWord);
 }
 
-// Çoktan Seçmeli Oyunu
+// Çoktan Seçmeli Oyunu (Atasözleri)
 function showMultipleChoiceQuestion() {
     const proverb = gameState.currentProverb;
     
     document.getElementById('questionText').innerHTML = `
         <div style="margin-bottom: 20px;">Bu anlam hangi atasözüne aittir?</div>
-        <div style="color: #667eea; font-size: 1.1em; font-style: italic; line-height: 1.6;">
+        <div style="color: #2D3142; font-size: 1.1em; font-style: italic; line-height: 1.6;">
             "${proverb.meaning}"
         </div>
     `;
     
-    const options = [proverb.text, ...proverb.wrongAnswers];
+    // Yanlış cevaplar için rastgele diğer atasözlerini seç
+    const wrongOptions = [];
+    const otherProverbs = gameState.atasozleri.filter(p => p.id !== proverb.id);
+    
+    while (wrongOptions.length < 3 && otherProverbs.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherProverbs.length);
+        const wrongOption = otherProverbs[randomIndex].text;
+        if (!wrongOptions.includes(wrongOption)) {
+            wrongOptions.push(wrongOption);
+        }
+        otherProverbs.splice(randomIndex, 1);
+    }
+    
+    const options = [proverb.text, ...wrongOptions];
     options.sort(() => Math.random() - 0.5);
     
     showOptions(options, proverb.text);
 }
 
-// Eşleştirme Oyunu
+// Eşleştirme Oyunu (Deyimler)
 function showMatchingQuestion() {
     const proverb = gameState.currentProverb;
     
     document.getElementById('questionText').innerHTML = `
-        <div style="color: #667eea; font-size: 1.3em; font-weight: bold; margin-bottom: 20px;">
+        <div style="color: #2D3142; font-size: 1.3em; font-weight: bold; margin-bottom: 20px;">
             "${proverb.text}"
         </div>
-        <div>Bu sözün anlamı nedir?</div>
+        <div>Bu deyimin anlamı nedir?</div>
     `;
     
-    const options = [proverb.meaning];
+    // Yanlış cevaplar için rastgele diğer deyimlerin anlamlarını seç
+    const wrongOptions = [];
+    const otherProverbs = gameState.deyimler.filter(p => p.id !== proverb.id);
     
-    const otherProverbs = gameState.proverbs.filter(p => p.id !== proverb.id);
-    for (let i = 0; i < 3 && i < otherProverbs.length; i++) {
-        const randomProverb = otherProverbs[Math.floor(Math.random() * otherProverbs.length)];
-        if (!options.includes(randomProverb.meaning)) {
-            options.push(randomProverb.meaning);
+    while (wrongOptions.length < 3 && otherProverbs.length > 0) {
+        const randomIndex = Math.floor(Math.random() * otherProverbs.length);
+        const wrongOption = otherProverbs[randomIndex].meaning;
+        if (!wrongOptions.includes(wrongOption) && wrongOption !== proverb.meaning) {
+            wrongOptions.push(wrongOption);
         }
+        otherProverbs.splice(randomIndex, 1);
     }
     
+    const options = [proverb.meaning, ...wrongOptions];
     options.sort(() => Math.random() - 0.5);
+    
     showOptions(options, proverb.meaning);
 }
 
@@ -403,20 +462,93 @@ function checkAnswer(selected, correct, button) {
 // Oyun bitti
 function showGameOver() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    
-    if (gameState.wrongAnswers >= 5) {
-        alert(`Oyun Bitti! 5 yanlış yaptınız.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
-    } else {
-        alert(`Oyun Bitti! Süre doldu.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
-    }
-    
-    backToMenu();
+    showGameOverModal(false); // false = kaybetti
 }
 
 // Sonuçları göster
 function showResults() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    alert(`Tebrikler! Süre doldu!\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
+    showGameOverModal(true); // true = kazandı (süre doldu ama oyunu tamamladı)
+}
+
+// Modern oyun bitişi modal'ını göster
+function showGameOverModal(isWin) {
+    const modal = document.getElementById('gameOverModal');
+    const title = document.getElementById('resultTitle');
+    const message = document.getElementById('resultMessage');
+    const mascot = document.getElementById('resultMascot');
+    
+    // Başarı durumuna göre mesaj
+    if (isWin) {
+        title.textContent = '🎉 Tebrikler!';
+        message.textContent = `Harika bir performans ${gameState.playerName}!`;
+        mascot.style.animation = 'bounce 0.6s ease 3';
+        createConfetti();
+    } else if (gameState.wrongAnswers >= 5) {
+        title.textContent = '😔 Oyun Bitti';
+        message.textContent = '5 yanlış yaptın. Tekrar dene!';
+        mascot.style.animation = 'shake 0.5s ease';
+    } else {
+        title.textContent = '⏰ Süre Doldu';
+        message.textContent = 'Zamanın bitti! Tekrar dene!';
+        mascot.style.animation = 'shake 0.5s ease';
+    }
+    
+    // İstatistikleri göster
+    document.getElementById('finalScore').textContent = gameState.score;
+    document.getElementById('finalCorrect').textContent = gameState.correctAnswers;
+    document.getElementById('finalWrong').textContent = gameState.wrongAnswers;
+    document.getElementById('finalStreak').textContent = gameState.streak;
+    
+    // Modal'ı göster
+    modal.classList.add('show');
+}
+
+// Konfeti oluştur
+function createConfetti() {
+    const confettiContainer = document.getElementById('confetti');
+    confettiContainer.innerHTML = '';
+    
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confettiContainer.appendChild(confetti);
+    }
+}
+
+// Oyunu tekrar başlat
+function restartGame() {
+    const modal = document.getElementById('gameOverModal');
+    modal.classList.remove('show');
+    
+    // İsim zaten kayıtlı, direkt oyunu başlat
+    gameState.score = 0;
+    gameState.streak = 0;
+    gameState.correctAnswers = 0;
+    gameState.wrongAnswers = 0;
+    gameState.totalQuestions = 0;
+    gameState.currentDifficulty = 1;
+    gameState.askedProverbs = [];
+    
+    // Oyun moduna göre başlangıç süresi
+    if (gameState.currentMode === 'fillBlank') {
+        gameState.timeLeft = 180;
+    } else {
+        gameState.timeLeft = 240;
+    }
+    
+    showScreen('gameScreen');
+    updateScoreDisplay();
+    nextQuestion();
+}
+
+// Ana menüye dön
+function closeGameOver() {
+    const modal = document.getElementById('gameOverModal');
+    modal.classList.remove('show');
     backToMenu();
 }
 
@@ -544,25 +676,25 @@ function displayLeaderboard(scores) {
     });
 }
 
-// ✅ Yardımcı: Rastgele atasözü getir (zorluk seviyesine göre)
+// ✅ Yardımcı: Rastgele soru getir (oyun moduna göre)
 function getRandomProverb() {
-    if (gameState.proverbs.length === 0) return null;
-    
-    // Mevcut zorluk seviyesine uygun atasözlerini filtrele
-    let filteredProverbs = gameState.proverbs.filter(p => p.difficulty === gameState.currentDifficulty);
-    
-    // Eğer o zorlukta soru yoksa, tüm sorulardan seç
-    if (filteredProverbs.length === 0) {
-        filteredProverbs = gameState.proverbs;
+    // Oyun moduna göre doğru veri setini seç
+    let dataSource;
+    if (gameState.currentMode === 'multipleChoice') {
+        dataSource = gameState.atasozleri; // Çoktan seçmeli için atasözleri
+    } else {
+        dataSource = gameState.deyimler; // Eksik kelime ve eşleştirme için deyimler
     }
     
+    if (dataSource.length === 0) return null;
+    
     // Daha önce sorulmamış soruları filtrele
-    let availableProverbs = filteredProverbs.filter(p => !gameState.askedProverbs.includes(p.id));
+    let availableProverbs = dataSource.filter(p => !gameState.askedProverbs.includes(p.id));
     
     // Eğer tüm sorular sorulduysa, listeyi sıfırla
     if (availableProverbs.length === 0) {
         gameState.askedProverbs = [];
-        availableProverbs = filteredProverbs;
+        availableProverbs = dataSource;
     }
     
     const index = Math.floor(Math.random() * availableProverbs.length);

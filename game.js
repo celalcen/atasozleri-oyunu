@@ -47,15 +47,48 @@ async function loadAllData() {
 
 // Oyunu başlat
 function startGame(mode) {
-    // Her oyunda isim sor
-    const name = prompt('Lütfen adınızı girin:');
-    if (!name || name.trim() === '') {
-        alert('Oyuna başlamak için isim girmelisiniz!');
+    gameState.currentMode = mode;
+    
+    // Modal'ı göster
+    const modal = document.getElementById('nameModal');
+    modal.classList.add('show');
+    
+    // Input'a focus ver
+    setTimeout(() => {
+        document.getElementById('playerNameInput').focus();
+    }, 400);
+    
+    // Enter tuşu ile de başlatabilsin
+    document.getElementById('playerNameInput').onkeypress = function(e) {
+        if (e.key === 'Enter') {
+            submitName();
+        }
+    };
+}
+
+// İsmi kaydet ve oyunu başlat
+function submitName() {
+    const nameInput = document.getElementById('playerNameInput');
+    const name = nameInput.value.trim();
+    
+    if (!name || name === '') {
+        // Input'u salla
+        nameInput.classList.add('shake');
+        setTimeout(() => nameInput.classList.remove('shake'), 500);
         return;
     }
-    gameState.playerName = name.trim();
     
-    gameState.currentMode = mode;
+    gameState.playerName = name;
+    localStorage.setItem('playerName', name);
+    
+    // Modal'ı kapat
+    const modal = document.getElementById('nameModal');
+    modal.classList.remove('show');
+    
+    // Input'u temizle
+    nameInput.value = '';
+    
+    // Oyunu başlat
     gameState.score = 0;
     gameState.streak = 0;
     gameState.correctAnswers = 0;
@@ -65,7 +98,7 @@ function startGame(mode) {
     gameState.askedProverbs = [];
     
     // Oyun moduna göre başlangıç süresi
-    if (mode === 'fillBlank') {
+    if (gameState.currentMode === 'fillBlank') {
         gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
     } else {
         gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
@@ -429,20 +462,93 @@ function checkAnswer(selected, correct, button) {
 // Oyun bitti
 function showGameOver() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    
-    if (gameState.wrongAnswers >= 5) {
-        alert(`Oyun Bitti! 5 yanlış yaptınız.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
-    } else {
-        alert(`Oyun Bitti! Süre doldu.\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
-    }
-    
-    backToMenu();
+    showGameOverModal(false); // false = kaybetti
 }
 
 // Sonuçları göster
 function showResults() {
     saveScore(gameState.score, gameState.currentMode, gameState.correctAnswers, gameState.totalQuestions);
-    alert(`Tebrikler! Süre doldu!\nPuanınız: ${gameState.score}\nDoğru: ${gameState.correctAnswers}/${gameState.totalQuestions}`);
+    showGameOverModal(true); // true = kazandı (süre doldu ama oyunu tamamladı)
+}
+
+// Modern oyun bitişi modal'ını göster
+function showGameOverModal(isWin) {
+    const modal = document.getElementById('gameOverModal');
+    const title = document.getElementById('resultTitle');
+    const message = document.getElementById('resultMessage');
+    const mascot = document.getElementById('resultMascot');
+    
+    // Başarı durumuna göre mesaj
+    if (isWin) {
+        title.textContent = '🎉 Tebrikler!';
+        message.textContent = `Harika bir performans ${gameState.playerName}!`;
+        mascot.style.animation = 'bounce 0.6s ease 3';
+        createConfetti();
+    } else if (gameState.wrongAnswers >= 5) {
+        title.textContent = '😔 Oyun Bitti';
+        message.textContent = '5 yanlış yaptın. Tekrar dene!';
+        mascot.style.animation = 'shake 0.5s ease';
+    } else {
+        title.textContent = '⏰ Süre Doldu';
+        message.textContent = 'Zamanın bitti! Tekrar dene!';
+        mascot.style.animation = 'shake 0.5s ease';
+    }
+    
+    // İstatistikleri göster
+    document.getElementById('finalScore').textContent = gameState.score;
+    document.getElementById('finalCorrect').textContent = gameState.correctAnswers;
+    document.getElementById('finalWrong').textContent = gameState.wrongAnswers;
+    document.getElementById('finalStreak').textContent = gameState.streak;
+    
+    // Modal'ı göster
+    modal.classList.add('show');
+}
+
+// Konfeti oluştur
+function createConfetti() {
+    const confettiContainer = document.getElementById('confetti');
+    confettiContainer.innerHTML = '';
+    
+    for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.animationDelay = Math.random() * 0.5 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confettiContainer.appendChild(confetti);
+    }
+}
+
+// Oyunu tekrar başlat
+function restartGame() {
+    const modal = document.getElementById('gameOverModal');
+    modal.classList.remove('show');
+    
+    // İsim zaten kayıtlı, direkt oyunu başlat
+    gameState.score = 0;
+    gameState.streak = 0;
+    gameState.correctAnswers = 0;
+    gameState.wrongAnswers = 0;
+    gameState.totalQuestions = 0;
+    gameState.currentDifficulty = 1;
+    gameState.askedProverbs = [];
+    
+    // Oyun moduna göre başlangıç süresi
+    if (gameState.currentMode === 'fillBlank') {
+        gameState.timeLeft = 180;
+    } else {
+        gameState.timeLeft = 240;
+    }
+    
+    showScreen('gameScreen');
+    updateScoreDisplay();
+    nextQuestion();
+}
+
+// Ana menüye dön
+function closeGameOver() {
+    const modal = document.getElementById('gameOverModal');
+    modal.classList.remove('show');
     backToMenu();
 }
 

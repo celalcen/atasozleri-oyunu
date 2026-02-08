@@ -23,6 +23,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- İsim Girişi Modal -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <img src="assets/mascot.png" alt="Maskot" class="modal-mascot">
+            <h2>🎯 Hoş Geldin!</h2>
+            <p class="modal-subtitle">Hadi tanışalım! İsmin nedir?</p>
+            <input type="text" id="playerNameInput" class="name-input" placeholder="İsmini yaz..." maxlength="20">
+            <button class="btn btn-primary modal-btn" onclick="submitName()">Başla! 🚀</button>
+        </div>
+    </div>
+    
+    <!-- Oyun Bitişi Modal -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content game-over-content">
+            <div id="confetti"></div>
+            <img src="assets/mascot.png" alt="Maskot" class="modal-mascot" id="resultMascot">
+            <h2 id="resultTitle">🎉 Tebrikler!</h2>
+            <p class="modal-subtitle" id="resultMessage">Harika bir performans!</p>
+            
+            <div class="result-stats-grid">
+                <div class="stat-box">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-value" id="finalScore">0</div>
+                    <div class="stat-label">Puan</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-value" id="finalCorrect">0</div>
+                    <div class="stat-label">Doğru</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">❌</div>
+                    <div class="stat-value" id="finalWrong">0</div>
+                    <div class="stat-label">Yanlış</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">🔥</div>
+                    <div class="stat-value" id="finalStreak">0</div>
+                    <div class="stat-label">En Yüksek Seri</div>
+                </div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="btn btn-primary modal-btn" onclick="restartGame()">🔄 Tekrar Oyna</button>
+                <button class="btn btn-secondary modal-btn" onclick="closeGameOver()">🏠 Ana Menü</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <!-- Ana Menü -->
         <div id="mainMenu" class="screen active">
@@ -119,7 +168,7 @@
                 
                 <footer class="card-footer">
                     <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
-                    <button class="icon-btn" id="settingsBtn" onclick="backToMenu()">⚙️</button>
+                    <button class="icon-btn" id="exitBtn" onclick="backToMenu()">🚪</button>
                 </footer>
             </main>
         </div>
