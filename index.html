@@ -9,6 +9,28 @@
     <meta name="theme-color" content="#667eea">
     <title>Atasözleri Deyimler Öğrenme Oyunu</title>
     
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Atasözleri Oyunu">
+    
+    <!-- iOS Icons -->
+    <link rel="apple-touch-icon" href="/assets/icon-152.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon-72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="/assets/icon-96.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="/assets/icon-128.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon-152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icon-192.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="/assets/icon-384.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="/assets/icon-512.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-72.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon-72.png">
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0442066246481433" crossorigin="anonymous"></script>
     
@@ -251,5 +273,88 @@
         window.getCurrentUser = getCurrentUser;
     </script>
     <script src="game.js"></script>
+    
+    <!-- PWA Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New service worker available, show update prompt
+                                    if (confirm('Yeni bir güncelleme mevcut! Şimdi yüklemek ister misin?')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+        
+        // Install prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button
+            showInstallPromotion();
+        });
+        
+        function showInstallPromotion() {
+            // Create install button if not exists
+            if (document.getElementById('installBtn')) return;
+            
+            const installBtn = document.createElement('button');
+            installBtn.id = 'installBtn';
+            installBtn.className = 'btn btn-small install-btn';
+            installBtn.innerHTML = '📱 Uygulamayı Yükle';
+            installBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3);';
+            
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('User accepted the install prompt');
+                } else {
+                    console.log('User dismissed the install prompt');
+                }
+                
+                deferredPrompt = null;
+                installBtn.remove();
+            });
+            
+            document.body.appendChild(installBtn);
+            
+            // Auto hide after 10 seconds
+            setTimeout(() => {
+                if (installBtn && installBtn.parentNode) {
+                    installBtn.style.opacity = '0';
+                    installBtn.style.transition = 'opacity 0.5s';
+                    setTimeout(() => installBtn.remove(), 500);
+                }
+            }, 10000);
+        }
+        
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            deferredPrompt = null;
+            const installBtn = document.getElementById('installBtn');
+            if (installBtn) installBtn.remove();
+        });
+    </script>
 </body>
 </html>

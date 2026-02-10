@@ -1,0 +1,103 @@
+{
+  "name": "Atasözleri ve Deyimler Öğrenme Oyunu",
+  "short_name": "Atasözleri Oyunu",
+  "description": "Türkçe atasözleri ve deyimleri eğlenceli oyunlarla öğrenin. 977 atasözü ve yüzlerce deyim ile zengin içerik.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#87CEEB",
+  "theme_color": "#667eea",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr",
+  "categories": ["education", "games"],
+  "icons": [
+    {
+      "src": "assets/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Deyimler Oyunu",
+      "short_name": "Deyimler",
+      "description": "Deyimler eksik kelimeler oyununu oyna",
+      "url": "/?mode=fillBlank",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Çoktan Seçmeli",
+      "short_name": "Quiz",
+      "description": "Çoktan seçmeli atasözleri oyunu",
+      "url": "/?mode=multipleChoice",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Skor Tablosu",
+      "short_name": "Skorlar",
+      "description": "Skor tablosunu görüntüle",
+      "url": "/?view=leaderboard",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
