@@ -169,16 +169,28 @@ async function loadAllData() {
 window.startGame = function(mode) {
     gameState.currentMode = mode;
     
-    // Eğer kullanıcı giriş yapmışsa direkt başlat
+    // Eğer kullanıcı giriş yapmışsa veya ismi varsa direkt başlat
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('playerName');
     
-    if (userId && userName) {
+    if (userName) {
+        // İsim varsa (giriş yapmış veya misafir)
         gameState.playerName = userName;
         startGameSession();
     } else {
-        // Giriş yapmamışsa, giriş veya isim girişi seçeneği sun
-        showLoginModal();
+        // İsim yoksa, isim girişi modalını göster
+        const nameModal = document.getElementById('nameModal');
+        nameModal.classList.add('show');
+        setTimeout(() => {
+            document.getElementById('playerNameInput').focus();
+        }, 400);
+        
+        // Enter tuşu ile de başlatabilsin
+        document.getElementById('playerNameInput').onkeypress = function(e) {
+            if (e.key === 'Enter') {
+                submitName();
+            }
+        };
     }
 }
 
