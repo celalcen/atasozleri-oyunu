@@ -23,7 +23,127 @@ let gameState = {
 window.onload = async function () {
     await loadAllData();
     updateStats();
+    checkUserAuth();
 };
+
+// Kullanıcı kimlik doğrulamasını kontrol et
+function checkUserAuth() {
+    const userId = localStorage.getItem('userId');
+    const userName = localStorage.getItem('playerName');
+    const userPhoto = localStorage.getItem('userPhoto');
+    
+    if (userId && userName) {
+        // Kullanıcı giriş yapmış
+        updateUserUI({
+            displayName: userName,
+            photoURL: userPhoto,
+            uid: userId
+        });
+    } else {
+        // Misafir kullanıcı
+        updateUserUI(null);
+    }
+}
+
+// Kullanıcı UI'ını güncelle
+window.updateUserUI = function(user) {
+    const userProfile = document.getElementById('userProfile');
+    const guestProfile = document.getElementById('guestProfile');
+    
+    if (user) {
+        // Giriş yapmış kullanıcı
+        document.getElementById('userName').textContent = user.displayName || 'Kullanıcı';
+        
+        const userPhoto = document.getElementById('userPhoto');
+        if (user.photoURL) {
+            userPhoto.src = user.photoURL;
+            userPhoto.style.display = 'block';
+        } else {
+            userPhoto.style.display = 'none';
+        }
+        
+        userProfile.style.display = 'flex';
+        guestProfile.style.display = 'none';
+    } else {
+        // Misafir kullanıcı
+        userProfile.style.display = 'none';
+        guestProfile.style.display = 'flex';
+    }
+}
+
+// Giriş modalını göster
+window.showLoginModal = function() {
+    const modal = document.getElementById('loginModal');
+    modal.classList.add('show');
+}
+
+// Giriş modalını kapat
+window.closeLoginModal = function() {
+    const modal = document.getElementById('loginModal');
+    modal.classList.remove('show');
+}
+
+// Google ile giriş
+window.loginWithGoogle = async function() {
+    if (typeof signInWithGoogle === 'undefined') {
+        alert('Firebase Authentication yüklenmedi!');
+        return;
+    }
+    
+    const result = await signInWithGoogle();
+    if (result.success) {
+        closeLoginModal();
+        if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
+    } else {
+        alert('Giriş başarısız: ' + result.error);
+    }
+}
+
+// Apple ile giriş
+window.loginWithApple = async function() {
+    if (typeof signInWithApple === 'undefined') {
+        alert('Firebase Authentication yüklenmedi!');
+        return;
+    }
+    
+    const result = await signInWithApple();
+    if (result.success) {
+        closeLoginModal();
+        if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
+    } else {
+        alert('Giriş başarısız: ' + result.error);
+    }
+}
+
+// Misafir olarak devam et
+window.continueAsGuest = function() {
+    closeLoginModal();
+    // İsim girişi modalını göster
+    const nameModal = document.getElementById('nameModal');
+    nameModal.classList.add('show');
+    setTimeout(() => {
+        document.getElementById('playerNameInput').focus();
+    }, 400);
+}
+
+// Çıkış yap
+window.logout = async function() {
+    if (typeof signOutUser === 'undefined') {
+        alert('Firebase Authentication yüklenmedi!');
+        return;
+    }
+    
+    const result = await signOutUser();
+    if (result.success) {
+        // Oyun verilerini temizle
+        gameState.playerName = '';
+        localStorage.removeItem('playerName');
+        updateUserUI(null);
+        if (typeof soundEffects !== 'undefined') soundEffects.playClick();
+    } else {
+        alert('Çıkış başarısız: ' + result.error);
+    }
+}
 
 // Tüm verileri yükle
 async function loadAllData() {
@@ -46,28 +166,46 @@ async function loadAllData() {
 }
 
 // Oyunu başlat
-function startGame(mode) {
+window.startGame = function(mode) {
     gameState.currentMode = mode;
     
-    // Modal'ı göster
-    const modal = document.getElementById('nameModal');
-    modal.classList.add('show');
+    // Eğer kullanıcı giriş yapmışsa direkt başlat
+    const userId = localStorage.getItem('userId');
+    const userName = localStorage.getItem('playerName');
     
-    // Input'a focus ver
-    setTimeout(() => {
-        document.getElementById('playerNameInput').focus();
-    }, 400);
+    if (userId && userName) {
+        gameState.playerName = userName;
+        startGameSession();
+    } else {
+        // Giriş yapmamışsa, giriş veya isim girişi seçeneği sun
+        showLoginModal();
+    }
+}
+
+// Oyun oturumunu başlat
+function startGameSession() {
+    gameState.score = 0;
+    gameState.streak = 0;
+    gameState.correctAnswers = 0;
+    gameState.wrongAnswers = 0;
+    gameState.totalQuestions = 0;
+    gameState.currentDifficulty = 1;
+    gameState.askedProverbs = [];
     
-    // Enter tuşu ile de başlatabilsin
-    document.getElementById('playerNameInput').onkeypress = function(e) {
-        if (e.key === 'Enter') {
-            submitName();
-        }
-    };
+    // Oyun moduna göre başlangıç süresi
+    if (gameState.currentMode === 'fillBlank') {
+        gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
+    } else {
+        gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
+    }
+    
+    showScreen('gameScreen');
+    updateScoreDisplay();
+    nextQuestion();
 }
 
 // İsmi kaydet ve oyunu başlat
-function submitName() {
+window.submitName = function() {
     const nameInput = document.getElementById('playerNameInput');
     const name = nameInput.value.trim();
     
@@ -89,24 +227,7 @@ function submitName() {
     nameInput.value = '';
     
     // Oyunu başlat
-    gameState.score = 0;
-    gameState.streak = 0;
-    gameState.correctAnswers = 0;
-    gameState.wrongAnswers = 0;
-    gameState.totalQuestions = 0;
-    gameState.currentDifficulty = 1;
-    gameState.askedProverbs = [];
-    
-    // Oyun moduna göre başlangıç süresi
-    if (gameState.currentMode === 'fillBlank') {
-        gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
-    } else {
-        gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
-    }
-    
-    showScreen('gameScreen');
-    updateScoreDisplay();
-    nextQuestion();
+    startGameSession();
 }
 
 // Ekranlar arası geçiş
@@ -131,7 +252,7 @@ function updateScoreDisplay() {
 }
 
 // Ana menüye dön
-function backToMenu() {
+window.backToMenu = function() {
     stopTimer(); // Zamanlayıcıyı durdur
     showScreen('mainMenu');
     updateStats();
@@ -202,7 +323,7 @@ function timeUp() {
 }
 
 // Ses aç/kapat
-function toggleSound() {
+window.toggleSound = function() {
     if (typeof soundEffects !== 'undefined' && typeof soundEffects.toggle === 'function') {
         const isEnabled = soundEffects.toggle();
         document.getElementById('soundBtn').textContent = isEnabled ? '🔊 Ses Açık' : '🔇 Ses Kapalı';
@@ -520,7 +641,7 @@ function createConfetti() {
 }
 
 // Oyunu tekrar başlat
-function restartGame() {
+window.restartGame = function() {
     const modal = document.getElementById('gameOverModal');
     modal.classList.remove('show');
     
@@ -546,14 +667,14 @@ function restartGame() {
 }
 
 // Ana menüye dön
-function closeGameOver() {
+window.closeGameOver = function() {
     const modal = document.getElementById('gameOverModal');
     modal.classList.remove('show');
     backToMenu();
 }
 
 // Skor Tablosu Fonksiyonları
-async function saveScore(score, mode, correctAnswers, totalQuestions) {
+window.saveScore = async function(score, mode, correctAnswers, totalQuestions) {
     const newScore = {
         name: gameState.playerName,
         score: score,
@@ -577,12 +698,12 @@ async function saveScore(score, mode, correctAnswers, totalQuestions) {
     }
 }
 
-async function showLeaderboard() {
+window.showLeaderboard = async function() {
     showScreen('leaderboardScreen');
     await showLeaderboardTab('all');
 }
 
-async function showLeaderboardTab(tab) {
+window.showLeaderboardTab = async function(tab) {
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -760,7 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Yardım göster
-function showHelp() {
+window.showHelp = function() {
     alert('💡 İpucu: Atasözlerini dikkatle oku ve en uygun kelimeyi seç!');
 }
 
