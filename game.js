@@ -90,12 +90,23 @@ window.loginWithGoogle = async function() {
         return;
     }
     
-    const result = await signInWithGoogle();
-    if (result.success) {
-        closeLoginModal();
-        if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
-    } else {
-        alert('Giriş başarısız: ' + result.error);
+    try {
+        const result = await signInWithGoogle();
+        if (result.success) {
+            closeLoginModal();
+            if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
+        } else {
+            // Hata mesajını daha açıklayıcı yap
+            let errorMsg = result.error;
+            if (errorMsg.includes('unauthorized-domain')) {
+                errorMsg = 'Firebase ayarlarında domain yetkilendirmesi gerekiyor.\n\nFirebase Console > Authentication > Settings > Authorized domains\n\nEklenecek domain: celalcen.github.io';
+            }
+            alert('Giriş başarısız:\n\n' + errorMsg);
+            console.error('Login error:', result.error);
+        }
+    } catch (error) {
+        alert('Beklenmeyen hata: ' + error.message);
+        console.error('Unexpected error:', error);
     }
 }
 
@@ -122,7 +133,15 @@ window.continueAsGuest = function() {
     const nameModal = document.getElementById('nameModal');
     nameModal.classList.add('show');
     setTimeout(() => {
-        document.getElementById('playerNameInput').focus();
+        const nameInput = document.getElementById('playerNameInput');
+        nameInput.focus();
+        
+        // Enter tuşu ile de başlatabilsin
+        nameInput.onkeypress = function(e) {
+            if (e.key === 'Enter') {
+                submitName();
+            }
+        };
     }, 400);
 }
 
@@ -169,28 +188,16 @@ async function loadAllData() {
 window.startGame = function(mode) {
     gameState.currentMode = mode;
     
-    // Eğer kullanıcı giriş yapmışsa veya ismi varsa direkt başlat
-    const userId = localStorage.getItem('userId');
+    // Kullanıcı adını kontrol et
     const userName = localStorage.getItem('playerName');
     
     if (userName) {
-        // İsim varsa (giriş yapmış veya misafir)
+        // İsim varsa (giriş yapmış veya misafir), direkt oyunu başlat
         gameState.playerName = userName;
         startGameSession();
     } else {
-        // İsim yoksa, isim girişi modalını göster
-        const nameModal = document.getElementById('nameModal');
-        nameModal.classList.add('show');
-        setTimeout(() => {
-            document.getElementById('playerNameInput').focus();
-        }, 400);
-        
-        // Enter tuşu ile de başlatabilsin
-        document.getElementById('playerNameInput').onkeypress = function(e) {
-            if (e.key === 'Enter') {
-                submitName();
-            }
-        };
+        // İsim yoksa, giriş modalını göster
+        showLoginModal();
     }
 }
 
@@ -237,6 +244,13 @@ window.submitName = function() {
     
     // Input'u temizle
     nameInput.value = '';
+    
+    // Kullanıcı UI'ını güncelle
+    updateUserUI({
+        displayName: name,
+        photoURL: null,
+        uid: null
+    });
     
     // Oyunu başlat
     startGameSession();
@@ -519,6 +533,9 @@ function checkAnswer(selected, correct, button) {
         // Başarı overlay'i göster
         successOverlay.classList.add('show');
         
+        // Panda mutlu animasyonu
+        pandaCorrectAnswer();
+        
         if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
         
         // Doğru cevap için +1 saniye bonus
@@ -552,6 +569,9 @@ function checkAnswer(selected, correct, button) {
         // Hata overlay'i göster ve kartı salla
         errorOverlay.classList.add('show');
         gameCard.classList.add('shake');
+        
+        // Panda üzgün animasyonu
+        pandaWrongAnswer();
         
         if (typeof soundEffects !== 'undefined') soundEffects.playWrong();
         
@@ -609,22 +629,38 @@ function showGameOverModal(isWin) {
     const modal = document.getElementById('gameOverModal');
     const title = document.getElementById('resultTitle');
     const message = document.getElementById('resultMessage');
-    const mascot = document.getElementById('resultMascot');
+    const pandaResult = document.getElementById('pandaResult');
+    const resultMouth = document.getElementById('resultMouth');
     
-    // Başarı durumuna göre mesaj
+    // Başarı durumuna göre mesaj ve panda yüzü
     if (isWin) {
         title.textContent = '🎉 Tebrikler!';
         message.textContent = `Harika bir performans ${gameState.playerName}!`;
-        mascot.style.animation = 'bounce 0.6s ease 3';
+        // Mutlu panda - gülümseyen ağız
+        if (resultMouth) resultMouth.setAttribute("d", "M95 145 Q110 160 125 145");
+        if (pandaResult) {
+            pandaResult.classList.add('jump');
+            setTimeout(() => pandaResult.classList.remove('jump'), 600);
+        }
         createConfetti();
     } else if (gameState.wrongAnswers >= 5) {
         title.textContent = '😔 Oyun Bitti';
         message.textContent = '5 yanlış yaptın. Tekrar dene!';
-        mascot.style.animation = 'shake 0.5s ease';
+        // Üzgün panda - ters ağız
+        if (resultMouth) resultMouth.setAttribute("d", "M95 155 Q110 140 125 155");
+        if (pandaResult) {
+            pandaResult.classList.add('shake');
+            setTimeout(() => pandaResult.classList.remove('shake'), 500);
+        }
     } else {
         title.textContent = '⏰ Süre Doldu';
         message.textContent = 'Zamanın bitti! Tekrar dene!';
-        mascot.style.animation = 'shake 0.5s ease';
+        // Üzgün panda - ters ağız
+        if (resultMouth) resultMouth.setAttribute("d", "M95 155 Q110 140 125 155");
+        if (pandaResult) {
+            pandaResult.classList.add('shake');
+            setTimeout(() => pandaResult.classList.remove('shake'), 500);
+        }
     }
     
     // İstatistikleri göster
@@ -854,41 +890,102 @@ function getRandomProverb() {
 }
 
 
-// Maskot animasyonları
-document.addEventListener('DOMContentLoaded', function() {
-    const mascot = document.querySelector('.mascot-image');
+// Panda Maskot Animasyonları
+const panda = document.getElementById("panda");
+const pandaGame = document.getElementById("pandaGame");
+const eyeL = document.getElementById("eyeL");
+const eyeR = document.getElementById("eyeR");
+const eyeLGame = document.getElementById("eyeLGame");
+const eyeRGame = document.getElementById("eyeRGame");
+
+function blinkEyes() {
+    if (eyeL && eyeR) {
+        eyeL.style.transformOrigin = "center";
+        eyeR.style.transformOrigin = "center";
+        eyeL.classList.add("blink");
+        eyeR.classList.add("blink");
+    }
+    if (eyeLGame && eyeRGame) {
+        eyeLGame.style.transformOrigin = "center";
+        eyeRGame.style.transformOrigin = "center";
+        eyeLGame.classList.add("blink");
+        eyeRGame.classList.add("blink");
+    }
+}
+
+// Rastgele göz ve kafa hareketleri
+function randomEyeMovement() {
+    const eyes = [eyeL, eyeR, eyeLGame, eyeRGame].filter(e => e);
+    const heads = [panda, pandaGame].filter(h => h);
+    if (eyes.length === 0) return;
     
-    if (mascot) {
-        // Tıklandığında zıplama animasyonu
-        mascot.addEventListener('click', function() {
-            this.classList.remove('celebrate');
-            void this.offsetWidth; // Reflow trick
-            this.classList.add('celebrate');
-            
+    const movements = ['look-left', 'look-right'];
+    const headMovements = ['head-tilt-left', 'head-tilt-right'];
+    const randomMove = movements[Math.floor(Math.random() * movements.length)];
+    const randomHeadMove = headMovements[Math.floor(Math.random() * headMovements.length)];
+    
+    // Göz hareketi
+    eyes.forEach(eye => {
+        eye.classList.add(randomMove);
+        setTimeout(() => eye.classList.remove(randomMove), 500);
+    });
+    
+    // Kafa hareketi (bazen)
+    if (Math.random() > 0.5) {
+        heads.forEach(head => {
+            head.classList.add(randomHeadMove);
+            setTimeout(() => head.classList.remove(randomHeadMove), 800);
+        });
+    }
+    
+    // 3-6 saniye arasında rastgele tekrarla
+    const nextMove = Math.random() * 3000 + 3000;
+    setTimeout(randomEyeMovement, nextMove);
+}
+
+function pandaCorrectAnswer() {
+    const activePanda = pandaGame || panda;
+    if (!activePanda) return;
+    activePanda.classList.add("jump");
+    setTimeout(() => {
+        activePanda.classList.remove("jump");
+    }, 600);
+}
+
+function pandaWrongAnswer() {
+    const activePanda = pandaGame || panda;
+    if (!activePanda) return;
+    activePanda.classList.add("shake");
+    setTimeout(() => {
+        activePanda.classList.remove("shake");
+    }, 500);
+}
+
+// Panda'ya tıklama animasyonu ve göz kırpma
+document.addEventListener('DOMContentLoaded', function() {
+    if (panda) {
+        panda.addEventListener('click', function() {
+            pandaCorrectAnswer();
             if (typeof soundEffects !== 'undefined') {
                 soundEffects.playClick();
             }
-            
-            setTimeout(() => {
-                this.classList.remove('celebrate');
-            }, 2400);
         });
-        
-        // Rastgele sallanma animasyonu (her 8-15 saniyede bir)
-        function randomShake() {
-            if (document.getElementById('mainMenu').classList.contains('active')) {
-                mascot.classList.add('shake');
-                setTimeout(() => {
-                    mascot.classList.remove('shake');
-                }, 500);
-            }
-            
-            const nextShake = Math.random() * 7000 + 8000; // 8-15 saniye
-            setTimeout(randomShake, nextShake);
-        }
-        
-        setTimeout(randomShake, 5000); // İlk sallanma 5 saniye sonra
     }
+    
+    if (pandaGame) {
+        pandaGame.addEventListener('click', function() {
+            pandaCorrectAnswer();
+            if (typeof soundEffects !== 'undefined') {
+                soundEffects.playClick();
+            }
+        });
+    }
+    
+    // Göz kırpma başlat
+    blinkEyes();
+    
+    // Göz hareketlerini başlat (2 saniye sonra)
+    setTimeout(randomEyeMovement, 2000);
 });
 
 

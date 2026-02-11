@@ -701,68 +701,94 @@ h1 {
     border-radius: 25px;
 }
 
-.mascot-image {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    cursor: pointer;
-    animation: mascotIdle 4s ease-in-out infinite;
-    transition: transform 0.3s ease;
+/* Panda Maskot */
+.maskot {
+    width: 260px;
+    margin: auto;
 }
 
-/* Duolingo tarzı animasyonlar */
-@keyframes mascotIdle {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-8px) rotate(-2deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(0deg);
-    }
-    75% {
-        transform: translateY(-8px) rotate(2deg);
-    }
+#panda {
+    animation: floaty 3s ease-in-out infinite;
 }
 
-@keyframes mascotBounce {
-    0%, 100% {
-        transform: scale(1) rotate(0deg);
-    }
-    25% {
-        transform: scale(1.1) rotate(-5deg);
-    }
-    50% {
-        transform: scale(1.15) rotate(0deg);
-    }
-    75% {
-        transform: scale(1.1) rotate(5deg);
-    }
+@keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
 }
 
-@keyframes mascotShake {
-    0%, 100% {
-        transform: translateX(0) rotate(0deg);
-    }
-    10%, 30%, 50%, 70%, 90% {
-        transform: translateX(-5px) rotate(-3deg);
-    }
-    20%, 40%, 60%, 80% {
-        transform: translateX(5px) rotate(3deg);
-    }
+/* Blink animasyonu */
+.blink {
+    animation: blink 4s infinite;
 }
 
-.mascot-image:hover {
-    animation: mascotBounce 0.6s ease;
+@keyframes blink {
+    0%, 95%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.1); }
 }
 
-.mascot-image.celebrate {
-    animation: mascotBounce 0.8s ease 3;
+/* Göz hareketleri */
+.look-left {
+    animation: lookLeft 0.5s ease;
 }
 
-.mascot-image.shake {
-    animation: mascotShake 0.5s ease;
+.look-right {
+    animation: lookRight 0.5s ease;
+}
+
+@keyframes lookLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+}
+
+@keyframes lookRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+/* Kafa hareketleri */
+.head-tilt-left {
+    animation: headTiltLeft 0.8s ease;
+}
+
+.head-tilt-right {
+    animation: headTiltRight 0.8s ease;
+}
+
+@keyframes headTiltLeft {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(-8deg) translateY(-2px); }
+}
+
+@keyframes headTiltRight {
+    0%, 100% { transform: rotate(0deg) translateY(0); }
+    50% { transform: rotate(8deg) translateY(-2px); }
+}
+
+/* Doğru cevap zıplama */
+.jump {
+    animation: jump 0.6s ease;
+}
+
+@keyframes jump {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-40px); }
+    60% { transform: translateY(0); }
+    80% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Yanlış cevap sarsılma */
+.shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
 }
 
 .welcome-message {
@@ -788,9 +814,8 @@ h1 {
         gap: 15px;
     }
     
-    .mascot-image {
-        width: 120px;
-        height: 120px;
+    .maskot {
+        width: 200px;
     }
     
     .welcome-message {
