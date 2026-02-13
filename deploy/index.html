@@ -1,46 +1,299 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#5a2bd6"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#667eea">
-    <title>Atasözleri Deyimler Öğrenme Oyunu</title>
+    <meta name="apple-mobile-web-app-title" content="Atasözü Oyunu">
+    <meta name="mobile-web-app-capable" content="yes">
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0442066246481433" crossorigin="anonymous"></script>
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
     
-    <!-- Google AdSense Otomatik Reklamlar -->
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin. Eksik kelime bulma, çoktan seçmeli ve eşleştirme modlarıyla Türkçe dil becerilerinizi geliştirin.">
+    <meta name="keywords" content="atasözleri, deyimler, türkçe, eğitim, oyun, öğrenme">
+    <meta name="author" content="Atasözleri Oyunu">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon-72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="icon-96.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="icon-384.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.png">
+    <title>Atasözleri ve Deyimler Öğrenme Oyunu</title>
+    
     <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-0442066246481433",
-            enable_page_level_ads: true
-        });
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js");
+            });
+        }
     </script>
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- İsim Girişi Modal -->
-    <div id="nameModal" class="modal">
-        <div class="modal-content">
-            <img src="assets/mascot.png" alt="Maskot" class="modal-mascot">
-            <h2>🎯 Hoş Geldin!</h2>
-            <p class="modal-subtitle">Hadi tanışalım! İsmin nedir?</p>
-            <input type="text" id="playerNameInput" class="name-input" placeholder="İsmini yaz..." maxlength="20">
-            <button class="btn btn-primary modal-btn" onclick="submitName()">Başla! 🚀</button>
+    <div class="container">
+        <!-- Ana Menü -->
+        <div id="mainMenu" class="screen active">
+            <!-- Panda -->
+            <div class="hero-section">
+                <img src="panda-normal.png" alt="Panda" class="panda" id="pandaAvatar">
+                <h1 class="main-title">Atasözleri<br>Deyimler Oyunu</h1>
+                <p class="welcome-text">Merhaba! Ben senin öğrenme arkadaşınım<br>Hadi birlikte atasözlerini öğrenelim!</p>
+            </div>
+            
+            <!-- Ses ve Skor Butonları -->
+            <div class="control-buttons">
+                <button class="btn-outlined" id="soundBtn" type="button">
+                    🔊 Ses Açık
+                </button>
+                <button class="btn-outlined" onclick="showLeaderboard()">
+                    🏆 Skor Tablosu
+                </button>
+            </div>
+            
+            <!-- Oyun Modları -->
+            <div class="game-modes">
+                <button class="game-btn" onclick="startGame('fillBlank')">🧩 Deyimler Eksik Kelimeler</button>
+                <button class="game-btn" onclick="startGame('multipleChoice')">📘 Çoktan Seçmeli</button>
+                <button class="game-btn" onclick="startGame('matching')">🔗 Eşleştirme</button>
+            </div>
+            
+            <!-- Alt Butonlar: Bilgi ve Giriş Yap -->
+            <div class="bottom-buttons">
+                <button class="btn-outlined" onclick="showInfo()">💎 Bilgi</button>
+                <button class="btn-outlined" onclick="showLogin()">🔒 Giriş Yap</button>
+            </div>
+            
+            <!-- Alt Toggle -->
+            <div class="bottom-toggle">
+                <div class="toggle-switch" id="mainToggle" onclick="toggleSwitch()"></div>
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="gameScreen" class="screen">
+            <header class="top-bar">
+                <div class="pill pill-time">⏱️ <span id="timerDisplay">180</span></div>
+                <div class="pill pill-score">📝 Puan: <span id="currentScore">0</span></div>
+                <div class="pill pill-streak">🔥 Seri: <span id="streak">0</span></div>
+                <div class="pill pill-difficulty">⭐ Seviye: <span id="difficultyLevel">1</span></div>
+                <div class="pill pill-wrong">❌ <span id="wrongCount">0</span>/5</div>
+            </header>
+
+            <main class="game-card" id="gameCard">
+                <div class="overlay-success" id="successOverlay"></div>
+                <div class="overlay-error" id="errorOverlay"></div>
+                
+                <!-- Oyun Ekranı Panda -->
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <img src="panda-normal.png" alt="Panda" id="gamePanda" style="width: 180px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.3));">
+                </div>
+                
+                <div class="card-header">
+                    <div class="question-badge">
+                        📋 <span id="questionNumber">1</span>/<span id="totalQuestions">10</span>
+                    </div>
+                    <div class="game-mode-badge" id="gameModeBadge">Çoktan Seçmeli</div>
+                </div>
+                
+                <div class="question-text" id="questionText">Soru yükleniyor...</div>
+                <div class="question-hint">Bir şık seç.</div>
+                
+                <div class="answers-container" id="optionsContainer"></div>
+                
+                <footer class="card-footer">
+                    <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
+                    <button class="icon-btn" id="exitBtn" onclick="backToMenu()">🚪</button>
+                </footer>
+            </main>
+        </div>
+
+        <!-- Skor Tablosu Ekranı -->
+        <div id="leaderboardScreen" class="screen">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="leaderboard-panda">
+            <h2 class="leaderboard-title">Skor Tablosu</h2>
+            
+            <div class="leaderboard-content">
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" onclick="showLeaderboardTab(event, 'all')">Tüm Zamanlar</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab(event, 'today')">Bugün</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab(event, 'week')">Bu Hafta</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list"></div>
+            </div>
+            <button class="btn-start" onclick="backToMenu()">Ana Menüye Dön</button>
         </div>
     </div>
-    
+
+    <!-- Sound Panel (Popover) -->
+    <div id="soundPanelBackdrop" class="sound-panel-backdrop" aria-hidden="true"></div>
+    <div id="soundPanel" class="sound-panel" role="dialog" aria-modal="false" aria-label="Ses Ayarları">
+        <div class="sound-panel-header">
+            <div class="sound-panel-title">Ses Ayarları</div>
+            <button id="soundPanelClose" class="sound-panel-close" aria-label="Kapat" type="button">✕</button>
+        </div>
+        
+        <div class="sound-panel-row">
+            <span id="soundPanelStateText" class="sound-panel-state">Açık</span>
+            <button id="soundPanelToggle" class="sound-panel-toggle" type="button" aria-label="Sesi Aç/Kapat">🔊</button>
+        </div>
+        
+        <div class="sound-panel-row">
+            <label for="volumeRange" class="sound-panel-label">Ses Şiddeti</label>
+            <input 
+                id="volumeRange"
+                class="sound-panel-range"
+                type="range"
+                min="0" 
+                max="100" 
+                step="1"
+                aria-label="Ses şiddeti"
+            />
+            <span id="volumeValue" class="sound-panel-value">50</span>
+        </div>
+        
+        <button id="soundTestBtn" class="sound-panel-test" type="button">Test Sesi</button>
+    </div>
+
+    <!-- İsim Girişi Modal -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Hoş Geldin!</h2>
+            <p class="modal-text">Hadi tanışalım! İsmin nedir?</p>
+            <input type="text" id="playerNameInput" class="name-input" placeholder="İsmini yaz..." maxlength="20">
+            <button class="btn-start" onclick="submitName()">Başla! 🚀</button>
+        </div>
+    </div>
+
+    <!-- Bilgi Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Oyun Nasıl Oynanır?</h2>
+            
+            <div class="info-content">
+                <div class="info-section">
+                    <div class="info-icon">🧩</div>
+                    <div class="info-text">
+                        <h3>Deyimler Eksik Kelimeler</h3>
+                        <p>Deyimdeki eksik kelimeyi bul!</p>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-icon">📘</div>
+                    <div class="info-text">
+                        <h3>Çoktan Seçmeli</h3>
+                        <p>Anlamına göre doğru atasözünü seç!</p>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-icon">🔗</div>
+                    <div class="info-text">
+                        <h3>Eşleştirme</h3>
+                        <p>Deyimi anlamıyla eşleştir!</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+                
+                <div class="info-rules">
+                    <div class="info-rule">
+                        <span class="rule-icon">⏱️</span>
+                        <span>Süre: 180-240 saniye</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">❌</span>
+                        <span>5 yanlış yapınca oyun biter</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">🔥</span>
+                        <span>Seri yaparak bonus puan kazan!</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">✅</span>
+                        <span>Doğru cevap: +1 saniye bonus</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">⚠️</span>
+                        <span>Yanlış cevap: -15 saniye ceza</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn-start" onclick="closeInfo()">Anladım! 🚀</button>
+        </div>
+    </div>
+
+    <!-- Giriş Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Giriş Yap</h2>
+            <p class="modal-text">Skorlarını kaydetmek için giriş yap!</p>
+            
+            <div class="login-buttons">
+                <button class="btn-start" onclick="signInWithGoogle()">
+                    🔵 Google ile Giriş Yap
+                </button>
+                <button class="btn-start" onclick="signInAsGuest()">
+                    👤 Misafir Olarak Devam Et
+                </button>
+                <button class="btn-start" style="opacity: 0.7;" onclick="closeLoginModal()">
+                    ❌ İptal
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kullanıcı Menü Modal -->
+    <div id="userMenuModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title" id="userMenuTitle">Kullanıcı</h2>
+            <p class="modal-text" id="userMenuEmail"></p>
+            
+            <div class="login-buttons">
+                <button class="btn-start" onclick="handleSignOut()">
+                    🚪 Çıkış Yap
+                </button>
+                <button class="btn-start" style="opacity: 0.7;" onclick="closeUserMenu()">
+                    ❌ İptal
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Oyun Bitişi Modal -->
     <div id="gameOverModal" class="modal">
-        <div class="modal-content game-over-content">
+        <div class="modal-content game-over-modal">
             <div id="confetti"></div>
-            <img src="assets/mascot.png" alt="Maskot" class="modal-mascot" id="resultMascot">
-            <h2 id="resultTitle">🎉 Tebrikler!</h2>
-            <p class="modal-subtitle" id="resultMessage">Harika bir performans!</p>
+            <img src="panda-mutlu.png" alt="Panda" class="modal-panda" id="resultMascot">
+            <h2 class="modal-title" id="resultTitle">Tebrikler!</h2>
+            <p class="modal-text" id="resultMessage">Harika bir performans!</p>
             
             <div class="result-stats-grid">
                 <div class="stat-box">
@@ -66,166 +319,13 @@
             </div>
             
             <div class="modal-buttons">
-                <button class="btn btn-primary modal-btn" onclick="restartGame()">🔄 Tekrar Oyna</button>
-                <button class="btn btn-secondary modal-btn" onclick="closeGameOver()">🏠 Ana Menü</button>
+                <button class="btn-start" onclick="restartGame()">🔄 Tekrar Oyna</button>
+                <button class="btn-start" onclick="closeGameOver()">🏠 Ana Menü</button>
             </div>
         </div>
     </div>
-    
-    <div class="container">
-        <!-- Ana Menü -->
-        <div id="mainMenu" class="screen active">
-            <!-- Maskot ve Hoş Geldin Mesajı -->
-            <div class="welcome-section">
-                <img src="assets/mascot.png" alt="Maskot" class="mascot-image">
-                <div class="welcome-message">
-                    <h1>🎯 Atasözleri Deyimler Oyunu</h1>
-                    <p class="subtitle">Merhaba! Ben senin öğrenme arkadaşınım 🦅<br>Hadi birlikte atasözlerini öğrenelim!</p>
-                </div>
-            </div>
-            
-            <!-- Reklam Alanı - Ana Ekran Üst (Küçük Banner) -->
-            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:320px;height:100px"
-                     data-ad-client="ca-pub-0442066246481433"
-                     data-ad-slot="1234567890"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            
-            <div style="text-align: center; margin-bottom: 20px;">
-                <button class="btn btn-small" onclick="toggleSound()" id="soundBtn">
-                    🔊 Ses Açık
-                </button>
-                <button class="btn btn-small" onclick="showLeaderboard()">
-                    🏆 Skor Tablosu
-                </button>
-            </div>
-            
-            <div class="menu-buttons">
-                <button class="btn btn-primary" onclick="startGame('fillBlank')">
-                    📝 Deyimler Eksik Kelimeler
-                </button>
-                <button class="btn btn-primary" onclick="startGame('multipleChoice')">
-                    ✅ Çoktan Seçmeli
-                </button>
-                <button class="btn btn-primary" onclick="startGame('matching')">
-                    🔗 Eşleştirme
-                </button>
-            </div>
-            
-            <!-- Reklam Alanı - Oyun Kategorileri Alt (Küçük Banner) -->
-            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:320px;height:100px"
-                     data-ad-client="ca-pub-0442066246481433"
-                     data-ad-slot="1234567891"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-label">Toplam Puan:</span>
-                    <span class="stat-value" id="totalScore">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Seviye:</span>
-                    <span class="stat-value" id="level">1</span>
-                </div>
-            </div>
-        </div>
 
-        <!-- Oyun Ekranı -->
-        <div id="gameScreen" class="screen">
-            <!-- ÜST BAR -->
-            <header class="top-bar">
-                <div class="pill pill-time">⏱️ <span id="timerDisplay">180</span></div>
-                <div class="pill pill-score">📝 Puan: <span id="currentScore">0</span></div>
-                <div class="pill pill-streak">🔥 Seri: <span id="streak">0</span></div>
-                <div class="pill pill-wrong">❌ <span id="wrongCount">0</span>/5</div>
-            </header>
-
-            <!-- OYUN KARTI -->
-            <main class="game-card" id="gameCard">
-                <div class="overlay-success" id="successOverlay"></div>
-                <div class="overlay-error" id="errorOverlay"></div>
-                
-                <div class="card-header">
-                    <div class="question-badge">
-                        📋 <span id="questionNumber">1</span>/<span id="totalQuestions">10</span>
-                    </div>
-                    <div class="game-mode-badge" id="gameModeBadge">Çoktan Seçmeli</div>
-                </div>
-                
-                <div class="question-text" id="questionText">Soru yükleniyor...</div>
-                <div class="question-hint">Bir şık seç.</div>
-                
-                <div class="answers-container" id="optionsContainer"></div>
-                
-                <footer class="card-footer">
-                    <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
-                    <button class="icon-btn" id="exitBtn" onclick="backToMenu()">🚪</button>
-                </footer>
-            </main>
-        </div>
-
-        <!-- Sonuç Ekranı -->
-        <div id="resultScreen" class="screen">
-            <h2 id="resultTitle">Tebrikler!</h2>
-            <div class="result-content">
-                <p id="resultMessage"></p>
-                <div class="result-stats">
-                    <div class="result-stat">
-                        <span class="result-label">Kazanılan Puan:</span>
-                        <span class="result-value" id="earnedPoints">0</span>
-                    </div>
-                    <div class="result-stat">
-                        <span class="result-label">Doğru Cevap:</span>
-                        <span class="result-value" id="correctAnswers">0</span>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
-        </div>
-
-        <!-- Skor Tablosu Ekranı -->
-        <div id="leaderboardScreen" class="screen">
-            <h2>🏆 Skor Tablosu</h2>
-            
-            <!-- Reklam Alanı - Skor Tablosu Üst (Küçük Banner) -->
-            <div class="ad-container-small" style="text-align: center; margin: 15px 0;">
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:320px;height:100px"
-                     data-ad-client="ca-pub-0442066246481433"
-                     data-ad-slot="1234567892"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            
-            <div class="leaderboard-content">
-                <div class="leaderboard-tabs">
-                    <button class="tab-btn active" onclick="showLeaderboardTab('all')">Tüm Zamanlar</button>
-                    <button class="tab-btn" onclick="showLeaderboardTab('today')">Bugün</button>
-                    <button class="tab-btn" onclick="showLeaderboardTab('week')">Bu Hafta</button>
-                </div>
-                <div id="leaderboardList" class="leaderboard-list"></div>
-            </div>
-            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
-        </div>
-    </div>
-
-    <script src="sounds.js"></script>
+    <script type="module" src="js/App.js"></script>
     <script type="module" src="firebase-config.js"></script>
-    <script type="module">
-        import { saveScoreToFirebase, getScoresFromFirebase } from './firebase-config.js';
-        window.saveScoreToFirebase = saveScoreToFirebase;
-        window.getScoresFromFirebase = getScoresFromFirebase;
-    </script>
-    <script src="game.js"></script>
 </body>
 </html>
