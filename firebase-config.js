@@ -101,21 +101,33 @@ async function signInWithGoogle() {
 
 // Misafir olarak giriş (isimsiz)
 async function signInAsGuest() {
+    console.log('Misafir girişi başlatılıyor...');
     try {
+        console.log('signInAnonymously çağrılıyor...');
         const result = await signInAnonymously(auth);
         const user = result.user;
-        console.log('Misafir girişi başarılı');
+        console.log('Misafir girişi başarılı:', user.uid);
         closeLoginModal();
         
         // Start game after successful login
         if (window.app && window.app.selectedMode) {
+            console.log('Oyun başlatılıyor, mod:', window.app.selectedMode);
             window.app.startGameWithName(window.app.selectedMode, 'Misafir');
+        } else {
+            console.warn('window.app veya selectedMode bulunamadı');
         }
         
         return user;
     } catch (error) {
         console.error('Misafir giriş hatası:', error);
-        alert('Misafir girişi yapılamadı. Lütfen tekrar deneyin.');
+        console.error('Hata kodu:', error.code);
+        console.error('Hata mesajı:', error.message);
+        
+        if (error.code === 'auth/operation-not-allowed') {
+            alert('Misafir girişi Firebase Console\'da etkinleştirilmemiş. Lütfen Firebase Console → Authentication → Sign-in method → Anonymous\'u etkinleştirin.');
+        } else {
+            alert('Misafir girişi yapılamadı: ' + error.message);
+        }
     }
 }
 
