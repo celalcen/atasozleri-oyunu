@@ -242,6 +242,16 @@ class App {
         window.showHelp = () => this.showHelp();
         window.toggleSwitch = () => this.toggleSwitch();
         
+        // Footer modal functions
+        window.showAbout = () => this.uiController.showModal('aboutModal');
+        window.closeAbout = () => this.uiController.hideModal('aboutModal');
+        window.showHowToPlay = () => this.uiController.showModal('howToPlayModal');
+        window.closeHowToPlay = () => this.uiController.hideModal('howToPlayModal');
+        window.showPrivacy = () => this.uiController.showModal('privacyModal');
+        window.closePrivacy = () => this.uiController.hideModal('privacyModal');
+        window.showContact = () => this.uiController.showModal('contactModal');
+        window.closeContact = () => this.uiController.hideModal('contactModal');
+        
         // Debug function for audio testing
         window.testAudio = () => this.audioManager.testAudio();
         

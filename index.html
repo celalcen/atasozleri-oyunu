@@ -22,9 +22,25 @@
     <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin. Eksik kelime bulma, çoktan seçmeli ve eşleştirme modlarıyla Türkçe dil becerilerinizi geliştirin.">
-    <meta name="keywords" content="atasözleri, deyimler, türkçe, eğitim, oyun, öğrenme">
+    <meta name="description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin. Eksik kelime bulma, çoktan seçmeli ve eşleştirme modlarıyla Türkçe dil becerilerinizi geliştirin. Ücretsiz, eğitici ve eğlenceli!">
+    <meta name="keywords" content="atasözleri, deyimler, türkçe, eğitim, oyun, öğrenme, kelime oyunu, dil öğrenme, türkçe oyun, eğitici oyun">
     <meta name="author" content="Atasözleri Oyunu">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://celalcen.github.io/atasozleri-oyunu/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://celalcen.github.io/atasozleri-oyunu/">
+    <meta property="og:title" content="Atasözleri ve Deyimler Öğrenme Oyunu">
+    <meta property="og:description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin. 3 farklı oyun modu, skor tablosu ve rekabet!">
+    <meta property="og:image" content="https://celalcen.github.io/atasozleri-oyunu/icon-512.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://celalcen.github.io/atasozleri-oyunu/">
+    <meta property="twitter:title" content="Atasözleri ve Deyimler Öğrenme Oyunu">
+    <meta property="twitter:description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin!">
+    <meta property="twitter:image" content="https://celalcen.github.io/atasozleri-oyunu/icon-512.png">
     
     <!-- Apple Touch Icons -->
     <link rel="apple-touch-icon" href="icon-152.png">
@@ -327,6 +343,220 @@
                 <button class="btn-start" onclick="restartGame()">🔄 Tekrar Oyna</button>
                 <button class="btn-start" onclick="closeGameOver()">🏠 Ana Menü</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <p class="footer-copyright">© 2024 Atasözleri ve Deyimler Oyunu. Tüm hakları saklıdır.</p>
+            <nav class="footer-links">
+                <a href="#" onclick="showAbout(); return false;">Hakkımızda</a>
+                <a href="#" onclick="showHowToPlay(); return false;">Nasıl Oynanır?</a>
+                <a href="#" onclick="showPrivacy(); return false;">Gizlilik Politikası</a>
+                <a href="#" onclick="showContact(); return false;">İletişim</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Hakkımızda Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content info-modal">
+            <button class="modal-close" onclick="closeAbout()">&times;</button>
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Hakkımızda</h2>
+            
+            <div class="info-text">
+                <p>Atasözleri ve Deyimler Oyunu, Türk dilinin zenginliğini eğlenceli bir şekilde öğrenmenizi sağlayan interaktif bir eğitim platformudur.</p>
+                
+                <h3>Misyonumuz</h3>
+                <p>Türkçe'nin güzelliklerini, atasözlerini ve deyimleri oyunlaştırarak her yaştan kullanıcıya ulaştırmak ve dil bilincini geliştirmektir.</p>
+                
+                <h3>Özelliklerimiz</h3>
+                <ul>
+                    <li>🎮 3 farklı oyun modu (Eksik Kelime, Çoktan Seçmeli, Eşleştirme)</li>
+                    <li>🏆 Gerçek zamanlı skor tablosu ve rekabet</li>
+                    <li>📱 Mobil uyumlu tasarım</li>
+                    <li>🔥 Seri sistemi ile bonus puanlar</li>
+                    <li>⭐ Artan zorluk seviyeleri</li>
+                </ul>
+                
+                <p>Oyunumuz, öğrencilerden yetişkinlere kadar herkesin Türkçe dil becerilerini geliştirmesine yardımcı olmayı amaçlar.</p>
+            </div>
+            
+            <button class="btn-start" onclick="closeAbout()">Kapat</button>
+        </div>
+    </div>
+
+    <!-- Nasıl Oynanır Modal -->
+    <div id="howToPlayModal" class="modal">
+        <div class="modal-content info-modal">
+            <button class="modal-close" onclick="closeHowToPlay()">&times;</button>
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Nasıl Oynanır?</h2>
+            
+            <div class="info-text">
+                <h3>🧩 Deyimler - Eksik Kelimeler</h3>
+                <p>Deyimdeki eksik kelimeyi doğru şıktan seçin. Kelimeler anlamlı ve deyime uygun olmalıdır.</p>
+                
+                <h3>📘 Çoktan Seçmeli</h3>
+                <p>Verilen anlama uygun atasözünü 4 şık arasından bulun. Dikkatli okuyun!</p>
+                
+                <h3>🔗 Eşleştirme</h3>
+                <p>Deyimi doğru anlamıyla eşleştirin. Anlamları iyi bilmeniz gerekir.</p>
+                
+                <h3>⏱️ Oyun Kuralları</h3>
+                <ul>
+                    <li>Başlangıç süresi: 180-240 saniye (moda göre değişir)</li>
+                    <li>Her doğru cevap: +1 saniye bonus</li>
+                    <li>Her yanlış cevap: -15 saniye ceza</li>
+                    <li>5 yanlış yapınca oyun biter</li>
+                    <li>Süre bitince oyun sona erer</li>
+                </ul>
+                
+                <h3>🔥 Seri Sistemi</h3>
+                <p>Arka arkaya doğru cevaplar vererek seri yapın! Her seri, bonus puan kazandırır:</p>
+                <ul>
+                    <li>1-2 doğru: Normal puan (10)</li>
+                    <li>3-5 doğru: 1.5x bonus (15)</li>
+                    <li>6+ doğru: 2x bonus (20)</li>
+                </ul>
+                
+                <h3>⭐ Zorluk Seviyeleri</h3>
+                <p>Her 5 soruda bir zorluk artar. Daha zor sorular, daha fazla puan getirir!</p>
+                
+                <h3>💡 İpuçları</h3>
+                <ul>
+                    <li>Soruları dikkatlice okuyun</li>
+                    <li>Aceleci davranmayın, süreniz var</li>
+                    <li>Seri yapmaya çalışın, bonus kazanın</li>
+                    <li>Düzenli oynayarak kelime dağarcığınızı geliştirin</li>
+                </ul>
+            </div>
+            
+            <button class="btn-start" onclick="closeHowToPlay()">Anladım!</button>
+        </div>
+    </div>
+
+    <!-- Gizlilik Politikası Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content info-modal">
+            <button class="modal-close" onclick="closePrivacy()">&times;</button>
+            <h2 class="modal-title">Gizlilik Politikası</h2>
+            
+            <div class="info-text privacy-text">
+                <p><strong>Son Güncelleme:</strong> 15 Şubat 2026</p>
+                
+                <h3>1. Toplanan Bilgiler</h3>
+                <p>Atasözleri ve Deyimler Oyunu olarak, kullanıcı deneyimini iyileştirmek için aşağıdaki bilgileri topluyoruz:</p>
+                <ul>
+                    <li><strong>Hesap Bilgileri:</strong> Google ile giriş yaptığınızda ad, e-posta adresi</li>
+                    <li><strong>Oyun Verileri:</strong> Skorlar, oyun istatistikleri, tercihler</li>
+                    <li><strong>Teknik Bilgiler:</strong> Tarayıcı türü, cihaz bilgisi, IP adresi</li>
+                    <li><strong>Çerezler:</strong> Oturum yönetimi ve tercih kaydetme için</li>
+                </ul>
+                
+                <h3>2. Bilgilerin Kullanımı</h3>
+                <p>Topladığımız bilgiler şu amaçlarla kullanılır:</p>
+                <ul>
+                    <li>Oyun deneyimini kişiselleştirmek</li>
+                    <li>Skor tablosunu yönetmek</li>
+                    <li>Teknik sorunları gidermek</li>
+                    <li>Hizmet kalitesini artırmak</li>
+                    <li>İstatistiksel analizler yapmak</li>
+                </ul>
+                
+                <h3>3. Veri Güvenliği</h3>
+                <p>Verileriniz Firebase güvenlik kuralları ile korunmaktadır. Kişisel bilgileriniz şifrelenerek saklanır ve üçüncü şahıslarla paylaşılmaz.</p>
+                
+                <h3>4. Çerezler</h3>
+                <p>Sitemiz, kullanıcı deneyimini iyileştirmek için çerezler kullanır. Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz.</p>
+                
+                <h3>5. Üçüncü Taraf Hizmetler</h3>
+                <p>Oyunumuz şu üçüncü taraf hizmetleri kullanır:</p>
+                <ul>
+                    <li><strong>Google Firebase:</strong> Kimlik doğrulama ve veri saklama</li>
+                    <li><strong>Google AdSense:</strong> Reklam gösterimi</li>
+                </ul>
+                <p>Bu hizmetlerin kendi gizlilik politikaları vardır.</p>
+                
+                <h3>6. Çocukların Gizliliği</h3>
+                <p>Oyunumuz 13 yaş ve üzeri kullanıcılar içindir. 13 yaşından küçük çocukların ebeveyn izni ile kullanması önerilir.</p>
+                
+                <h3>7. Haklarınız</h3>
+                <p>KVKK ve GDPR kapsamında şu haklara sahipsiniz:</p>
+                <ul>
+                    <li>Verilerinize erişim hakkı</li>
+                    <li>Verilerin düzeltilmesini isteme hakkı</li>
+                    <li>Verilerin silinmesini isteme hakkı</li>
+                    <li>Veri işlemeye itiraz etme hakkı</li>
+                </ul>
+                
+                <h3>8. Değişiklikler</h3>
+                <p>Bu gizlilik politikası zaman zaman güncellenebilir. Önemli değişiklikler olduğunda kullanıcılar bilgilendirilir.</p>
+                
+                <h3>9. İletişim</h3>
+                <p>Gizlilik politikamız hakkında sorularınız için bizimle iletişime geçebilirsiniz.</p>
+            </div>
+            
+            <button class="btn-start" onclick="closePrivacy()">Kapat</button>
+        </div>
+    </div>
+
+    <!-- İletişim Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content info-modal">
+            <button class="modal-close" onclick="closeContact()">&times;</button>
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">İletişim</h2>
+            
+            <div class="info-text">
+                <p>Sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçebilirsiniz.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>E-posta</strong>
+                            <p>info@atasozlerioyunu.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🌐</span>
+                        <div>
+                            <strong>Web</strong>
+                            <p>https://celalcen.github.io/atasozleri-oyunu/</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <div>
+                            <strong>Geri Bildirim</strong>
+                            <p>Oyunumuzu geliştirmek için fikirlerinizi bekliyoruz!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Sık Sorulan Sorular</h3>
+                <div class="faq-item">
+                    <strong>Oyun ücretsiz mi?</strong>
+                    <p>Evet, oyunumuz tamamen ücretsizdir.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Mobil uygulaması var mı?</strong>
+                    <p>Şu anda web tabanlı çalışıyoruz. Mobil uygulama yakında!</p>
+                </div>
+                
+                <div class="faq-item">
+                    <strong>Skorlarım nasıl kaydedilir?</strong>
+                    <p>Google hesabınızla giriş yaparak skorlarınızı kaydedebilirsiniz.</p>
+                </div>
+            </div>
+            
+            <button class="btn-start" onclick="closeContact()">Kapat</button>
         </div>
     </div>
 
