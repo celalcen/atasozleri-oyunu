@@ -1,181 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#667eea">
-    <title>Atasözleri Deyimler Öğrenme Oyunu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     
     <!-- PWA Meta Tags -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#5a2bd6"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Atasözleri Oyunu">
+    <meta name="apple-mobile-web-app-title" content="Atasözü Oyunu">
+    <meta name="mobile-web-app-capable" content="yes">
     
-    <!-- iOS Icons -->
-    <link rel="apple-touch-icon" href="/assets/icon-152.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon-72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="/assets/icon-96.png">
-    <link rel="apple-touch-icon" sizes="128x128" href="/assets/icon-128.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon-144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon-152.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/assets/icon-192.png">
-    <link rel="apple-touch-icon" sizes="384x384" href="/assets/icon-384.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="/assets/icon-512.png">
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="icon-512.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-72.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon-72.png">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Türk atasözlerini ve deyimlerini eğlenceli oyunlarla öğrenin. Eksik kelime bulma, çoktan seçmeli ve eşleştirme modlarıyla Türkçe dil becerilerinizi geliştirin.">
+    <meta name="keywords" content="atasözleri, deyimler, türkçe, eğitim, oyun, öğrenme">
+    <meta name="author" content="Atasözleri Oyunu">
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0442066246481433" crossorigin="anonymous"></script>
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icon-72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="icon-96.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="384x384" href="icon-384.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.png">
+    <title>Atasözleri ve Deyimler Öğrenme Oyunu</title>
+    
+    <!-- AdSense DNS Prefetch (Performans için) -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js");
+            });
+        }
+    </script>
     
     <link rel="stylesheet" href="style.css">
+    
+    <!-- AdSense Yapılandırma ve Yönetim Modülleri -->
+    <script src="adsense-config.js"></script>
+    <script src="adsense-manager.js"></script>
 </head>
 <body>
+    <div class="container">
+        <!-- Ana Menü -->
+        <div id="mainMenu" class="screen active">
+            <!-- Panda -->
+            <div class="hero-section">
+                <img src="panda-normal.png" alt="Panda" class="panda" id="pandaAvatar">
+                <h1 class="main-title">Atasözleri<br>Deyimler Oyunu</h1>
+                <p class="welcome-text">Merhaba! Ben senin öğrenme arkadaşınım<br>Hadi birlikte atasözlerini öğrenelim!</p>
+            </div>
+            
+            <!-- Ses ve Skor Butonları -->
+            <div class="control-buttons">
+                <button class="btn-outlined" id="soundBtn" type="button">
+                    🔊 Ses Açık
+                </button>
+                <button class="btn-outlined" onclick="showLeaderboard()">
+                    🏆 Skor Tablosu
+                </button>
+            </div>
+            
+            <!-- Oyun Modları -->
+            <div class="game-modes">
+                <button class="game-btn" onclick="startGame('fillBlank')">🧩 Deyimler Eksik Kelimeler</button>
+                <button class="game-btn" onclick="startGame('multipleChoice')">📘 Çoktan Seçmeli</button>
+                <button class="game-btn" onclick="startGame('matching')">🔗 Eşleştirme</button>
+            </div>
+            
+            <!-- Alt Butonlar: Bilgi ve Giriş Yap -->
+            <div class="bottom-buttons">
+                <button class="btn-outlined" onclick="showInfo()">💎 Bilgi</button>
+                <button class="btn-outlined" onclick="showLogin()">🔒 Giriş Yap</button>
+            </div>
+            
+            <!-- Reklam Container - Ana Menü -->
+            <div id="ad-main-menu" class="ad-container"></div>
+            
+            <!-- Alt Toggle -->
+            <div class="bottom-toggle">
+                <div class="toggle-switch" id="mainToggle" onclick="toggleSwitch()"></div>
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="gameScreen" class="screen">
+            <header class="top-bar">
+                <div class="pill pill-time">⏱️ <span id="timerDisplay">180</span></div>
+                <div class="pill pill-score">📝 Puan: <span id="currentScore">0</span></div>
+                <div class="pill pill-streak">🔥 Seri: <span id="streak">0</span></div>
+                <div class="pill pill-difficulty">⭐ Seviye: <span id="difficultyLevel">1</span></div>
+                <div class="pill pill-wrong">❌ <span id="wrongCount">0</span>/5</div>
+            </header>
+
+            <main class="game-card" id="gameCard">
+                <div class="overlay-success" id="successOverlay"></div>
+                <div class="overlay-error" id="errorOverlay"></div>
+                
+                <!-- Oyun Ekranı Panda -->
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <img src="panda-normal.png" alt="Panda" id="gamePanda" style="width: 180px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.3));">
+                </div>
+                
+                <div class="card-header">
+                    <div class="question-badge">
+                        📋 <span id="questionNumber">1</span>/<span id="totalQuestions">10</span>
+                    </div>
+                    <div class="game-mode-badge" id="gameModeBadge">Çoktan Seçmeli</div>
+                </div>
+                
+                <div class="question-text" id="questionText">Soru yükleniyor...</div>
+                <div class="question-hint">Bir şık seç.</div>
+                
+                <div class="answers-container" id="optionsContainer"></div>
+                
+                <footer class="card-footer">
+                    <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
+                    <button class="icon-btn" id="exitBtn" onclick="backToMenu()">🚪</button>
+                </footer>
+            </main>
+        </div>
+
+        <!-- Skor Tablosu Ekranı -->
+        <div id="leaderboardScreen" class="screen">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="leaderboard-panda">
+            <h2 class="leaderboard-title">Skor Tablosu</h2>
+            
+            <div class="leaderboard-content">
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" onclick="showLeaderboardTab(event, 'all')">Tüm Zamanlar</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab(event, 'today')">Bugün</button>
+                    <button class="tab-btn" onclick="showLeaderboardTab(event, 'week')">Bu Hafta</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list"></div>
+            </div>
+            
+            <!-- Reklam Container - Skor Tablosu -->
+            <div id="ad-leaderboard" class="ad-container"></div>
+            
+            <button class="btn-start" onclick="backToMenu()">Ana Menüye Dön</button>
+        </div>
+    </div>
+
+    <!-- Sound Panel (Popover) -->
+    <div id="soundPanelBackdrop" class="sound-panel-backdrop" aria-hidden="true"></div>
+    <div id="soundPanel" class="sound-panel" role="dialog" aria-modal="false" aria-label="Ses Ayarları">
+        <div class="sound-panel-header">
+            <div class="sound-panel-title">Ses Ayarları</div>
+            <button id="soundPanelClose" class="sound-panel-close" aria-label="Kapat" type="button">✕</button>
+        </div>
+        
+        <div class="sound-panel-row">
+            <span id="soundPanelStateText" class="sound-panel-state">Açık</span>
+            <button id="soundPanelToggle" class="sound-panel-toggle" type="button" aria-label="Sesi Aç/Kapat">🔊</button>
+        </div>
+        
+        <div class="sound-panel-row">
+            <label for="volumeRange" class="sound-panel-label">Ses Şiddeti</label>
+            <input 
+                id="volumeRange"
+                class="sound-panel-range"
+                type="range"
+                min="0" 
+                max="100" 
+                step="1"
+                aria-label="Ses şiddeti"
+            />
+            <span id="volumeValue" class="sound-panel-value">50</span>
+        </div>
+        
+        <button id="soundTestBtn" class="sound-panel-test" type="button">Test Sesi</button>
+    </div>
+
     <!-- İsim Girişi Modal -->
     <div id="nameModal" class="modal">
-        <div class="modal-content">
-            <div class="maskot" style="width: 180px; margin: 0 auto 20px;">
-                <svg viewBox="0 0 220 220">
-                    <!-- Kulaklar -->
-                    <circle cx="60" cy="55" r="28" fill="black"/>
-                    <circle cx="160" cy="55" r="28" fill="black"/>
-                    <!-- Kafa -->
-                    <circle cx="110" cy="110" r="75" fill="white" stroke="#555" stroke-width="2"/>
-                    <!-- Göz patch -->
-                    <ellipse cx="80" cy="105" rx="25" ry="30" fill="black"/>
-                    <ellipse cx="140" cy="105" rx="25" ry="30" fill="black"/>
-                    <!-- Göz -->
-                    <circle cx="80" cy="100" r="12" fill="white"/>
-                    <circle cx="140" cy="100" r="12" fill="white"/>
-                    <!-- Göz parıltı -->
-                    <circle cx="75" cy="95" r="4" fill="white"/>
-                    <circle cx="135" cy="95" r="4" fill="white"/>
-                    <!-- Yanak -->
-                    <circle cx="60" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <circle cx="160" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <!-- Burun -->
-                    <ellipse cx="110" cy="130" rx="8" ry="6" fill="black"/>
-                    <!-- Ağız -->
-                    <path d="M95 145 Q110 160 125 145" stroke="#555" fill="transparent" stroke-width="2"/>
-                    <!-- Kitap -->
-                    <rect x="60" y="165" width="100" height="35" rx="6" fill="#4CAF50"/>
-                    <line x1="110" y1="165" x2="110" y2="200" stroke="white" stroke-width="2"/>
-                    <text x="110" y="187" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ABC</text>
-                </svg>
-            </div>
-            <h2>🎯 Hoş Geldin!</h2>
-            <p class="modal-subtitle">Hadi tanışalım! İsmin nedir?</p>
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Hoş Geldin!</h2>
+            <p class="modal-text">Hadi tanışalım! İsmin nedir?</p>
             <input type="text" id="playerNameInput" class="name-input" placeholder="İsmini yaz..." maxlength="20">
-            <button class="btn btn-primary modal-btn" onclick="submitName()">Başla! 🚀</button>
+            <button class="btn-start" onclick="submitName()">Başla! 🚀</button>
         </div>
     </div>
-    
-    <!-- Giriş Yap Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeLoginModal()">✕</button>
-            <div class="maskot" style="width: 180px; margin: 0 auto 20px;">
-                <svg viewBox="0 0 220 220">
-                    <!-- Kulaklar -->
-                    <circle cx="60" cy="55" r="28" fill="black"/>
-                    <circle cx="160" cy="55" r="28" fill="black"/>
-                    <!-- Kafa -->
-                    <circle cx="110" cy="110" r="75" fill="white" stroke="#555" stroke-width="2"/>
-                    <!-- Göz patch -->
-                    <ellipse cx="80" cy="105" rx="25" ry="30" fill="black"/>
-                    <ellipse cx="140" cy="105" rx="25" ry="30" fill="black"/>
-                    <!-- Göz -->
-                    <circle cx="80" cy="100" r="12" fill="white"/>
-                    <circle cx="140" cy="100" r="12" fill="white"/>
-                    <!-- Göz parıltı -->
-                    <circle cx="75" cy="95" r="4" fill="white"/>
-                    <circle cx="135" cy="95" r="4" fill="white"/>
-                    <!-- Yanak -->
-                    <circle cx="60" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <circle cx="160" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <!-- Burun -->
-                    <ellipse cx="110" cy="130" rx="8" ry="6" fill="black"/>
-                    <!-- Ağız -->
-                    <path d="M95 145 Q110 160 125 145" stroke="#555" fill="transparent" stroke-width="2"/>
-                    <!-- Kitap -->
-                    <rect x="60" y="165" width="100" height="35" rx="6" fill="#4CAF50"/>
-                    <line x1="110" y1="165" x2="110" y2="200" stroke="white" stroke-width="2"/>
-                    <text x="110" y="187" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ABC</text>
-                </svg>
+
+    <!-- Bilgi Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Oyun Nasıl Oynanır?</h2>
+            
+            <div class="info-content">
+                <div class="info-section">
+                    <div class="info-icon">🧩</div>
+                    <div class="info-text">
+                        <h3>Deyimler Eksik Kelimeler</h3>
+                        <p>Deyimdeki eksik kelimeyi bul!</p>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-icon">📘</div>
+                    <div class="info-text">
+                        <h3>Çoktan Seçmeli</h3>
+                        <p>Anlamına göre doğru atasözünü seç!</p>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-icon">🔗</div>
+                    <div class="info-text">
+                        <h3>Eşleştirme</h3>
+                        <p>Deyimi anlamıyla eşleştir!</p>
+                    </div>
+                </div>
+                
+                <div class="info-divider"></div>
+                
+                <div class="info-rules">
+                    <div class="info-rule">
+                        <span class="rule-icon">⏱️</span>
+                        <span>Süre: 180-240 saniye</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">❌</span>
+                        <span>5 yanlış yapınca oyun biter</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">🔥</span>
+                        <span>Seri yaparak bonus puan kazan!</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">✅</span>
+                        <span>Doğru cevap: +1 saniye bonus</span>
+                    </div>
+                    <div class="info-rule">
+                        <span class="rule-icon">⚠️</span>
+                        <span>Yanlış cevap: -15 saniye ceza</span>
+                    </div>
+                </div>
             </div>
-            <h2>🎮 Giriş Yap</h2>
-            <p class="modal-subtitle">Hesabınla giriş yap ve skorlarını kaydet!</p>
+            
+            <button class="btn-start" onclick="closeInfo()">Anladım! 🚀</button>
+        </div>
+    </div>
+
+    <!-- Giriş Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title">Giriş Yap</h2>
+            <p class="modal-text">Skorlarını kaydetmek için giriş yap!</p>
             
             <div class="login-buttons">
-                <button class="btn btn-google" onclick="loginWithGoogle()">
-                    <svg width="18" height="18" viewBox="0 0 18 18" style="margin-right: 8px;">
-                        <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
-                        <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
-                        <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
-                        <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
-                    </svg>
-                    Google ile Giriş Yap
+                <button class="btn-start" onclick="signInWithGoogle()">
+                    🔵 Google ile Giriş Yap
                 </button>
-                
-                <button class="btn btn-apple" onclick="loginWithApple()">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="white" style="margin-right: 8px;">
-                        <path d="M14.94 13.52c-.26.73-.56 1.05-.94 1.64-.53.82-1.27 1.84-2.19 1.85-.87.01-1.1-.56-2.29-.55-1.19.01-1.45.57-2.33.55-.92-.01-1.6-.95-2.13-1.77-1.52-2.33-1.68-5.07-.74-6.52.66-.99 1.69-1.58 2.67-1.59.99-.01 1.62.57 2.44.57.79 0 1.27-.57 2.41-.57.86 0 1.77.47 2.42 1.28-2.13 1.17-1.78 4.22.68 5.11zM12.23 3.05c.44-.58.78-1.39.66-2.21-.71.04-1.55.51-2.04 1.12-.43.54-.79 1.37-.65 2.16.77.02 1.58-.44 2.03-1.07z"/>
-                    </svg>
-                    Apple ile Giriş Yap
+                <button class="btn-start" onclick="signInAsGuest()">
+                    👤 Misafir Olarak Devam Et
+                </button>
+                <button class="btn-start" style="opacity: 0.7;" onclick="closeLoginModal()">
+                    ❌ İptal
                 </button>
             </div>
-            
-            <div class="divider">
-                <span>veya</span>
-            </div>
-            
-            <button class="btn btn-secondary modal-btn" onclick="continueAsGuest()">
-                👤 Misafir Olarak Devam Et
-            </button>
         </div>
     </div>
-    
+
+    <!-- Kullanıcı Menü Modal -->
+    <div id="userMenuModal" class="modal">
+        <div class="modal-content welcome-modal">
+            <img src="panda-mutlu.png" alt="Mutlu Panda" class="modal-panda">
+            <h2 class="modal-title" id="userMenuTitle">Kullanıcı</h2>
+            <p class="modal-text" id="userMenuEmail"></p>
+            
+            <div class="login-buttons">
+                <button class="btn-start" onclick="handleSignOut()">
+                    🚪 Çıkış Yap
+                </button>
+                <button class="btn-start" style="opacity: 0.7;" onclick="closeUserMenu()">
+                    ❌ İptal
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Oyun Bitişi Modal -->
     <div id="gameOverModal" class="modal">
-        <div class="modal-content game-over-content">
+        <div class="modal-content game-over-modal">
             <div id="confetti"></div>
-            <div class="maskot" style="width: 180px; margin: 0 auto 20px;">
-                <svg viewBox="0 0 220 220" id="pandaResult">
-                    <!-- Kulaklar -->
-                    <circle cx="60" cy="55" r="28" fill="black"/>
-                    <circle cx="160" cy="55" r="28" fill="black"/>
-                    <!-- Kafa -->
-                    <circle cx="110" cy="110" r="75" fill="white" stroke="#555" stroke-width="2"/>
-                    <!-- Göz patch -->
-                    <ellipse cx="80" cy="105" rx="25" ry="30" fill="black"/>
-                    <ellipse cx="140" cy="105" rx="25" ry="30" fill="black"/>
-                    <!-- Göz -->
-                    <circle cx="80" cy="100" r="12" fill="white"/>
-                    <circle cx="140" cy="100" r="12" fill="white"/>
-                    <!-- Göz parıltı -->
-                    <circle cx="75" cy="95" r="4" fill="white"/>
-                    <circle cx="135" cy="95" r="4" fill="white"/>
-                    <!-- Yanak -->
-                    <circle cx="60" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <circle cx="160" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                    <!-- Burun -->
-                    <ellipse cx="110" cy="130" rx="8" ry="6" fill="black"/>
-                    <!-- Ağız -->
-                    <path id="resultMouth" d="M95 145 Q110 160 125 145" stroke="#555" fill="transparent" stroke-width="2"/>
-                    <!-- Kitap -->
-                    <rect x="60" y="165" width="100" height="35" rx="6" fill="#4CAF50"/>
-                    <line x1="110" y1="165" x2="110" y2="200" stroke="white" stroke-width="2"/>
-                    <text x="110" y="187" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ABC</text>
-                </svg>
-            </div>
-            <h2 id="resultTitle">🎉 Tebrikler!</h2>
-            <p class="modal-subtitle" id="resultMessage">Harika bir performans!</p>
+            <img src="panda-mutlu.png" alt="Panda" class="modal-panda" id="resultMascot">
+            <h2 class="modal-title" id="resultTitle">Tebrikler!</h2>
+            <p class="modal-text" id="resultMessage">Harika bir performans!</p>
             
             <div class="result-stats-grid">
                 <div class="stat-box">
@@ -200,304 +333,17 @@
                 </div>
             </div>
             
+            <!-- Reklam Container - Oyun Bitişi Modal -->
+            <div id="ad-game-over" class="ad-container-modal"></div>
+            
             <div class="modal-buttons">
-                <button class="btn btn-primary modal-btn" onclick="restartGame()">🔄 Tekrar Oyna</button>
-                <button class="btn btn-secondary modal-btn" onclick="closeGameOver()">🏠 Ana Menü</button>
+                <button class="btn-start" onclick="restartGame()">🔄 Tekrar Oyna</button>
+                <button class="btn-start" onclick="closeGameOver()">🏠 Ana Menü</button>
             </div>
         </div>
     </div>
-    
-    <div class="container">
-        <!-- Ana Menü -->
-        <div id="mainMenu" class="screen active">
-            <!-- Maskot ve Hoş Geldin Mesajı -->
-            <div class="welcome-section">
-                <!-- Kullanıcı Profil/Giriş Butonu - Sağ Üst -->
-                <div class="auth-container">
-                    <div id="userProfile" class="user-profile-compact" style="display: none;">
-                        <img id="userPhoto" src="" alt="Profil" class="user-photo-small">
-                        <div class="user-info-compact">
-                            <div id="userName" class="user-name-small"></div>
-                            <button class="btn-logout-small" onclick="logout()">Çıkış</button>
-                        </div>
-                    </div>
-                    
-                    <div id="guestProfile" class="guest-profile-compact">
-                        <button class="btn-login-compact" onclick="showLoginModal()">
-                            🔐 Giriş Yap
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="maskot" style="width: 156px;">
-                    <svg viewBox="0 0 220 220" id="panda">
-                        <!-- Kulaklar -->
-                        <circle cx="60" cy="55" r="28" fill="black"/>
-                        <circle cx="160" cy="55" r="28" fill="black"/>
-                        <!-- Kafa -->
-                        <circle cx="110" cy="110" r="75" fill="white" stroke="#555" stroke-width="2"/>
-                        <!-- Göz patch -->
-                        <ellipse cx="80" cy="105" rx="25" ry="30" fill="black"/>
-                        <ellipse cx="140" cy="105" rx="25" ry="30" fill="black"/>
-                        <!-- Göz -->
-                        <circle id="eyeL" cx="80" cy="100" r="12" fill="white"/>
-                        <circle id="eyeR" cx="140" cy="100" r="12" fill="white"/>
-                        <!-- Göz parıltı -->
-                        <circle cx="75" cy="95" r="4" fill="white"/>
-                        <circle cx="135" cy="95" r="4" fill="white"/>
-                        <!-- Yanak -->
-                        <circle cx="60" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                        <circle cx="160" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                        <!-- Burun -->
-                        <ellipse cx="110" cy="130" rx="8" ry="6" fill="black"/>
-                        <!-- Ağız -->
-                        <path d="M95 145 Q110 160 125 145" stroke="#555" fill="transparent" stroke-width="2"/>
-                        <!-- Kitap -->
-                        <rect x="60" y="165" width="100" height="35" rx="6" fill="#4CAF50"/>
-                        <line x1="110" y1="165" x2="110" y2="200" stroke="white" stroke-width="2"/>
-                        <text x="110" y="187" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ABC</text>
-                    </svg>
-                </div>
-                <div class="welcome-message">
-                    <h1>🎯 Atasözleri Deyimler Oyunu</h1>
-                    <p class="subtitle">Merhaba! Ben senin öğrenme arkadaşınım 🦅<br>Hadi birlikte atasözlerini öğrenelim!</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-bottom: 20px;">
-                <button class="btn btn-small" onclick="toggleSound()" id="soundBtn">
-                    🔊 Ses Açık
-                </button>
-                <button class="btn btn-small" onclick="showLeaderboard()">
-                    🏆 Skor Tablosu
-                </button>
-            </div>
-            
-            <div class="menu-buttons">
-                <button class="btn btn-primary" onclick="startGame('fillBlank')">
-                    📝 Deyimler Eksik Kelimeler
-                </button>
-                <button class="btn btn-primary" onclick="startGame('multipleChoice')">
-                    ✅ Çoktan Seçmeli
-                </button>
-                <button class="btn btn-primary" onclick="startGame('matching')">
-                    🔗 Eşleştirme
-                </button>
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-label">Toplam Puan:</span>
-                    <span class="stat-value" id="totalScore">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Seviye:</span>
-                    <span class="stat-value" id="level">1</span>
-                </div>
-            </div>
-            
-            <!-- Footer Links -->
-            <div class="footer-links">
-                <a href="hakkimizda.html">Hakkımızda</a>
-                <a href="nasil-oynanir.html">Nasıl Oynanır?</a>
-                <a href="gizlilik-politikasi.html">Gizlilik Politikası</a>
-            </div>
-        </div>
 
-        <!-- Oyun Ekranı -->
-        <div id="gameScreen" class="screen">
-            <!-- ÜST BAR -->
-            <header class="top-bar">
-                <div class="pill pill-time">⏱️ <span id="timerDisplay">180</span></div>
-                <div class="pill pill-score">📝 Puan: <span id="currentScore">0</span></div>
-                <div class="pill pill-streak">🔥 Seri: <span id="streak">0</span></div>
-                <div class="pill pill-wrong">❌ <span id="wrongCount">0</span>/5</div>
-            </header>
-
-            <!-- OYUN KARTI -->
-            <main class="game-card" id="gameCard">
-                <div class="overlay-success" id="successOverlay"></div>
-                <div class="overlay-error" id="errorOverlay"></div>
-                
-                <!-- Panda Maskot -->
-                <div class="maskot" style="width: 100px; margin: 0 auto 15px;">
-                    <svg viewBox="0 0 220 220" id="pandaGame">
-                        <!-- Kulaklar -->
-                        <circle cx="60" cy="55" r="28" fill="black"/>
-                        <circle cx="160" cy="55" r="28" fill="black"/>
-                        <!-- Kafa -->
-                        <circle cx="110" cy="110" r="75" fill="white" stroke="#555" stroke-width="2"/>
-                        <!-- Göz patch -->
-                        <ellipse cx="80" cy="105" rx="25" ry="30" fill="black"/>
-                        <ellipse cx="140" cy="105" rx="25" ry="30" fill="black"/>
-                        <!-- Göz -->
-                        <circle id="eyeLGame" cx="80" cy="100" r="12" fill="white" class="blink"/>
-                        <circle id="eyeRGame" cx="140" cy="100" r="12" fill="white" class="blink"/>
-                        <!-- Göz parıltı -->
-                        <circle cx="75" cy="95" r="4" fill="white"/>
-                        <circle cx="135" cy="95" r="4" fill="white"/>
-                        <!-- Yanak -->
-                        <circle cx="60" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                        <circle cx="160" cy="135" r="12" fill="#ffb6c1" opacity="0.6"/>
-                        <!-- Burun -->
-                        <ellipse cx="110" cy="130" rx="8" ry="6" fill="black"/>
-                        <!-- Ağız -->
-                        <path d="M95 145 Q110 160 125 145" stroke="#555" fill="transparent" stroke-width="2"/>
-                        <!-- Kitap -->
-                        <rect x="60" y="165" width="100" height="35" rx="6" fill="#4CAF50"/>
-                        <line x1="110" y1="165" x2="110" y2="200" stroke="white" stroke-width="2"/>
-                        <text x="110" y="187" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ABC</text>
-                    </svg>
-                </div>
-                
-                <div class="card-header">
-                    <div class="question-badge">
-                        📋 <span id="questionNumber">1</span>/<span id="totalQuestions">10</span>
-                    </div>
-                    <div class="game-mode-badge" id="gameModeBadge">Çoktan Seçmeli</div>
-                </div>
-                
-                <div class="question-text" id="questionText">Soru yükleniyor...</div>
-                <div class="question-hint">Bir şık seç.</div>
-                
-                <div class="answers-container" id="optionsContainer"></div>
-                
-                <footer class="card-footer">
-                    <button class="icon-btn" id="helpBtn" onclick="showHelp()">?</button>
-                    <button class="icon-btn" id="exitBtn" onclick="backToMenu()">🚪</button>
-                </footer>
-            </main>
-        </div>
-
-        <!-- Sonuç Ekranı -->
-        <div id="resultScreen" class="screen">
-            <h2 id="resultTitle">Tebrikler!</h2>
-            <div class="result-content">
-                <p id="resultMessage"></p>
-                <div class="result-stats">
-                    <div class="result-stat">
-                        <span class="result-label">Kazanılan Puan:</span>
-                        <span class="result-value" id="earnedPoints">0</span>
-                    </div>
-                    <div class="result-stat">
-                        <span class="result-label">Doğru Cevap:</span>
-                        <span class="result-value" id="correctAnswers">0</span>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
-        </div>
-
-        <!-- Skor Tablosu Ekranı -->
-        <div id="leaderboardScreen" class="screen">
-            <h2>🏆 Skor Tablosu</h2>
-            
-            <div class="leaderboard-content">
-                <div class="leaderboard-tabs">
-                    <button class="tab-btn active" onclick="showLeaderboardTab('all')">Tüm Zamanlar</button>
-                    <button class="tab-btn" onclick="showLeaderboardTab('today')">Bugün</button>
-                    <button class="tab-btn" onclick="showLeaderboardTab('week')">Bu Hafta</button>
-                </div>
-                <div id="leaderboardList" class="leaderboard-list"></div>
-            </div>
-            <button class="btn btn-primary" onclick="backToMenu()">Ana Menüye Dön</button>
-        </div>
-    </div>
-
-    <script src="sounds.js"></script>
+    <script type="module" src="js/App.js"></script>
     <script type="module" src="firebase-config.js"></script>
-    <script type="module">
-        import { saveScoreToFirebase, getScoresFromFirebase, signInWithGoogle, signInWithApple, signOutUser, getCurrentUser } from './firebase-config.js';
-        window.saveScoreToFirebase = saveScoreToFirebase;
-        window.getScoresFromFirebase = getScoresFromFirebase;
-        window.signInWithGoogle = signInWithGoogle;
-        window.signInWithApple = signInWithApple;
-        window.signOutUser = signOutUser;
-        window.getCurrentUser = getCurrentUser;
-    </script>
-    <script src="game.js"></script>
-    
-    <!-- PWA Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registered successfully:', registration.scope);
-                        
-                        // Check for updates
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    // New service worker available, show update prompt
-                                    if (confirm('Yeni bir güncelleme mevcut! Şimdi yüklemek ister misin?')) {
-                                        window.location.reload();
-                                    }
-                                }
-                            });
-                        });
-                    })
-                    .catch((error) => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            });
-        }
-        
-        // Install prompt
-        let deferredPrompt;
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            // Show install button
-            showInstallPromotion();
-        });
-        
-        function showInstallPromotion() {
-            // Create install button if not exists
-            if (document.getElementById('installBtn')) return;
-            
-            const installBtn = document.createElement('button');
-            installBtn.id = 'installBtn';
-            installBtn.className = 'btn btn-small install-btn';
-            installBtn.innerHTML = '📱 Uygulamayı Yükle';
-            installBtn.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3);';
-            
-            installBtn.addEventListener('click', async () => {
-                if (!deferredPrompt) return;
-                
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                
-                if (outcome === 'accepted') {
-                    console.log('User accepted the install prompt');
-                } else {
-                    console.log('User dismissed the install prompt');
-                }
-                
-                deferredPrompt = null;
-                installBtn.remove();
-            });
-            
-            document.body.appendChild(installBtn);
-            
-            // Auto hide after 10 seconds
-            setTimeout(() => {
-                if (installBtn && installBtn.parentNode) {
-                    installBtn.style.opacity = '0';
-                    installBtn.style.transition = 'opacity 0.5s';
-                    setTimeout(() => installBtn.remove(), 500);
-                }
-            }, 10000);
-        }
-        
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
-            deferredPrompt = null;
-            const installBtn = document.getElementById('installBtn');
-            if (installBtn) installBtn.remove();
-        });
-    </script>
 </body>
 </html>

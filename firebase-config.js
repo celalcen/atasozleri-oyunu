@@ -1,174 +1,248 @@
 // Firebase Configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInAnonymously, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, collection, addDoc, query, orderBy, limit, getDocs, where, Timestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
+// Firebase yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyC4Y6lo3UlQSu86m05QzyPxtCvV_UcyDSQ",
     authDomain: "atasozleri-oyunu-59b84.firebaseapp.com",
     projectId: "atasozleri-oyunu-59b84",
     storageBucket: "atasozleri-oyunu-59b84.firebasestorage.app",
     messagingSenderId: "229552708072",
-    appId: "1:229552708072:web:4823d888fdfbfa75ab2c5d"
+    appId: "1:229552708072:web:4823d888fdfbfa75ab2c5d",
+    measurementId: "G-45VDGFDW5F"
 };
 
-// Initialize Firebase
+// Firebase'i başlat
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Auth Providers
+// Google Provider
 const googleProvider = new GoogleAuthProvider();
-const appleProvider = new OAuthProvider('apple.com');
 
-// Kullanıcı Durumu
+// Kullanıcı durumu
 let currentUser = null;
 
-// Auth State Listener
+// Auth durumunu dinle
 onAuthStateChanged(auth, (user) => {
     currentUser = user;
-    if (user) {
-        console.log("Kullanıcı giriş yaptı:", user.displayName || user.email);
-        // Kullanıcı bilgilerini localStorage'a kaydet
-        localStorage.setItem('playerName', user.displayName || user.email.split('@')[0]);
-        localStorage.setItem('userEmail', user.email);
-        localStorage.setItem('userPhoto', user.photoURL || '');
-        localStorage.setItem('userId', user.uid);
-        
-        // UI'ı güncelle
-        if (typeof updateUserUI === 'function') {
-            updateUserUI(user);
-        }
-    } else {
-        console.log("Kullanıcı çıkış yaptı");
-        // Kullanıcı bilgilerini temizle (isim hariç - oyun için gerekli)
-        localStorage.removeItem('userEmail');
-        localStorage.removeItem('userPhoto');
-        localStorage.removeItem('userId');
-        
-        // UI'ı güncelle
-        if (typeof updateUserUI === 'function') {
-            updateUserUI(null);
-        }
-    }
+    updateUIForUser(user);
 });
 
-// Google ile Giriş
-export async function signInWithGoogle() {
+// UI'yi kullanıcıya göre güncelle
+function updateUIForUser(user) {
+    const loginBtns = document.querySelectorAll('.btn-outlined');
+    let loginBtn = null;
+    
+    // "Giriş Yap" butonunu bul
+    loginBtns.forEach(btn => {
+        if (btn.textContent.includes('Giriş Yap') || btn.textContent.includes('👤') || btn.textContent.includes('🔒')) {
+            loginBtn = btn;
+        }
+    });
+    
+    if (user) {
+        // Kullanıcı giriş yapmış
+        if (loginBtn) {
+            if (user.isAnonymous) {
+                loginBtn.textContent = '👤 Misafir';
+            } else {
+                const displayName = user.displayName || user.email || 'Kullanıcı';
+                loginBtn.textContent = `👤 ${displayName.split(' ')[0]}`;
+            }
+            loginBtn.onclick = () => window.showUserMenu();
+        }
+    } else {
+        // Kullanıcı giriş yapmamış
+        if (loginBtn) {
+            loginBtn.textContent = '🔒 Giriş Yap';
+            loginBtn.onclick = () => window.showLogin();
+        }
+    }
+}
+
+// Google ile giriş
+async function signInWithGoogle() {
     try {
         const result = await signInWithPopup(auth, googleProvider);
         const user = result.user;
-        console.log("Google ile giriş başarılı:", user.displayName);
-        return { success: true, user };
+        console.log('Google ile giriş başarılı:', user.displayName);
+        closeLoginModal();
+        return user;
     } catch (error) {
-        console.error("Google giriş hatası:", error);
-        return { success: false, error: error.message };
+        console.error('Google giriş hatası:', error);
+        
+        // Popup iptal edildi veya kapatıldı - sessizce geç
+        if (error.code === 'auth/cancelled-popup-request' || 
+            error.code === 'auth/popup-closed-by-user') {
+            console.log('Giriş iptal edildi');
+            return;
+        }
+        
+        // Diğer hatalar için kullanıcıya bilgi ver
+        if (error.code === 'auth/popup-blocked') {
+            alert('Popup engellendi! Lütfen tarayıcınızın popup engelleyicisini kapatın.');
+        } else if (error.code === 'auth/unauthorized-domain') {
+            alert('Bu domain Firebase\'de yetkilendirilmemiş. Firebase Console → Authentication → Settings → Authorized domains bölümünden ekleyin.');
+        } else {
+            alert('Google ile giriş yapılamadı. Lütfen tekrar deneyin.');
+        }
     }
 }
 
-// Apple ile Giriş
-export async function signInWithApple() {
+// Misafir olarak giriş (isimsiz)
+async function signInAsGuest() {
     try {
-        const result = await signInWithPopup(auth, appleProvider);
+        const result = await signInAnonymously(auth);
         const user = result.user;
-        console.log("Apple ile giriş başarılı:", user.displayName || user.email);
-        return { success: true, user };
+        console.log('Misafir girişi başarılı');
+        closeLoginModal();
+        return user;
     } catch (error) {
-        console.error("Apple giriş hatası:", error);
-        return { success: false, error: error.message };
+        console.error('Misafir giriş hatası:', error);
+        alert('Misafir girişi yapılamadı. Lütfen tekrar deneyin.');
     }
 }
 
-// Çıkış Yap
-export async function signOutUser() {
+// Çıkış yap
+async function signOutUser() {
     try {
         await signOut(auth);
-        console.log("Çıkış başarılı");
-        return { success: true };
+        console.log('Çıkış yapıldı');
     } catch (error) {
-        console.error("Çıkış hatası:", error);
-        return { success: false, error: error.message };
+        console.error('Çıkış hatası:', error);
     }
 }
 
-// Mevcut Kullanıcıyı Al
-export function getCurrentUser() {
-    return currentUser;
-}
+// Skor kaydet (Firebase)
+async function saveScoreToFirebase(playerName, score, mode, correct, total) {
+    console.log('saveScoreToFirebase çağrıldı:', { playerName, score, mode, correct, total });
+    
+    if (!currentUser) {
+        console.log('Kullanıcı giriş yapmamış, skor kaydedilmedi');
+        return;
+    }
 
-// Global Skor Kaydetme
-export async function saveScoreToFirebase(name, score, mode, correct, total) {
     try {
+        // Kullanıcı adını belirle
+        let userName = playerName;
+        
+        console.log('Gelen playerName:', playerName);
+        console.log('currentUser:', currentUser);
+        
+        if (!userName || userName === '' || userName === 'undefined') {
+            if (currentUser.isAnonymous) {
+                userName = 'Misafir';
+            } else {
+                userName = currentUser.displayName || currentUser.email || 'Anonim';
+            }
+        }
+        
+        console.log('Kaydedilecek userName:', userName);
+        
         const scoreData = {
-            name: name,
+            userId: currentUser.uid,
+            userName: userName,
+            userEmail: currentUser.email || null,
             score: score,
             mode: mode,
             correct: correct,
             total: total,
-            timestamp: Date.now(),
-            date: new Date().toISOString()
+            date: Timestamp.now(),
+            timestamp: Date.now()
         };
-        
-        // Eğer kullanıcı giriş yaptıysa, userId'yi de ekle
-        if (currentUser) {
-            scoreData.userId = currentUser.uid;
-            scoreData.userEmail = currentUser.email;
-        }
-        
-        await addDoc(collection(db, "scores"), scoreData);
-        console.log("Skor Firebase'e kaydedildi!");
-        return true;
+
+        await addDoc(collection(db, 'scores'), scoreData);
+        console.log('Skor Firebase\'e kaydedildi:', scoreData);
     } catch (error) {
-        console.error("Firebase kayıt hatası:", error);
-        return false;
+        console.error('Skor kaydetme hatası:', error);
     }
 }
 
-// Global Skorları Getirme
-export async function getScoresFromFirebase(filterType = 'all') {
+// Skorları getir (Firebase)
+async function getScoresFromFirebase(timeFilter = 'all') {
     try {
         let q;
-        const scoresRef = collection(db, "scores");
         
-        const now = Date.now();
-        const oneDay = 24 * 60 * 60 * 1000;
-        const oneWeek = 7 * oneDay;
-        
-        if (filterType === 'today') {
-            q = query(scoresRef, 
-                where("timestamp", ">", now - oneDay),
-                orderBy("timestamp", "desc"),
-                orderBy("score", "desc"),
+        // Zaman filtresi
+        if (timeFilter === 'today') {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            q = query(
+                collection(db, 'scores'),
+                where('timestamp', '>=', today.getTime()),
+                orderBy('timestamp', 'desc'),
                 limit(100)
             );
-        } else if (filterType === 'week') {
-            q = query(scoresRef,
-                where("timestamp", ">", now - oneWeek),
-                orderBy("timestamp", "desc"),
-                orderBy("score", "desc"),
+        } else if (timeFilter === 'week') {
+            const weekAgo = new Date();
+            weekAgo.setDate(weekAgo.getDate() - 7);
+            weekAgo.setHours(0, 0, 0, 0);
+            q = query(
+                collection(db, 'scores'),
+                where('timestamp', '>=', weekAgo.getTime()),
+                orderBy('timestamp', 'desc'),
                 limit(100)
             );
         } else {
-            q = query(scoresRef,
-                orderBy("score", "desc"),
+            // Tüm zamanlar - sadece score'a göre sırala
+            q = query(
+                collection(db, 'scores'),
+                orderBy('score', 'desc'),
                 limit(100)
             );
         }
-        
+
         const querySnapshot = await getDocs(q);
         const scores = [];
         
         querySnapshot.forEach((doc) => {
-            scores.push(doc.data());
+            const data = doc.data();
+            
+            // Tarih dönüşümü - Timestamp veya string olabilir
+            let dateString;
+            if (data.date && typeof data.date.toDate === 'function') {
+                // Firestore Timestamp
+                dateString = data.date.toDate().toISOString();
+            } else if (data.date) {
+                // String veya başka format
+                dateString = data.date;
+            } else {
+                // Tarih yoksa timestamp'ten oluştur
+                dateString = new Date(data.timestamp || Date.now()).toISOString();
+            }
+            
+            scores.push({
+                name: data.userName || 'Anonim',
+                score: data.score || 0,
+                mode: data.mode || 'unknown',
+                correct: data.correct || 0,
+                total: data.total || 0,
+                date: dateString,
+                timestamp: data.timestamp || Date.now()
+            });
         });
         
-        // Skora göre sırala
-        scores.sort((a, b) => b.score - a.score);
-        
-        console.log(`${scores.length} skor Firebase'den alındı!`);
+        // Client-side sıralama (bugün ve bu hafta için)
+        if (timeFilter === 'today' || timeFilter === 'week') {
+            scores.sort((a, b) => b.score - a.score);
+        }
+
         return scores;
     } catch (error) {
-        console.error("Firebase okuma hatası:", error);
+        console.error('Skorları getirme hatası:', error);
         return [];
     }
 }
+
+// Global fonksiyonlar
+window.signInWithGoogle = signInWithGoogle;
+window.signInAsGuest = signInAsGuest;
+window.signOutUser = signOutUser;
+window.saveScoreToFirebase = saveScoreToFirebase;
+window.getScoresFromFirebase = getScoresFromFirebase;
+window.getCurrentUser = () => currentUser;
+
+export { signInWithGoogle, signInAsGuest, signOutUser, saveScoreToFirebase, getScoresFromFirebase };

@@ -23,146 +23,7 @@ let gameState = {
 window.onload = async function () {
     await loadAllData();
     updateStats();
-    checkUserAuth();
 };
-
-// Kullanıcı kimlik doğrulamasını kontrol et
-function checkUserAuth() {
-    const userId = localStorage.getItem('userId');
-    const userName = localStorage.getItem('playerName');
-    const userPhoto = localStorage.getItem('userPhoto');
-    
-    if (userId && userName) {
-        // Kullanıcı giriş yapmış
-        updateUserUI({
-            displayName: userName,
-            photoURL: userPhoto,
-            uid: userId
-        });
-    } else {
-        // Misafir kullanıcı
-        updateUserUI(null);
-    }
-}
-
-// Kullanıcı UI'ını güncelle
-window.updateUserUI = function(user) {
-    const userProfile = document.getElementById('userProfile');
-    const guestProfile = document.getElementById('guestProfile');
-    
-    if (user) {
-        // Giriş yapmış kullanıcı
-        document.getElementById('userName').textContent = user.displayName || 'Kullanıcı';
-        
-        const userPhoto = document.getElementById('userPhoto');
-        if (user.photoURL) {
-            userPhoto.src = user.photoURL;
-            userPhoto.style.display = 'block';
-        } else {
-            userPhoto.style.display = 'none';
-        }
-        
-        userProfile.style.display = 'flex';
-        guestProfile.style.display = 'none';
-    } else {
-        // Misafir kullanıcı
-        userProfile.style.display = 'none';
-        guestProfile.style.display = 'flex';
-    }
-}
-
-// Giriş modalını göster
-window.showLoginModal = function() {
-    const modal = document.getElementById('loginModal');
-    modal.classList.add('show');
-}
-
-// Giriş modalını kapat
-window.closeLoginModal = function() {
-    const modal = document.getElementById('loginModal');
-    modal.classList.remove('show');
-}
-
-// Google ile giriş
-window.loginWithGoogle = async function() {
-    if (typeof signInWithGoogle === 'undefined') {
-        alert('Firebase Authentication yüklenmedi!');
-        return;
-    }
-    
-    try {
-        const result = await signInWithGoogle();
-        if (result.success) {
-            closeLoginModal();
-            if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
-        } else {
-            // Hata mesajını daha açıklayıcı yap
-            let errorMsg = result.error;
-            if (errorMsg.includes('unauthorized-domain')) {
-                errorMsg = 'Firebase ayarlarında domain yetkilendirmesi gerekiyor.\n\nFirebase Console > Authentication > Settings > Authorized domains\n\nEklenecek domain: celalcen.github.io';
-            }
-            alert('Giriş başarısız:\n\n' + errorMsg);
-            console.error('Login error:', result.error);
-        }
-    } catch (error) {
-        alert('Beklenmeyen hata: ' + error.message);
-        console.error('Unexpected error:', error);
-    }
-}
-
-// Apple ile giriş
-window.loginWithApple = async function() {
-    if (typeof signInWithApple === 'undefined') {
-        alert('Firebase Authentication yüklenmedi!');
-        return;
-    }
-    
-    const result = await signInWithApple();
-    if (result.success) {
-        closeLoginModal();
-        if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
-    } else {
-        alert('Giriş başarısız: ' + result.error);
-    }
-}
-
-// Misafir olarak devam et
-window.continueAsGuest = function() {
-    closeLoginModal();
-    // İsim girişi modalını göster
-    const nameModal = document.getElementById('nameModal');
-    nameModal.classList.add('show');
-    setTimeout(() => {
-        const nameInput = document.getElementById('playerNameInput');
-        nameInput.focus();
-        
-        // Enter tuşu ile de başlatabilsin
-        nameInput.onkeypress = function(e) {
-            if (e.key === 'Enter') {
-                submitName();
-            }
-        };
-    }, 400);
-}
-
-// Çıkış yap
-window.logout = async function() {
-    if (typeof signOutUser === 'undefined') {
-        alert('Firebase Authentication yüklenmedi!');
-        return;
-    }
-    
-    const result = await signOutUser();
-    if (result.success) {
-        // Oyun verilerini temizle
-        gameState.playerName = '';
-        localStorage.removeItem('playerName');
-        updateUserUI(null);
-        if (typeof soundEffects !== 'undefined') soundEffects.playClick();
-    } else {
-        alert('Çıkış başarısız: ' + result.error);
-    }
-}
 
 // Tüm verileri yükle
 async function loadAllData() {
@@ -185,46 +46,65 @@ async function loadAllData() {
 }
 
 // Oyunu başlat
-window.startGame = function(mode) {
+function startGame(mode) {
     gameState.currentMode = mode;
     
-    // Kullanıcı adını kontrol et
-    const userName = localStorage.getItem('playerName');
+    // Panda zamanlayıcısını durdur ve normal panda'ya geç
+    stopMainMenuPandaTimer();
+    changePanda('normal');
     
-    if (userName) {
-        // İsim varsa (giriş yapmış veya misafir), direkt oyunu başlat
-        gameState.playerName = userName;
-        startGameSession();
+    // Firebase ile giriş yapmış kullanıcı kontrolü
+    const currentUser = window.getCurrentUser ? window.getCurrentUser() : null;
+    
+    if (currentUser) {
+        // Kullanıcı giriş yapmış, isim modal'ını atla
+        if (currentUser.isAnonymous) {
+            gameState.playerName = 'Misafir';
+        } else {
+            gameState.playerName = currentUser.displayName || currentUser.email || 'Oyuncu';
+        }
+        
+        // Direkt oyunu başlat
+        gameState.score = 0;
+        gameState.streak = 0;
+        gameState.correctAnswers = 0;
+        gameState.wrongAnswers = 0;
+        gameState.totalQuestions = 0;
+        gameState.currentDifficulty = 1;
+        gameState.askedProverbs = [];
+        
+        // Oyun moduna göre başlangıç süresi
+        if (gameState.currentMode === 'fillBlank') {
+            gameState.timeLeft = 180;
+        } else {
+            gameState.timeLeft = 240;
+        }
+        
+        showScreen('gameScreen');
+        updateScoreDisplay();
+        updateGameModeBadge();
+        nextQuestion();
     } else {
-        // İsim yoksa, giriş modalını göster
-        showLoginModal();
+        // Kullanıcı giriş yapmamış, isim sor
+        const modal = document.getElementById('nameModal');
+        modal.classList.add('show');
+        
+        // Input'a focus ver
+        setTimeout(() => {
+            document.getElementById('playerNameInput').focus();
+        }, 400);
+        
+        // Enter tuşu ile de başlatabilsin
+        document.getElementById('playerNameInput').onkeypress = function(e) {
+            if (e.key === 'Enter') {
+                submitName();
+            }
+        };
     }
-}
-
-// Oyun oturumunu başlat
-function startGameSession() {
-    gameState.score = 0;
-    gameState.streak = 0;
-    gameState.correctAnswers = 0;
-    gameState.wrongAnswers = 0;
-    gameState.totalQuestions = 0;
-    gameState.currentDifficulty = 1;
-    gameState.askedProverbs = [];
-    
-    // Oyun moduna göre başlangıç süresi
-    if (gameState.currentMode === 'fillBlank') {
-        gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
-    } else {
-        gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
-    }
-    
-    showScreen('gameScreen');
-    updateScoreDisplay();
-    nextQuestion();
 }
 
 // İsmi kaydet ve oyunu başlat
-window.submitName = function() {
+function submitName() {
     const nameInput = document.getElementById('playerNameInput');
     const name = nameInput.value.trim();
     
@@ -245,15 +125,25 @@ window.submitName = function() {
     // Input'u temizle
     nameInput.value = '';
     
-    // Kullanıcı UI'ını güncelle
-    updateUserUI({
-        displayName: name,
-        photoURL: null,
-        uid: null
-    });
-    
     // Oyunu başlat
-    startGameSession();
+    gameState.score = 0;
+    gameState.streak = 0;
+    gameState.correctAnswers = 0;
+    gameState.wrongAnswers = 0;
+    gameState.totalQuestions = 0;
+    gameState.currentDifficulty = 1;
+    gameState.askedProverbs = [];
+    
+    // Oyun moduna göre başlangıç süresi
+    if (gameState.currentMode === 'fillBlank') {
+        gameState.timeLeft = 180; // Deyimler Eksik Kelimeler: 180 saniye
+    } else {
+        gameState.timeLeft = 240; // Çoktan Seçmeli ve Eşleştirme: 240 saniye
+    }
+    
+    showScreen('gameScreen');
+    updateScoreDisplay();
+    nextQuestion();
 }
 
 // Ekranlar arası geçiş
@@ -266,8 +156,15 @@ function showScreen(screenId) {
 
 // Genel istatistikleri güncelle
 function updateStats() {
-    document.getElementById('totalScore').textContent = gameState.totalScore;
-    document.getElementById('level').textContent = gameState.level;
+    const totalScoreEl = document.getElementById('totalScore');
+    const levelEl = document.getElementById('level');
+    
+    if (totalScoreEl) {
+        totalScoreEl.textContent = gameState.totalScore;
+    }
+    if (levelEl) {
+        levelEl.textContent = gameState.level;
+    }
 }
 
 // Skor ekranını güncelle
@@ -278,19 +175,22 @@ function updateScoreDisplay() {
 }
 
 // Ana menüye dön
-window.backToMenu = function() {
+function backToMenu() {
     stopTimer(); // Zamanlayıcıyı durdur
     showScreen('mainMenu');
     updateStats();
+    
+    // Panda zamanlayıcısını yeniden başlat
+    startMainMenuPandaTimer();
 }
 
 // Zamanlayıcı fonksiyonları
 function startTimer() {
+    // Eğer zaten çalışıyorsa, yeniden başlatma
     if (gameState.timerInterval) {
-        clearInterval(gameState.timerInterval);
+        return;
     }
     
-    // İlk soruda süre zaten startGame'de ayarlandı, sadece zamanlayıcıyı başlat
     updateTimerDisplay();
     
     gameState.timerInterval = setInterval(() => {
@@ -298,13 +198,16 @@ function startTimer() {
         updateTimerDisplay();
         
         if (gameState.timeLeft <= 0) {
-            clearInterval(gameState.timerInterval);
+            stopTimer();
             timeUp();
         }
         
         // Son 10 saniye uyarısı
         if (gameState.timeLeft <= 10) {
-            document.getElementById('timerDisplay').style.color = '#f44336';
+            const timerDisplay = document.getElementById('timerDisplay');
+            if (timerDisplay) {
+                timerDisplay.style.color = '#f44336';
+            }
             if (gameState.timeLeft <= 3 && typeof soundEffects !== 'undefined') {
                 soundEffects.playClick();
             }
@@ -316,6 +219,21 @@ function stopTimer() {
     if (gameState.timerInterval) {
         clearInterval(gameState.timerInterval);
         gameState.timerInterval = null;
+    }
+}
+
+function pauseTimer() {
+    // Timer'ı duraklat (interval'i temizle ama timeLeft'i koru)
+    if (gameState.timerInterval) {
+        clearInterval(gameState.timerInterval);
+        gameState.timerInterval = null;
+    }
+}
+
+function resumeTimer() {
+    // Timer'ı devam ettir (sadece interval yoksa)
+    if (!gameState.timerInterval && gameState.timeLeft > 0) {
+        startTimer();
     }
 }
 
@@ -349,7 +267,7 @@ function timeUp() {
 }
 
 // Ses aç/kapat
-window.toggleSound = function() {
+function toggleSound() {
     if (typeof soundEffects !== 'undefined' && typeof soundEffects.toggle === 'function') {
         const isEnabled = soundEffects.toggle();
         document.getElementById('soundBtn').textContent = isEnabled ? '🔊 Ses Açık' : '🔇 Ses Kapalı';
@@ -378,11 +296,8 @@ function nextQuestion() {
     }
     gameState.currentProverb = proverb;
     
-    // Zamanlayıcıyı başlat (ilk soru veya devam eden sorular için)
+    // Timer'ı sadece ilk soruda başlat
     if (gameState.totalQuestions === 0) {
-        startTimer();
-    } else {
-        // Durdurulmuş zamanlayıcıyı tekrar başlat
         startTimer();
     }
     
@@ -509,12 +424,12 @@ function showOptions(options, correctAnswer) {
 
 // Cevabı kontrol et
 function checkAnswer(selected, correct, button) {
-    // Zamanlayıcıyı durdur
-    stopTimer();
+    // Timer devam etsin, durdurma
     
     const gameCard = document.getElementById('gameCard');
     const successOverlay = document.getElementById('successOverlay');
     const errorOverlay = document.getElementById('errorOverlay');
+    const gamePanda = document.getElementById('gamePanda');
     
     gameState.totalQuestions++;
     
@@ -530,11 +445,13 @@ function checkAnswer(selected, correct, button) {
         gameState.correctAnswers++;
         gameState.streak++;
         
+        // Doğru cevap - mutlu panda
+        if (gamePanda) {
+            gamePanda.src = 'panda-mutlu.png';
+        }
+        
         // Başarı overlay'i göster
         successOverlay.classList.add('show');
-        
-        // Panda mutlu animasyonu
-        pandaCorrectAnswer();
         
         if (typeof soundEffects !== 'undefined') soundEffects.playCorrect();
         
@@ -558,6 +475,9 @@ function checkAnswer(selected, correct, button) {
         // Doğru cevap - 1 saniye sonra sıradaki soruya geç
         setTimeout(() => {
             successOverlay.classList.remove('show');
+            if (gamePanda) {
+                gamePanda.src = 'panda-normal.png';
+            }
             nextQuestion();
         }, 1000);
         
@@ -566,12 +486,14 @@ function checkAnswer(selected, correct, button) {
         gameState.streak = 0;
         gameState.wrongAnswers++;
         
+        // Yanlış cevap - üzgün panda
+        if (gamePanda) {
+            gamePanda.src = 'panda-uzgun.png';
+        }
+        
         // Hata overlay'i göster ve kartı salla
         errorOverlay.classList.add('show');
         gameCard.classList.add('shake');
-        
-        // Panda üzgün animasyonu
-        pandaWrongAnswer();
         
         if (typeof soundEffects !== 'undefined') soundEffects.playWrong();
         
@@ -598,6 +520,9 @@ function checkAnswer(selected, correct, button) {
             setTimeout(() => {
                 errorOverlay.classList.remove('show');
                 gameCard.classList.remove('shake');
+                if (gamePanda) {
+                    gamePanda.src = 'panda-normal.png';
+                }
                 showGameOver();
             }, 3000);
             return;
@@ -607,6 +532,9 @@ function checkAnswer(selected, correct, button) {
         setTimeout(() => {
             errorOverlay.classList.remove('show');
             gameCard.classList.remove('shake');
+            if (gamePanda) {
+                gamePanda.src = 'panda-normal.png';
+            }
             nextQuestion();
         }, 3000);
     }
@@ -629,38 +557,25 @@ function showGameOverModal(isWin) {
     const modal = document.getElementById('gameOverModal');
     const title = document.getElementById('resultTitle');
     const message = document.getElementById('resultMessage');
-    const pandaResult = document.getElementById('pandaResult');
-    const resultMouth = document.getElementById('resultMouth');
+    const mascot = document.getElementById('resultMascot');
     
-    // Başarı durumuna göre mesaj ve panda yüzü
+    // Başarı durumuna göre mesaj ve panda
     if (isWin) {
-        title.textContent = '🎉 Tebrikler!';
+        title.textContent = 'Tebrikler!';
         message.textContent = `Harika bir performans ${gameState.playerName}!`;
-        // Mutlu panda - gülümseyen ağız
-        if (resultMouth) resultMouth.setAttribute("d", "M95 145 Q110 160 125 145");
-        if (pandaResult) {
-            pandaResult.classList.add('jump');
-            setTimeout(() => pandaResult.classList.remove('jump'), 600);
-        }
+        mascot.src = 'panda-mutlu.png';
+        mascot.style.animation = 'float 3s ease-in-out infinite';
         createConfetti();
     } else if (gameState.wrongAnswers >= 5) {
-        title.textContent = '😔 Oyun Bitti';
+        title.textContent = 'Oyun Bitti';
         message.textContent = '5 yanlış yaptın. Tekrar dene!';
-        // Üzgün panda - ters ağız
-        if (resultMouth) resultMouth.setAttribute("d", "M95 155 Q110 140 125 155");
-        if (pandaResult) {
-            pandaResult.classList.add('shake');
-            setTimeout(() => pandaResult.classList.remove('shake'), 500);
-        }
+        mascot.src = 'panda-uzgun.png';
+        mascot.style.animation = 'float 3s ease-in-out infinite';
     } else {
-        title.textContent = '⏰ Süre Doldu';
+        title.textContent = 'Süre Doldu';
         message.textContent = 'Zamanın bitti! Tekrar dene!';
-        // Üzgün panda - ters ağız
-        if (resultMouth) resultMouth.setAttribute("d", "M95 155 Q110 140 125 155");
-        if (pandaResult) {
-            pandaResult.classList.add('shake');
-            setTimeout(() => pandaResult.classList.remove('shake'), 500);
-        }
+        mascot.src = 'panda-uzgun.png';
+        mascot.style.animation = 'float 3s ease-in-out infinite';
     }
     
     // İstatistikleri göster
@@ -689,7 +604,7 @@ function createConfetti() {
 }
 
 // Oyunu tekrar başlat
-window.restartGame = function() {
+function restartGame() {
     const modal = document.getElementById('gameOverModal');
     modal.classList.remove('show');
     
@@ -715,14 +630,14 @@ window.restartGame = function() {
 }
 
 // Ana menüye dön
-window.closeGameOver = function() {
+function closeGameOver() {
     const modal = document.getElementById('gameOverModal');
     modal.classList.remove('show');
     backToMenu();
 }
 
 // Skor Tablosu Fonksiyonları
-window.saveScore = async function(score, mode, correctAnswers, totalQuestions) {
+async function saveScore(score, mode, correctAnswers, totalQuestions) {
     const newScore = {
         name: gameState.playerName,
         score: score,
@@ -746,16 +661,30 @@ window.saveScore = async function(score, mode, correctAnswers, totalQuestions) {
     }
 }
 
-window.showLeaderboard = async function() {
+async function showLeaderboard() {
     showScreen('leaderboardScreen');
-    await showLeaderboardTab('all');
+    // İlk tab'ı programatik olarak aktif et
+    const firstTab = document.querySelector('.tab-btn');
+    if (firstTab) {
+        await showLeaderboardTab(null, 'all', firstTab);
+    }
 }
 
-window.showLeaderboardTab = async function(tab) {
+async function showLeaderboardTab(evt, tab, targetButton = null) {
+    // Tüm tab'ları pasif yap
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    event.target.classList.add('active');
+    
+    // Tıklanan tab'ı aktif yap (Safari-safe)
+    let activeButton = targetButton;
+    if (!activeButton && evt) {
+        activeButton = evt.currentTarget || evt.target;
+    }
+    
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
     
     let scores = [];
     
@@ -890,107 +819,34 @@ function getRandomProverb() {
 }
 
 
-// Panda Maskot Animasyonları
-const panda = document.getElementById("panda");
-const pandaGame = document.getElementById("pandaGame");
-const eyeL = document.getElementById("eyeL");
-const eyeR = document.getElementById("eyeR");
-const eyeLGame = document.getElementById("eyeLGame");
-const eyeRGame = document.getElementById("eyeRGame");
-
-function blinkEyes() {
-    if (eyeL && eyeR) {
-        eyeL.style.transformOrigin = "center";
-        eyeR.style.transformOrigin = "center";
-        eyeL.classList.add("blink");
-        eyeR.classList.add("blink");
-    }
-    if (eyeLGame && eyeRGame) {
-        eyeLGame.style.transformOrigin = "center";
-        eyeRGame.style.transformOrigin = "center";
-        eyeLGame.classList.add("blink");
-        eyeRGame.classList.add("blink");
-    }
-}
-
-// Rastgele göz ve kafa hareketleri
-function randomEyeMovement() {
-    const eyes = [eyeL, eyeR, eyeLGame, eyeRGame].filter(e => e);
-    const heads = [panda, pandaGame].filter(h => h);
-    if (eyes.length === 0) return;
-    
-    const movements = ['look-left', 'look-right'];
-    const headMovements = ['head-tilt-left', 'head-tilt-right'];
-    const randomMove = movements[Math.floor(Math.random() * movements.length)];
-    const randomHeadMove = headMovements[Math.floor(Math.random() * headMovements.length)];
-    
-    // Göz hareketi
-    eyes.forEach(eye => {
-        eye.classList.add(randomMove);
-        setTimeout(() => eye.classList.remove(randomMove), 500);
-    });
-    
-    // Kafa hareketi (bazen)
-    if (Math.random() > 0.5) {
-        heads.forEach(head => {
-            head.classList.add(randomHeadMove);
-            setTimeout(() => head.classList.remove(randomHeadMove), 800);
-        });
-    }
-    
-    // 3-6 saniye arasında rastgele tekrarla
-    const nextMove = Math.random() * 3000 + 3000;
-    setTimeout(randomEyeMovement, nextMove);
-}
-
-function pandaCorrectAnswer() {
-    const activePanda = pandaGame || panda;
-    if (!activePanda) return;
-    activePanda.classList.add("jump");
-    setTimeout(() => {
-        activePanda.classList.remove("jump");
-    }, 600);
-}
-
-function pandaWrongAnswer() {
-    const activePanda = pandaGame || panda;
-    if (!activePanda) return;
-    activePanda.classList.add("shake");
-    setTimeout(() => {
-        activePanda.classList.remove("shake");
-    }, 500);
-}
-
-// Panda'ya tıklama animasyonu ve göz kırpma
+// Maskot animasyonları
 document.addEventListener('DOMContentLoaded', function() {
+    const panda = document.getElementById('pandaAvatar');
+    
     if (panda) {
+        // Tıklandığında bounce animasyonu
         panda.addEventListener('click', function() {
-            pandaCorrectAnswer();
+            // Mevcut animasyonu durdur
+            this.style.animation = 'none';
+            void this.offsetWidth; // Reflow trick
+            
+            // Bounce animasyonu ekle
+            this.style.animation = 'pandaBounce 0.6s ease';
+            
             if (typeof soundEffects !== 'undefined') {
                 soundEffects.playClick();
             }
+            
+            // Animasyon bitince normal pulse'a dön
+            setTimeout(() => {
+                this.style.animation = 'pandaPulse 1.8s ease-in-out infinite';
+            }, 600);
         });
     }
-    
-    if (pandaGame) {
-        pandaGame.addEventListener('click', function() {
-            pandaCorrectAnswer();
-            if (typeof soundEffects !== 'undefined') {
-                soundEffects.playClick();
-            }
-        });
-    }
-    
-    // Göz kırpma başlat
-    blinkEyes();
-    
-    // Göz hareketlerini başlat (2 saniye sonra)
-    setTimeout(randomEyeMovement, 2000);
 });
 
-
 // Yardım göster
-window.showHelp = function() {
+function showHelp() {
     alert('💡 İpucu: Atasözlerini dikkatle oku ve en uygun kelimeyi seç!');
 }
 
@@ -1007,9 +863,154 @@ function updateGameModeBadge() {
     }
 }
 
-// Oyun başladığında badge'i güncelle
-const originalStartGame = startGame;
-startGame = function(mode) {
-    originalStartGame(mode);
-    updateGameModeBadge();
-};
+// Bilgi sayfası
+function showInfo() {
+    const modal = document.getElementById('infoModal');
+    if (modal) {
+        modal.classList.add('show');
+    }
+}
+
+function closeInfo() {
+    const modal = document.getElementById('infoModal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+// Toggle switch
+function toggleSwitch() {
+    const toggle = document.getElementById('mainToggle');
+    toggle.classList.toggle('active');
+}
+
+
+// ==================== PANDA YÖNETİMİ ====================
+
+let pandaTimer = null;
+let pandaState = 'mutlu'; // mutlu, normal, uzgun
+
+// Panda resmini değiştir
+function changePanda(state) {
+    const panda = document.getElementById('pandaAvatar');
+    const gamePanda = document.getElementById('gamePanda');
+    
+    pandaState = state;
+    
+    if (panda) {
+        panda.src = `panda-${state}.png`;
+    }
+    if (gamePanda) {
+        gamePanda.src = `panda-${state}.png`;
+    }
+}
+
+// Ana ekran panda zamanlayıcısı
+function startMainMenuPandaTimer() {
+    // İlk 20 saniye mutlu
+    changePanda('mutlu');
+    
+    // 20 saniye sonra normal
+    setTimeout(() => {
+        if (document.getElementById('mainMenu').classList.contains('active')) {
+            changePanda('normal');
+        }
+    }, 20000);
+    
+    // 60 saniye sonra üzgün
+    pandaTimer = setTimeout(() => {
+        if (document.getElementById('mainMenu').classList.contains('active')) {
+            changePanda('uzgun');
+        }
+    }, 60000);
+}
+
+// Panda zamanlayıcısını durdur
+function stopMainMenuPandaTimer() {
+    if (pandaTimer) {
+        clearTimeout(pandaTimer);
+        pandaTimer = null;
+    }
+}
+
+// Sayfa yüklendiğinde panda zamanlayıcısını başlat
+document.addEventListener('DOMContentLoaded', function() {
+    startMainMenuPandaTimer();
+    
+    // Panda tıklama animasyonu
+    const panda = document.getElementById('pandaAvatar');
+    if (panda) {
+        panda.addEventListener('click', function() {
+            this.style.animation = 'none';
+            void this.offsetWidth;
+            this.style.animation = 'float 3s ease-in-out infinite';
+            
+            if (typeof soundEffects !== 'undefined') {
+                soundEffects.playClick();
+            }
+        });
+    }
+});
+
+
+// ==================== GİRİŞ SİSTEMİ ====================
+
+// Giriş modal'ını göster
+function showLogin() {
+    const modal = document.getElementById('loginModal');
+    if (modal) {
+        modal.classList.add('show');
+    }
+}
+
+// Giriş modal'ını kapat
+function closeLoginModal() {
+    const modal = document.getElementById('loginModal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+// Kullanıcı menüsünü göster
+function showUserMenu() {
+    const modal = document.getElementById('userMenuModal');
+    const user = window.getCurrentUser ? window.getCurrentUser() : null;
+    
+    if (modal && user) {
+        const title = document.getElementById('userMenuTitle');
+        const email = document.getElementById('userMenuEmail');
+        
+        if (user.isAnonymous) {
+            title.textContent = 'Misafir Kullanıcı';
+            email.textContent = 'Skorlarınız cihazınızda saklanır';
+        } else {
+            title.textContent = user.displayName || 'Kullanıcı';
+            email.textContent = user.email || '';
+        }
+        
+        modal.classList.add('show');
+    }
+}
+
+// Kullanıcı menüsünü kapat
+function closeUserMenu() {
+    const modal = document.getElementById('userMenuModal');
+    if (modal) {
+        modal.classList.remove('show');
+    }
+}
+
+// Çıkış yap ve UI'yi güncelle
+async function handleSignOut() {
+    if (window.signOutUser) {
+        await window.signOutUser();
+    }
+    closeUserMenu();
+}
+
+// Global fonksiyonlar
+window.showLogin = showLogin;
+window.closeLoginModal = closeLoginModal;
+window.showUserMenu = showUserMenu;
+window.closeUserMenu = closeUserMenu;
+window.handleSignOut = handleSignOut;
