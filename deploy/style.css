@@ -99,12 +99,12 @@ body::before {
 }
 
 .screen {
-    display: none;
+    display: none !important;
     text-align: center;
 }
 
 .screen.active {
-    display: block;
+    display: block !important;
     width: 100%;
 }
 
