@@ -1247,7 +1247,7 @@ body::before {
 .game-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 25px;
-    padding: 25px;
+    padding: 15px;
     color: #2D3142;
     position: relative;
     contain: layout style paint;
@@ -1730,7 +1730,7 @@ body::before {
     }
     
     #gamePanda {
-        width: 140px !important;
+        width: 100px !important;
     }
     
     .question-text {
@@ -1913,7 +1913,7 @@ body::before {
     }
     
     #gamePanda {
-        width: 120px !important;
+        width: 90px !important;
     }
     
     .modal-title {
