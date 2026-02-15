@@ -168,6 +168,32 @@ export class UIController {
     }
 
     showQuestion(questionText, options, onAnswer) {
+        const questionEl = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const questionNumber = document.getElementById('questionNumber');
+        
+        if (questionEl) {
+            questionEl.innerHTML = questionText;
+        }
+        
+        if (optionsContainer) {
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option.text;
+                btn.onclick = () => onAnswer(option.text, option.isCorrect, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+        
+        if (questionNumber) {
+            questionNumber.textContent = options.questionNum || 1;
+        }
+    }
+
+    showGameOverModal(isWin, stats, isPersonalBest = false) {
         const modal = document.getElementById('gameOverModal');
         const title = document.getElementById('resultTitle');
         const message = document.getElementById('resultMessage');
