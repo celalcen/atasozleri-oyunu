@@ -41,6 +41,10 @@
     <link rel="icon" href="icon-192.png">
     <title>Atasözleri ve Deyimler Öğrenme Oyunu</title>
     
+    <!-- AdSense DNS Prefetch (Performans için) -->
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
@@ -50,6 +54,10 @@
     </script>
     
     <link rel="stylesheet" href="style.css">
+    
+    <!-- AdSense Yapılandırma ve Yönetim Modülleri -->
+    <script src="adsense-config.js"></script>
+    <script src="adsense-manager.js"></script>
 </head>
 <body>
     <div class="container">
@@ -84,6 +92,9 @@
                 <button class="btn-outlined" onclick="showInfo()">💎 Bilgi</button>
                 <button class="btn-outlined" onclick="showLogin()">🔒 Giriş Yap</button>
             </div>
+            
+            <!-- Reklam Container - Ana Menü -->
+            <div id="ad-main-menu" class="ad-container"></div>
             
             <!-- Alt Toggle -->
             <div class="bottom-toggle">
@@ -142,6 +153,10 @@
                 </div>
                 <div id="leaderboardList" class="leaderboard-list"></div>
             </div>
+            
+            <!-- Reklam Container - Skor Tablosu -->
+            <div id="ad-leaderboard" class="ad-container"></div>
+            
             <button class="btn-start" onclick="backToMenu()">Ana Menüye Dön</button>
         </div>
     </div>
@@ -317,6 +332,9 @@
                     <div class="stat-label">En Yüksek Seri</div>
                 </div>
             </div>
+            
+            <!-- Reklam Container - Oyun Bitişi Modal -->
+            <div id="ad-game-over" class="ad-container-modal"></div>
             
             <div class="modal-buttons">
                 <button class="btn-start" onclick="restartGame()">🔄 Tekrar Oyna</button>

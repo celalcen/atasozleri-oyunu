@@ -218,6 +218,13 @@ export class UIController {
         this.updateElement('finalStreak', stats.streak);
         
         modal.classList.add('show');
+        
+        // Load AdSense ad after modal is shown (500ms delay for animation)
+        if (window.adManager) {
+            setTimeout(() => {
+                window.adManager.loadAd('ad-game-over');
+            }, 500);
+        }
     }
 
     createConfetti() {

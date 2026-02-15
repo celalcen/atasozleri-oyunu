@@ -43,6 +43,9 @@ class App {
             // Handle URL parameters for shortcuts
             this.handleURLParameters();
             
+            // Initialize AdSense
+            await this.initializeAdSense();
+            
             console.log('App initialized successfully');
         } catch (error) {
             console.error('App initialization failed:', error);
@@ -707,6 +710,11 @@ class App {
         if (firstTab) {
             await this.showLeaderboardTab(null, 'all', firstTab);
         }
+        
+        // Observe leaderboard ad for lazy loading
+        if (window.adManager) {
+            window.adManager.observeAd('ad-leaderboard');
+        }
     }
 
     async showLeaderboardTab(evt, tab, targetButton = null) {
@@ -785,6 +793,31 @@ class App {
     // Inject Firebase service after it's loaded
     setFirebaseService(firebaseService) {
         this.leaderboardService.firebaseService = firebaseService;
+    }
+    
+    /**
+     * Initialize AdSense and observe main menu ad
+     */
+    async initializeAdSense() {
+        try {
+            // Check if AdSense functions are available
+            if (typeof window.initializeAdSense !== 'function') {
+                console.warn('AdSense not available - scripts may not be loaded');
+                return;
+            }
+            
+            // Initialize AdSense
+            await window.initializeAdSense();
+            
+            // Observe main menu ad for lazy loading
+            if (window.adManager) {
+                window.adManager.observeAd('ad-main-menu');
+                console.log('AdSense initialized and main menu ad observed');
+            }
+        } catch (error) {
+            console.error('AdSense initialization failed:', error);
+            // Don't throw - app should work without ads
+        }
     }
 }
 

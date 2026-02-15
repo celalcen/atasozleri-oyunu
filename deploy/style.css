@@ -2065,3 +2065,163 @@ body::before {
         width: 100px;
     }
 }
+
+
+/* ============================================
+   AdSense Reklam Container Stilleri
+   ============================================ */
+
+/* Ana reklam container (Ana menü ve Skor tablosu için) */
+.ad-container {
+    min-height: 100px;
+    max-width: 728px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reklam yüklenmediyse container'ı gizle (boş alan bırakma) */
+.ad-container:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+/* Modal içindeki reklam container (Oyun bitişi için) */
+.ad-container-modal {
+    min-height: 250px;
+    max-width: 300px;
+    margin: 15px auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal reklam yüklenmediyse gizle */
+.ad-container-modal:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+/* Reklam yükleme animasyonu */
+.ad-container.loading::before,
+.ad-container-modal.loading::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* AdSense ins elementi stilleri */
+.ad-container ins.adsbygoogle,
+.ad-container-modal ins.adsbygoogle {
+    display: block !important;
+    width: 100%;
+    height: auto;
+    background: transparent;
+}
+
+/* Mobil Uyumluluk (600px altı ekranlar) */
+@media (max-width: 600px) {
+    .ad-container {
+        max-width: 100%;
+        min-height: 50px;
+        margin: 15px auto;
+        padding: 8px;
+        border-radius: 12px;
+    }
+    
+    .ad-container-modal {
+        max-width: 100%;
+        min-height: 200px;
+        margin: 12px auto;
+        padding: 8px;
+        border-radius: 12px;
+    }
+}
+
+/* Çok küçük ekranlar (400px altı) */
+@media (max-width: 400px) {
+    .ad-container {
+        margin: 10px auto;
+        padding: 6px;
+        border-radius: 10px;
+    }
+    
+    .ad-container-modal {
+        margin: 10px auto;
+        padding: 6px;
+        min-height: 180px;
+        border-radius: 10px;
+    }
+}
+
+/* Landscape mod optimizasyonu (mobil yatay) */
+@media (max-height: 500px) and (orientation: landscape) {
+    .ad-container {
+        min-height: 50px;
+        margin: 10px auto;
+    }
+    
+    .ad-container-modal {
+        min-height: 150px;
+        margin: 8px auto;
+    }
+}
+
+/* Touch-friendly boyutlar (minimum 44px dokunma alanı) */
+@media (hover: none) and (pointer: coarse) {
+    .ad-container,
+    .ad-container-modal {
+        min-height: 44px;
+    }
+}
+
+/* Dark mode desteği (opsiyonel) */
+@media (prefers-color-scheme: dark) {
+    .ad-container,
+    .ad-container-modal {
+        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Reklam container hover efekti (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .ad-container:hover,
+    .ad-container-modal:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Print media - reklamları gizle */
+@media print {
+    .ad-container,
+    .ad-container-modal {
+        display: none !important;
+    }
+}
