@@ -1,0 +1,6 @@
+Production URL: https://atasozleri-oyunu-59b84.web.app
+
+Bu URL TWA projesi için kullanılacak.
+
+Deployment Tarihi: 2026-02-12
+Firebase Proje ID: atasozleri-oyunu-59b84

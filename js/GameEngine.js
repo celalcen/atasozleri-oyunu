@@ -14,6 +14,7 @@ export class GameEngine {
             totalScore: parseInt(localStorage.getItem(GAME_CONFIG.STORAGE.TOTAL_SCORE)) || 0,
             level: parseInt(localStorage.getItem(GAME_CONFIG.STORAGE.LEVEL)) || 1,
             streak: 0,
+            maxStreak: 0, // Track highest streak in current game
             correctAnswers: 0,
             wrongAnswers: 0,
             totalQuestions: 0,
@@ -100,6 +101,7 @@ export class GameEngine {
         this.state.playerName = playerName;
         this.state.score = 0;
         this.state.streak = 0;
+        this.state.maxStreak = 0;
         this.state.correctAnswers = 0;
         this.state.wrongAnswers = 0;
         this.state.totalQuestions = 0;
@@ -162,6 +164,11 @@ export class GameEngine {
             this.state.correctAnswers++;
             this.state.streak++;
             
+            // Update max streak if current streak is higher
+            if (this.state.streak > this.state.maxStreak) {
+                this.state.maxStreak = this.state.streak;
+            }
+            
             const points = calculateScore(this.state.streak, this.state.currentDifficulty);
             
             this.state.score += points;
@@ -190,7 +197,7 @@ export class GameEngine {
             score: this.state.score,
             correctAnswers: this.state.correctAnswers,
             wrongAnswers: this.state.wrongAnswers,
-            streak: this.state.streak,
+            maxStreak: this.state.maxStreak, // Return max streak instead of current streak
             totalQuestions: this.state.totalQuestions,
             playerName: this.state.playerName,
             mode: this.state.currentMode

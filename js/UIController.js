@@ -215,7 +215,7 @@ export class UIController {
         this.updateElement('finalScore', stats.score);
         this.updateElement('finalCorrect', stats.correctAnswers);
         this.updateElement('finalWrong', stats.wrongAnswers);
-        this.updateElement('finalStreak', stats.streak);
+        this.updateElement('finalStreak', stats.maxStreak);
         
         modal.classList.add('show');
         
