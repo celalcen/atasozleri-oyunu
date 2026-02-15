@@ -70,6 +70,13 @@ async function signInWithGoogle() {
         const user = result.user;
         console.log('Google ile giriş başarılı:', user.displayName);
         closeLoginModal();
+        
+        // Start game after successful login
+        if (window.app && window.app.selectedMode) {
+            const playerName = user.displayName || user.email || 'Oyuncu';
+            window.app.startGameWithName(window.app.selectedMode, playerName);
+        }
+        
         return user;
     } catch (error) {
         console.error('Google giriş hatası:', error);
@@ -99,6 +106,12 @@ async function signInAsGuest() {
         const user = result.user;
         console.log('Misafir girişi başarılı');
         closeLoginModal();
+        
+        // Start game after successful login
+        if (window.app && window.app.selectedMode) {
+            window.app.startGameWithName(window.app.selectedMode, 'Misafir');
+        }
+        
         return user;
     } catch (error) {
         console.error('Misafir giriş hatası:', error);

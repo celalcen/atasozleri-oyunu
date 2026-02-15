@@ -227,7 +227,6 @@ class App {
         // Make methods available globally for onclick handlers
         window.app = this;
         window.startGame = (mode) => this.startGame(mode);
-        window.submitName = () => this.submitName();
         window.showLeaderboard = () => this.showLeaderboard();
         window.showLeaderboardTab = (evt, tab) => this.showLeaderboardTab(evt, tab);
         window.showInfo = () => this.showInfo();
@@ -350,10 +349,14 @@ class App {
         this.pandaController.stopMainMenuTimer();
         this.pandaController.changePanda('normal');
         
+        // Store selected mode temporarily
+        this.selectedMode = mode;
+        
         // Check if user is logged in via Firebase
         const currentUser = window.getCurrentUser ? window.getCurrentUser() : null;
         
         if (currentUser) {
+            // User is logged in, start game directly
             let playerName;
             if (currentUser.isAnonymous) {
                 playerName = 'Misafir';
@@ -363,29 +366,9 @@ class App {
             
             this.startGameWithName(mode, playerName);
         } else {
-            // Show name modal
-            this.uiController.showModal('nameModal');
-            setTimeout(() => {
-                document.getElementById('playerNameInput').focus();
-            }, GAME_CONFIG.UI.MODAL_FOCUS_DELAY);
+            // User not logged in, show login modal
+            this.uiController.showModal('loginModal');
         }
-    }
-
-    submitName() {
-        const nameInput = document.getElementById('playerNameInput');
-        const name = nameInput.value.trim();
-        
-        if (!name) {
-            nameInput.classList.add('shake');
-            setTimeout(() => nameInput.classList.remove('shake'), 500);
-            return;
-        }
-        
-        this.uiController.hideModal('nameModal');
-        nameInput.value = '';
-        
-        const mode = this.gameEngine.getState().currentMode;
-        this.startGameWithName(mode, name);
     }
 
     startGameWithName(mode, playerName) {
