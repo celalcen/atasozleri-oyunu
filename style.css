@@ -1276,45 +1276,6 @@ body::before {
     100% { transform: translateY(0); }
 }
 
-.overlay-success,
-.overlay-error {
-    position: absolute;
-    inset: 0;
-    border-radius: 25px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
-}
-
-.overlay-success {
-    background: rgba(76, 175, 80, 0.15);
-}
-
-.overlay-success::after {
-    content: '✓';
-    color: #4CAF50;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.overlay-error {
-    background: rgba(229, 57, 53, 0.15);
-}
-
-.overlay-error::after {
-    content: '✗';
-    color: #E53935;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.overlay-success.show,
-.overlay-error.show {
-    opacity: 1;
-}
-
 .card-header {
     display: flex;
     justify-content: space-between;

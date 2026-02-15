@@ -147,14 +147,12 @@ export class UIController {
         
         if (isCorrect) {
             button.classList.add('correct');
-            this.showOverlay('successOverlay', GAME_CONFIG.UI.CORRECT_ANSWER_DELAY);
             
             // Quick jump animation
             gameCard.classList.add('jump');
             setTimeout(() => gameCard.classList.remove('jump'), 120);
         } else {
             button.classList.add('wrong');
-            this.showOverlay('errorOverlay', GAME_CONFIG.UI.WRONG_ANSWER_DELAY);
             
             // Shake animation (shorter duration)
             gameCard.classList.add('shake');
@@ -169,17 +167,7 @@ export class UIController {
         }
     }
 
-    showOverlay(overlayId, duration) {
-        const overlay = document.getElementById(overlayId);
-        if (overlay) {
-            overlay.classList.add('show');
-            setTimeout(() => {
-                overlay.classList.remove('show');
-            }, duration);
-        }
-    }
-
-    showGameOverModal(isWin, stats, isPersonalBest = false) {
+    showQuestion(questionText, options, onAnswer) {
         const modal = document.getElementById('gameOverModal');
         const title = document.getElementById('resultTitle');
         const message = document.getElementById('resultMessage');
